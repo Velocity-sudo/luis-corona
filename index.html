@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Marca — Luis Corona</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ── RESET ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* ── ROOT TOKENS ── */
+        :root {
+            /* Shared */
+            --brand-font-heading: 'Space Grotesk', sans-serif;
+            --brand-font-body: 'Inter', sans-serif;
+            --brand-radius: 20px;
+            --brand-radius-sm: 12px;
+            --brand-max-content: 1100px;
+            --brand-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+            /* Marca SOCIOS (default) */
+            --socios-bg: #080F1A;
+            --socios-surface: #0E1726;
+            --socios-border: rgba(56, 189, 248, 0.1);
+            --socios-accent: #2563EB;
+            --socios-accent-light: #38BDF8;
+            --socios-accent-glow: rgba(37, 99, 235, 0.15);
+            --socios-text: #FFFFFF;
+            --socios-text-muted: #94A3B8;
+            --socios-gradient: linear-gradient(135deg, #2563EB 0%, #38BDF8 100%);
+
+            /* Marca CLIENTES */
+            --clientes-bg: #0C1929;
+            --clientes-surface: #111F33;
+            --clientes-border: rgba(212, 168, 83, 0.12);
+            --clientes-accent: #1D4ED8;
+            --clientes-accent-light: #D4A853;
+            --clientes-accent-glow: rgba(212, 168, 83, 0.1);
+            --clientes-text: #F8F6F0;
+            --clientes-text-muted: #8B9BB5;
+            --clientes-gradient: linear-gradient(135deg, #1D4ED8 0%, #D4A853 100%);
+
+            /* Active palette (starts with socios) */
+            --bg: var(--socios-bg);
+            --surface: var(--socios-surface);
+            --border: var(--socios-border);
+            --accent: var(--socios-accent);
+            --accent-light: var(--socios-accent-light);
+            --accent-glow: var(--socios-accent-glow);
+            --text: var(--socios-text);
+            --text-muted: var(--socios-text-muted);
+            --gradient: var(--socios-gradient);
+        }
+
+        /* ── BASE ── */
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--brand-font-body);
+            background: var(--socios-bg);
+            color: var(--socios-text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 { font-family: var(--brand-font-heading); }
+
+        ::selection {
+            background: rgba(37, 99, 235, 0.3);
+            color: #fff;
+        }
+
+        /* ── NAV ── */
+        .brand-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            position: sticky;
+            top: 0;
+            background: rgba(8, 15, 26, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+        }
+        .brand-nav .logo {
+            font-family: var(--brand-font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+        .brand-nav .logo span { color: #2563EB; }
+        .brand-nav .version {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            opacity: 0.4;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 100px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero .eyebrow {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: #38BDF8;
+            margin-bottom: 28px;
+            font-weight: 600;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 16px;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #2563EB, #38BDF8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero .tagline {
+            font-size: 1.15rem;
+            font-weight: 300;
+            opacity: 0.6;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ── DUAL BRAND BADGE ── */
+        .dual-badge {
+            display: inline-flex;
+            gap: 0;
+            margin-top: 40px;
+            border-radius: 60px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .dual-badge .badge-item {
+            padding: 10px 24px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: default;
+            transition: var(--brand-transition);
+        }
+        .dual-badge .badge-socios {
+            background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(56,189,248,0.1));
+            color: #38BDF8;
+        }
+        .dual-badge .badge-clientes {
+            background: linear-gradient(135deg, rgba(29,78,216,0.1), rgba(212,168,83,0.08));
+            color: #D4A853;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 80px 5%;
+            max-width: var(--brand-max-content);
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .section-title {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: #2563EB;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .section .section-desc {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.7;
+            max-width: 680px;
+            margin-bottom: 40px;
+        }
+
+        /* ── IDENTITY TABLE ── */
+        .identity-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        .identity-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.95rem;
+        }
+        .identity-table td:first-child {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            opacity: 0.4;
+            width: 160px;
+            vertical-align: top;
+        }
+
+        /* ── PILLAR CARDS ── */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .pillar-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--brand-radius);
+            padding: 36px 28px;
+            transition: var(--brand-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2563EB, transparent);
+            opacity: 0;
+            transition: var(--brand-transition);
+        }
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(37,99,235,0.3);
+        }
+        .pillar-card:hover::before { opacity: 1; }
+        .pillar-card .number {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #38BDF8;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .pillar-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .pillar-card p { font-size: 0.88rem; opacity: 0.6; line-height: 1.6; }
+
+        /* ── SUB-BRAND SECTION ── */
+        .sub-brand-divider {
+            text-align: center;
+            padding: 60px 5%;
+            position: relative;
+        }
+        .sub-brand-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+        .sub-brand-divider .label {
+            display: inline-block;
+            padding: 10px 28px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            border-radius: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .sub-brand-divider .label.socios {
+            background: #080F1A;
+            border: 1px solid rgba(56,189,248,0.2);
+            color: #38BDF8;
+        }
+        .sub-brand-divider .label.clientes {
+            background: #0C1929;
+            border: 1px solid rgba(212,168,83,0.2);
+            color: #D4A853;
+        }
+
+        /* ── COLOR SWATCHES ── */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+        .swatch {
+            border-radius: var(--brand-radius-sm);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: var(--brand-transition);
+        }
+        .swatch:hover { transform: translateY(-2px); }
+        .swatch-color {
+            height: 90px;
+            position: relative;
+        }
+        .swatch-color .hex-overlay {
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.65rem;
+            opacity: 0;
+            transition: var(--brand-transition);
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(0,0,0,0.4);
+        }
+        .swatch:hover .hex-overlay { opacity: 1; }
+        .swatch-info {
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.02);
+        }
+        .swatch-info .name { font-weight: 600; font-size: 0.8rem; margin-bottom: 2px; }
+        .swatch-info .hex { font-family: monospace; font-size: 0.7rem; opacity: 0.4; }
+        .swatch-info .use { font-size: 0.7rem; opacity: 0.5; margin-top: 6px; }
+
+        /* ── GRADIENT BARS ── */
+        .gradient-bar {
+            height: 60px;
+            border-radius: var(--brand-radius-sm);
+            margin-top: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-bar .gradient-label {
+            position: absolute;
+            bottom: 10px;
+            left: 16px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+        }
+
+        /* ── TYPOGRAPHY ── */
+        .type-showcase { margin-top: 32px; }
+        .type-row {
+            display: flex;
+            align-items: baseline;
+            gap: 24px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .type-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            opacity: 0.35;
+            width: 120px;
+            flex-shrink: 0;
+            font-weight: 500;
+        }
+        .type-sample { flex: 1; }
+
+        /* ── COMPONENT DEMOS ── */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .demo-block {
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--brand-radius);
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .demo-label {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            opacity: 0.35;
+            font-weight: 600;
+        }
+
+        /* ── BUTTONS ── */
+        .btn-socios {
+            display: inline-block;
+            padding: 14px 36px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: var(--brand-font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: var(--brand-transition);
+            text-decoration: none;
+            background: linear-gradient(135deg, #2563EB, #38BDF8);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.25);
+        }
+        .btn-socios:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(37,99,235,0.4);
+        }
+
+        .btn-clientes {
+            display: inline-block;
+            padding: 14px 36px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: var(--brand-font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: var(--brand-transition);
+            text-decoration: none;
+            background: linear-gradient(135deg, #1D4ED8, #D4A853);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(29,78,216,0.25);
+        }
+        .btn-clientes:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(212,168,83,0.3);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: var(--brand-font-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 60px;
+            cursor: pointer;
+            transition: var(--brand-transition);
+            text-decoration: none;
+            background: transparent;
+            color: #fff;
+        }
+        .btn-outline:hover { border-color: #2563EB; color: #38BDF8; }
+
+        /* ── VOICE CARDS ── */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .voice-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--brand-radius-sm);
+            padding: 24px 20px;
+            text-align: center;
+            transition: var(--brand-transition);
+        }
+        .voice-card:hover { border-color: rgba(37,99,235,0.2); }
+        .voice-card .attr {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .voice-card .attr.blue { color: #38BDF8; }
+        .voice-card .attr.gold { color: #D4A853; }
+        .voice-card .val { font-size: 1rem; font-weight: 600; }
+
+        /* ── COMPARISON TABLE ── */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+        }
+        .compare-table th {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+        }
+        .compare-table th:nth-child(2) { color: #38BDF8; }
+        .compare-table th:nth-child(3) { color: #D4A853; }
+        .compare-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 0.88rem;
+        }
+        .compare-table td:first-child {
+            font-weight: 600;
+            opacity: 0.5;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* ── DON'TS ── */
+        .donts-list { list-style: none; margin-top: 24px; }
+        .donts-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.88rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .donts-list .icon { color: #ef4444; font-weight: 700; flex-shrink: 0; }
+
+        /* ── CODE BLOCK ── */
+        .code-block {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--brand-radius-sm);
+            padding: 28px;
+            margin-top: 32px;
+            overflow-x: auto;
+        }
+        .code-block pre {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.75rem;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.6);
+        }
+        .code-block .token-prop { color: #38BDF8; }
+        .code-block .token-val { color: #D4A853; }
+        .code-block .token-comment { color: rgba(255,255,255,0.25); }
+
+        /* ── FOOTER ── */
+        .brand-footer {
+            text-align: center;
+            padding: 60px 5%;
+            opacity: 0.3;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+        }
+        .brand-footer a { color: #2563EB; text-decoration: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .hero { padding: 80px 5% 60px; }
+            .section { padding: 60px 5%; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .color-grid { grid-template-columns: repeat(2, 1fr); }
+            .type-row { flex-direction: column; gap: 8px; }
+            .voice-grid { grid-template-columns: 1fr 1fr; }
+            .demo-grid { grid-template-columns: 1fr; }
+            .dual-badge { flex-direction: column; border-radius: 16px; }
+            .compare-table { font-size: 0.8rem; }
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section { animation: fadeUp 0.6s ease-out both; }
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.15s; }
+        .section:nth-child(4) { animation-delay: 0.2s; }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════ NAV ═══════════════ -->
+    <nav class="brand-nav">
+        <div class="logo">Luis <span>Corona</span></div>
+        <div class="version">Brand Manual v1.0 — Marca Dual</div>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero">
+        <div class="eyebrow">Brand Guidelines · 2026</div>
+        <h1>Luis <span class="highlight">Corona</span></h1>
+        <p class="tagline">Dos audiencias. Una visión. Sistema de marca dual diseñado para reclutar socios y cerrar ventas premium.</p>
+        <div class="dual-badge">
+            <div class="badge-item badge-socios">@esluiscorona · Socios</div>
+            <div class="badge-item badge-clientes">@luiscoronasalud · Clientes</div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 01 · IDENTIDAD ═══════════════ -->
+    <section class="section">
+        <div class="section-title">01 · Identidad de Marca</div>
+        <h2>¿Quién es Luis Corona?</h2>
+
+        <table class="identity-table">
+            <tr><td>Nombre</td><td>Luis Corona</td></tr>
+            <tr><td>Empresa</td><td>Luis Corona LLC · Corona Network · Corona Home Services</td></tr>
+            <tr><td>Industria</td><td>Network Marketing — Royal Prestige (cookware premium, 60+ años de trayectoria)</td></tr>
+            <tr><td>Ubicación</td><td>Atlanta, Georgia, EE.UU.</td></tr>
+            <tr><td>Handle Socios</td><td>@esluiscorona</td></tr>
+            <tr><td>Handle Salud</td><td>@luiscoronasalud</td></tr>
+            <tr><td>VSL</td><td>esluiscorona.com</td></tr>
+            <tr><td>Email</td><td>coronanetwork@gmail.com</td></tr>
+            <tr><td>Personalidad</td><td>Directo · Ambicioso · Motivacional · Hermano mayor que te dice la verdad</td></tr>
+        </table>
+
+        <h3 style="font-size:1.1rem; margin-bottom:20px; font-family: var(--brand-font-heading);">Pilares de Marca</h3>
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="number">Pilar 01</div>
+                <h3>Oportunidad Real</h3>
+                <p>No es un pitch; es un camino probado. Ventas de alto valor, habilidades reales, ingresos escalables. Para quienes están cansados de intercambiar horas por un salario limitado.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="number">Pilar 02</div>
+                <h3>Salud en tu Hogar</h3>
+                <p>Protege a tu familia con lo mejor. Utensilios premium, agua limpia, cocina segura. 60 años de respaldo. Productos que duran generaciones.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="number">Pilar 03</div>
+                <h3>Respaldado por 60 Años</h3>
+                <p>Royal Prestige no es una startup — es una empresa con décadas de credibilidad, garantía de 50 años y presencia en toda América Latina y EE.UU.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 02 · ARQUITECTURA DUAL ═══════════════ -->
+    <section class="section">
+        <div class="section-title">02 · Arquitectura de Marca Dual</div>
+        <h2>Dos Mundos, Un Sistema</h2>
+        <p class="section-desc">La marca Luis Corona opera con dos identidades visuales diferenciadas que comparten tipografía y estructura, pero se distinguen en paleta de color y tono emocional. Cada audiencia tiene su propio mundo visual optimizado para máxima conversión.</p>
+
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>Atributo</th>
+                    <th>Marca Socios</th>
+                    <th>Marca Clientes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Handle</td><td>@esluiscorona</td><td>@luiscoronasalud</td></tr>
+                <tr><td>Audiencia</td><td>Jóvenes latinos 18-35</td><td>Familias hispanas 30-60</td></tr>
+                <tr><td>Emoción</td><td>Ambición · Velocidad · Futuro</td><td>Confianza · Protección · Tradición</td></tr>
+                <tr><td>Acento Principal</td><td style="color:#2563EB;">Electric Blue #2563EB</td><td style="color:#1D4ED8;">Prestige Blue #1D4ED8</td></tr>
+                <tr><td>Acento Secundario</td><td style="color:#38BDF8;">Cyan Glow #38BDF8</td><td style="color:#D4A853;">Warm Gold #D4A853</td></tr>
+                <tr><td>Tono de Voz</td><td>Bold, directo, tipo "oferta de empleo"</td><td>Cálido, educativo, tips de salud</td></tr>
+                <tr><td>CTA Ejemplo</td><td>APLICA AHORA</td><td>PARTICIPA EN EL SORTEO</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ═══════════════ MARCA SOCIOS ═══════════════ -->
+    <div class="sub-brand-divider">
+        <span class="label socios">Marca Socios · @esluiscorona</span>
+    </div>
+
+    <!-- 03 · COLORES SOCIOS -->
+    <section class="section">
+        <div class="section-title" style="color:#38BDF8;">03 · Paleta de Colores — Socios</div>
+        <h2>Electric Blue System</h2>
+        <p class="section-desc">Energía y ambición. Azul eléctrico como motor principal, cyan como acento que inyecta modernidad y velocidad. Todo sobre dark mode para máxima intensidad y apariencia tech-forward.</p>
+
+        <div class="color-grid">
+            <div class="swatch">
+                <div class="swatch-color" style="background:#080F1A;">
+                    <span class="hex-overlay" style="color:#fff;">#080F1A</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Deep Space</div>
+                    <div class="hex">#080F1A</div>
+                    <div class="use">Fondo principal</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#0E1726;">
+                    <span class="hex-overlay" style="color:#fff;">#0E1726</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Dark Surface</div>
+                    <div class="hex">#0E1726</div>
+                    <div class="use">Cards, superficies elevadas</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#2563EB;">
+                    <span class="hex-overlay" style="color:#fff;">#2563EB</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Electric Blue</div>
+                    <div class="hex">#2563EB</div>
+                    <div class="use">CTAs, links, bordes activos</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#38BDF8;">
+                    <span class="hex-overlay" style="color:#000;">#38BDF8</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Cyan Glow</div>
+                    <div class="hex">#38BDF8</div>
+                    <div class="use">Badges, eyebrows, gradientes</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#FFFFFF;">
+                    <span class="hex-overlay" style="color:#000;">#FFFFFF</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Pure White</div>
+                    <div class="hex">#FFFFFF</div>
+                    <div class="use">Texto principal</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#94A3B8;">
+                    <span class="hex-overlay" style="color:#000;">#94A3B8</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Steel Gray</div>
+                    <div class="hex">#94A3B8</div>
+                    <div class="use">Texto secundario</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gradient-bar" style="background: linear-gradient(135deg, #2563EB 0%, #38BDF8 100%);">
+            <span class="gradient-label">Gradiente Socios · #2563EB → #38BDF8</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════ MARCA CLIENTES ═══════════════ -->
+    <div class="sub-brand-divider">
+        <span class="label clientes">Marca Clientes · @luiscoronasalud</span>
+    </div>
+
+    <!-- 04 · COLORES CLIENTES -->
+    <section class="section">
+        <div class="section-title" style="color:#D4A853;">04 · Paleta de Colores — Clientes</div>
+        <h2>Prestige Blue + Gold System</h2>
+        <p class="section-desc">Confianza y herencia. Azul profundo como base de autoridad, dorado cálido como puente directo hacia Royal Prestige. Una paleta que dice "productos que tu familia merece" sin ser corporativa ni fría.</p>
+
+        <div class="color-grid">
+            <div class="swatch">
+                <div class="swatch-color" style="background:#0C1929;">
+                    <span class="hex-overlay" style="color:#fff;">#0C1929</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Navy Deep</div>
+                    <div class="hex">#0C1929</div>
+                    <div class="use">Fondo principal</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#111F33;">
+                    <span class="hex-overlay" style="color:#fff;">#111F33</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Deep Surface</div>
+                    <div class="hex">#111F33</div>
+                    <div class="use">Cards, superficies</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#1D4ED8;">
+                    <span class="hex-overlay" style="color:#fff;">#1D4ED8</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Prestige Blue</div>
+                    <div class="hex">#1D4ED8</div>
+                    <div class="use">CTAs, bordes activos</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#D4A853;">
+                    <span class="hex-overlay" style="color:#000;">#D4A853</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Warm Gold</div>
+                    <div class="hex">#D4A853</div>
+                    <div class="use">Badges, herencia RP, acentos premium</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#F8F6F0;">
+                    <span class="hex-overlay" style="color:#000;">#F8F6F0</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Cream White</div>
+                    <div class="hex">#F8F6F0</div>
+                    <div class="use">Texto principal</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#8B9BB5;">
+                    <span class="hex-overlay" style="color:#000;">#8B9BB5</span>
+                </div>
+                <div class="swatch-info">
+                    <div class="name">Muted Blue</div>
+                    <div class="hex">#8B9BB5</div>
+                    <div class="use">Texto secundario</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gradient-bar" style="background: linear-gradient(135deg, #1D4ED8 0%, #D4A853 100%);">
+            <span class="gradient-label">Gradiente Clientes · #1D4ED8 → #D4A853</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 05 · TIPOGRAFÍA ═══════════════ -->
+    <section class="section">
+        <div class="section-title">05 · Tipografía</div>
+        <h2>Space Grotesk + Inter</h2>
+        <p class="section-desc">Space Grotesk para títulos: geométrica, angular, tech-forward. Inter para body: universal, legible, profesional. Ambas fuentes son compartidas entre las dos sub-marcas para mantener la cohesión.</p>
+
+        <div class="type-showcase">
+            <div class="type-row">
+                <span class="type-label">Hero · SG 700</span>
+                <span class="type-sample" style="font-family:'Space Grotesk'; font-size:3rem; font-weight:700; letter-spacing:-0.03em;">Luis Corona</span>
+            </div>
+            <div class="type-row">
+                <span class="type-label">Headline · SG 600</span>
+                <span class="type-sample" style="font-family:'Space Grotesk'; font-size:1.8rem; font-weight:600;">Gana $8,000+/mes</span>
+            </div>
+            <div class="type-row">
+                <span class="type-label">Subtitle · SG 500</span>
+                <span class="type-sample" style="font-family:'Space Grotesk'; font-size:1.1rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em;">Sistema 8K</span>
+            </div>
+            <div class="type-row">
+                <span class="type-label">Body · Int 400</span>
+                <span class="type-sample" style="font-size:1rem; font-weight:400;">Aprende la habilidad más demandada en EE.UU.: las ventas. Un sistema probado de formación y cierre de ventas presenciales High Ticket.</span>
+            </div>
+            <div class="type-row">
+                <span class="type-label">Caption · Int 300</span>
+                <span class="type-sample" style="font-size:0.75rem; font-weight:300; text-transform:uppercase; letter-spacing:0.15em;">Royal Prestige · Atlanta, GA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 06 · COMPONENTES ═══════════════ -->
+    <section class="section">
+        <div class="section-title">06 · Componentes</div>
+        <h2>UI Kit — Dual Brand</h2>
+        <p class="section-desc">Los componentes se adaptan a cada sub-marca. Los botones, badges y cards cambian de paleta pero mantienen la misma estructura y tipografía.</p>
+
+        <div class="demo-grid">
+            <!-- CTA Socios -->
+            <div class="demo-block">
+                <span class="demo-label">CTA Button — Socios</span>
+                <a href="#" class="btn-socios">Aplica Ahora</a>
+            </div>
+            <!-- CTA Clientes -->
+            <div class="demo-block">
+                <span class="demo-label">CTA Button — Clientes</span>
+                <a href="#" class="btn-clientes">Participa en el Sorteo</a>
+            </div>
+            <!-- Outline -->
+            <div class="demo-block">
+                <span class="demo-label">Outline Button (Shared)</span>
+                <a href="#" class="btn-outline">Saber Más</a>
+            </div>
+            <!-- Badge Socios -->
+            <div class="demo-block">
+                <span class="demo-label">Badge — Socios</span>
+                <span style="display:inline-block; padding:6px 18px; font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; border-radius:40px; background:rgba(37,99,235,0.12); border:1px solid rgba(56,189,248,0.2); color:#38BDF8;">Sistema 8K</span>
+            </div>
+            <!-- Badge Clientes -->
+            <div class="demo-block">
+                <span class="demo-label">Badge — Clientes</span>
+                <span style="display:inline-block; padding:6px 18px; font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; border-radius:40px; background:rgba(212,168,83,0.08); border:1px solid rgba(212,168,83,0.2); color:#D4A853;">Royal Prestige</span>
+            </div>
+            <!-- Testimonial -->
+            <div class="demo-block">
+                <span class="demo-label">Testimonial Card</span>
+                <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:16px; padding:28px 24px; max-width:380px;">
+                    <p style="font-size:0.95rem; font-style:italic; line-height:1.7; opacity:0.8; margin-bottom:16px;">"En 3 meses pasé de ganar $15/hora a cerrar $4,000 en una semana. El sistema funciona."</p>
+                    <p style="font-size:0.75rem; font-weight:600; opacity:0.5;">— Jaime Orozco, Socio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 07 · VOZ ═══════════════ -->
+    <section class="section">
+        <div class="section-title">07 · Tono y Voz de Marca</div>
+        <h2>Cómo Habla Luis Corona</h2>
+
+        <h3 style="font-family: var(--brand-font-heading); font-size: 1rem; margin-bottom: 16px; margin-top: 40px;">
+            <span style="color:#38BDF8;">●</span> Marca Socios — @esluiscorona
+        </h3>
+        <div class="voice-grid">
+            <div class="voice-card">
+                <div class="attr blue">Idioma</div>
+                <div class="val">Español directo</div>
+            </div>
+            <div class="voice-card">
+                <div class="attr blue">Perspectiva</div>
+                <div class="val">Hermano mayor</div>
+            </div>
+            <div class="voice-card">
+                <div class="attr blue">Energía</div>
+                <div class="val">Bold · High-intensity</div>
+            </div>
+            <div class="voice-card">
+                <div class="attr blue">Framing</div>
+                <div class="val">Oferta laboral, no "negocio"</div>
+            </div>
+        </div>
+        <p style="margin-top:20px; font-size:0.88rem; opacity:0.6; border-left:3px solid #38BDF8; padding-left:16px;">
+            <strong>Regla de oro:</strong> Cuanto más simple y directo el mensaje, más convierte. El mercado latino en EE.UU. responde a la claridad, no al diseño sofisticado. Posicionar como <em>empleo con beneficios claros</em>, nunca como "business opportunity".
+        </p>
+
+        <h3 style="font-family: var(--brand-font-heading); font-size: 1rem; margin-bottom: 16px; margin-top: 48px;">
+            <span style="color:#D4A853;">●</span> Marca Clientes — @luiscoronasalud
+        </h3>
+        <div class="voice-grid">
+            <div class="voice-card">
+                <div class="attr gold">Idioma</div>
+                <div class="val">Español familiar</div>
+            </div>
+            <div class="voice-card">
+                <div class="attr gold">Perspectiva</div>
+                <div class="val">Consejero de salud</div>
+            </div>
+            <div class="voice-card">
+                <div class="attr gold">Energía</div>
+                <div class="val">Cálido · Educativo</div>
+            </div>
+            <div class="voice-card">
+                <div class="attr gold">Framing</div>
+                <div class="val">Tips de cocina y bienestar</div>
+            </div>
+        </div>
+        <p style="margin-top:20px; font-size:0.88rem; opacity:0.6; border-left:3px solid #D4A853; padding-left:16px;">
+            <strong>Regla de comunicación:</strong> NUNCA enviar mensajes/emails al prospecto del sorteo antes de la llamada — esto "quema" al lead. Único email permitido: confirmación de participación. No enviar recordatorios de cita. Llamar el mismo día o el día antes de la visita.
+        </p>
+    </section>
+
+    <!-- ═══════════════ 08 · FOTOGRAFÍA ═══════════════ -->
+    <section class="section">
+        <div class="section-title">08 · Dirección Visual</div>
+        <h2>Fotografía y Video</h2>
+
+        <h3 style="font-family: var(--brand-font-heading); font-size: 0.95rem; margin-bottom: 16px; margin-top: 32px;">
+            <span style="color:#38BDF8;">●</span> Contenido Socios
+        </h3>
+        <div class="voice-grid">
+            <div class="voice-card"><div class="attr blue">Iluminación</div><div class="val">Dramática, contrastes</div></div>
+            <div class="voice-card"><div class="attr blue">Mood</div><div class="val">Ambicioso, urbano</div></div>
+            <div class="voice-card"><div class="attr blue">Composición</div><div class="val">Centrada, fondo oscuro</div></div>
+            <div class="voice-card"><div class="attr blue">Formato</div><div class="val">Reels, face-to-cam</div></div>
+        </div>
+
+        <h3 style="font-family: var(--brand-font-heading); font-size: 0.95rem; margin-bottom: 16px; margin-top: 40px;">
+            <span style="color:#D4A853;">●</span> Contenido Clientes
+        </h3>
+        <div class="voice-grid">
+            <div class="voice-card"><div class="attr gold">Iluminación</div><div class="val">Natural, cálida</div></div>
+            <div class="voice-card"><div class="attr gold">Mood</div><div class="val">Hogar, familia</div></div>
+            <div class="voice-card"><div class="attr gold">Composición</div><div class="val">Cocina, producto visible</div></div>
+            <div class="voice-card"><div class="attr gold">Formato</div><div class="val">Tips cortos, demos</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ 09 · DON'TS ═══════════════ -->
+    <section class="section">
+        <div class="section-title">09 · Reglas de Uso</div>
+        <h2>Lo que Nunca Hacemos</h2>
+
+        <ul class="donts-list">
+            <li><span class="icon">✕</span> Mezclar colores de la paleta Socios con la paleta Clientes en una misma pieza.</li>
+            <li><span class="icon">✕</span> Usar el dorado (#D4A853) en comunicaciones de reclutamiento — genera confusión con MLM/lujo corporativo.</li>
+            <li><span class="icon">✕</span> Usar fondos blancos o claros — toda la marca opera en dark mode.</li>
+            <li><span class="icon">✕</span> Usar terminología como "oportunidad de negocio", "network", "multinivel" en copy de socios.</li>
+            <li><span class="icon">✕</span> Sobrecargar de diseño la landing de socios — simplicidad = conversión.</li>
+            <li><span class="icon">✕</span> Enviar emails de seguimiento o recordatorios de cita al prospecto de sorteo antes de llamar.</li>
+            <li><span class="icon">✕</span> Usar tipografías que no sean Space Grotesk (títulos) o Inter (body).</li>
+            <li><span class="icon">✕</span> Replicar el logo/colores de Royal Prestige directamente — tenemos nuestra propia identidad derivada.</li>
+        </ul>
+    </section>
+
+    <!-- ═══════════════ 10 · DESIGN TOKENS ═══════════════ -->
+    <section class="section">
+        <div class="section-title">10 · Design Tokens</div>
+        <h2>Variables CSS — Copy & Paste</h2>
+        <p class="section-desc">Tokens listos para usar en GHL Custom CSS, landing pages, y cualquier pieza digital.</p>
+
+        <div class="code-block">
+            <pre><span class="token-comment">/* ── MARCA SOCIOS (@esluiscorona) ── */</span>
+<span class="token-prop">--socios-bg</span>: <span class="token-val">#080F1A</span>;
+<span class="token-prop">--socios-surface</span>: <span class="token-val">#0E1726</span>;
+<span class="token-prop">--socios-accent</span>: <span class="token-val">#2563EB</span>;
+<span class="token-prop">--socios-accent-light</span>: <span class="token-val">#38BDF8</span>;
+<span class="token-prop">--socios-text</span>: <span class="token-val">#FFFFFF</span>;
+<span class="token-prop">--socios-text-muted</span>: <span class="token-val">#94A3B8</span>;
+<span class="token-prop">--socios-gradient</span>: <span class="token-val">linear-gradient(135deg, #2563EB, #38BDF8)</span>;
+
+<span class="token-comment">/* ── MARCA CLIENTES (@luiscoronasalud) ── */</span>
+<span class="token-prop">--clientes-bg</span>: <span class="token-val">#0C1929</span>;
+<span class="token-prop">--clientes-surface</span>: <span class="token-val">#111F33</span>;
+<span class="token-prop">--clientes-accent</span>: <span class="token-val">#1D4ED8</span>;
+<span class="token-prop">--clientes-accent-light</span>: <span class="token-val">#D4A853</span>;
+<span class="token-prop">--clientes-text</span>: <span class="token-val">#F8F6F0</span>;
+<span class="token-prop">--clientes-text-muted</span>: <span class="token-val">#8B9BB5</span>;
+<span class="token-prop">--clientes-gradient</span>: <span class="token-val">linear-gradient(135deg, #1D4ED8, #D4A853)</span>;
+
+<span class="token-comment">/* ── TIPOGRAFÍA (shared) ── */</span>
+<span class="token-prop">--font-heading</span>: <span class="token-val">'Space Grotesk', sans-serif</span>;
+<span class="token-prop">--font-body</span>: <span class="token-val">'Inter', sans-serif</span>;
+
+<span class="token-comment">/* ── SPACING ── */</span>
+<span class="token-prop">--radius</span>: <span class="token-val">20px</span>;
+<span class="token-prop">--radius-sm</span>: <span class="token-val">12px</span>;
+<span class="token-prop">--radius-pill</span>: <span class="token-val">60px</span>;</pre>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="brand-footer">
+        Luis Corona · Brand Manual v1.0 · Marca Dual · Marzo 2026<br>
+        Construido por <a href="https://luchobranding.com" target="_blank">Sales Velocity</a>
+    </footer>
+
+</body>
+</html>
