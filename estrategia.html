@@ -164,150 +164,308 @@ tr:hover td{background:rgba(255,255,255,.02)}
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-brand"><span class="dot"></span> SALES VELOCITY × CORONA</div>
-  <div class="nav-date">Marzo 9, 2026 — Preparación reunión</div>
+  <div class="nav-date">Marzo 10, 2026 — Reunión de Resultados</div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-tag">Análisis de Pipeline</div>
-    <h1>Corona Home Services<br><span>Radiografía del Pipeline</span></h1>
-    <p class="hero-sub">Análisis completo del flujo de leads, desempeño de vendedores, y oportunidades de mejora para la reunión del 10 de marzo.</p>
+    <div class="hero-tag">Reporte de Resultados</div>
+    <h1>Corona Home Services<br><span>¿Dónde está el dinero?</span></h1>
+    <p class="hero-sub">Inversión, leads, ventas y oportunidades perdidas. Números reales para tomar decisiones esta semana.</p>
     <div class="hero-badges">
-      <span class="badge gold">📊 402 Oportunidades (CHS)</span>
-      <span class="badge blue">👥 4 Vendedores Activos</span>
+      <span class="badge gold">💰 $1,333 invertidos (campañas activas)</span>
+      <span class="badge blue">📊 462 leads · $2.89 CPL</span>
       <span class="badge gold">🗓 Data al 9 de Marzo 2026</span>
     </div>
   </div>
 </section>
 
-<!-- 01 PANORAMA -->
+<!-- 01 INVERSIÓN Y RESULTADOS -->
 <section class="section">
   <div class="container">
     <div class="section-num">01</div>
-    <div class="section-title">Panorama General del Pipeline</div>
-    <p class="section-desc">Visión completa de las 402 oportunidades en el sistema Corona Home Services (clasificación + Zona Prioritaria + Zona No Prioritaria). Data extraída directamente de la API de GHL.</p>
+    <div class="section-title">Inversión y Resultados</div>
+    <p class="section-desc">Solo campañas activas. Cruce directo Meta Ads + pipeline GHL. Valores de venta son estimados* — no hay monto real registrado en el sistema.</p>
 
     <div class="card-grid">
       <div class="card gold">
-        <div class="card-label">Total Registros</div>
-        <div class="card-value">259</div>
-        <div class="card-sub">Corona Home Services (clasificación)</div>
+        <div class="card-label">Inversión Activa</div>
+        <div class="card-value">$1,333</div>
+        <div class="card-sub">5 campañas activas en Meta Ads</div>
       </div>
       <div class="card blue">
-        <div class="card-label">Zona Prioritaria</div>
-        <div class="card-value">108</div>
-        <div class="card-sub">Leads clasificados en zonas activas</div>
+        <div class="card-label">Leads Generados</div>
+        <div class="card-value">462</div>
+        <div class="card-sub">CPL promedio: $2.89</div>
       </div>
       <div class="card green">
         <div class="card-label">Ventas Cerradas</div>
         <div class="card-value">4</div>
-        <div class="card-sub">3.7% de conversión en ZP</div>
+        <div class="card-sub">3 de Luis, 1 sin asignar</div>
       </div>
       <div class="card red">
-        <div class="card-label">Sin Gestionar</div>
-        <div class="card-value">75</div>
-        <div class="card-sub">47 en ZP + 28 en ZNP esperando llamada</div>
+        <div class="card-label">Valor de Ventas</div>
+        <div class="card-value">$0*</div>
+        <div class="card-sub">⚠️ No hay monto registrado</div>
       </div>
     </div>
 
-    <!-- FUNNEL VISUAL -->
+    <div class="card-grid">
+      <div class="card yellow">
+        <div class="card-label">CAC (estimado*)</div>
+        <div class="card-value">$333</div>
+        <div class="card-sub">$1,333 ÷ 4 ventas</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">ROAS (estimado*)</div>
+        <div class="card-value">~6x</div>
+        <div class="card-sub">Si ticket ≈ $2K → $8K / $1,333</div>
+      </div>
+      <div class="card red">
+        <div class="card-label">Leads Sin Gestionar</div>
+        <div class="card-value">75</div>
+        <div class="card-sub">47 en ZP + 28 en ZNP</div>
+      </div>
+      <div class="card blue">
+        <div class="card-label">Leads/Día</div>
+        <div class="card-value">~12</div>
+        <div class="card-sub">Marzo: 112 en 9 días</div>
+      </div>
+    </div>
+
+    <!-- CAMPAIGN TABLE (ACTIVE ONLY) -->
+    <div class="table-wrap">
+      <div class="table-header">
+        📈 Campañas Activas — Meta Ads
+        <span class="tag">5 Activas</span>
+      </div>
+      <table>
+        <tr><th>Campaña</th><th>Inversión</th><th>Leads</th><th>CPL</th><th>CTR</th><th>Vendedor</th></tr>
+        <tr>
+          <td><strong>CP| JAN 13| LEADS</strong></td>
+          <td>$482</td>
+          <td><span class="pct high">220</span></td>
+          <td><span class="pct high">$2.19</span></td>
+          <td>2.40%</td>
+          <td>Luis Corona</td>
+        </tr>
+        <tr>
+          <td><strong>CP| FEB 19</strong></td>
+          <td>$634</td>
+          <td><span class="pct mid">151</span></td>
+          <td><span class="pct low">$4.20</span></td>
+          <td>2.01%</td>
+          <td>Mixto (todos)</td>
+        </tr>
+        <tr>
+          <td>Clientes Pot. | Jesus</td>
+          <td>$73</td>
+          <td>38</td>
+          <td><span class="pct high">$1.91</span></td>
+          <td>3.17%</td>
+          <td>Jesus Nava</td>
+        </tr>
+        <tr>
+          <td>Clientes Pot. | Jaime Nashville</td>
+          <td>$72</td>
+          <td>30</td>
+          <td><span class="pct high">$2.40</span></td>
+          <td>2.53%</td>
+          <td>Jaime Orozco</td>
+        </tr>
+        <tr>
+          <td>Clientes Pot. | Victor</td>
+          <td>$73</td>
+          <td>23</td>
+          <td><span class="pct mid">$3.16</span></td>
+          <td>2.00%</td>
+          <td>Víctor Alonso</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- PER SELLER ROI -->
+    <div class="table-wrap">
+      <div class="table-header">
+        💰 ¿Quién vende y quién no? — Inversión vs Resultado por Vendedor
+        <span class="tag" style="background:var(--red-soft);color:#fca5a5">ROI por Vendedor</span>
+      </div>
+      <table>
+        <tr><th>Vendedor</th><th>Inversión</th><th>Leads</th><th>CPL</th><th>Ventas</th><th>CAC</th><th>ROAS*</th></tr>
+        <tr style="background:var(--green-soft)">
+          <td><strong>👑 Luis Corona</strong></td>
+          <td>$1,031</td>
+          <td>361</td>
+          <td><span class="pct high">$2.85</span></td>
+          <td style="color:var(--green)"><strong>3</strong></td>
+          <td>$344</td>
+          <td><span class="pct high">5.8x</span></td>
+        </tr>
+        <tr>
+          <td>🟡 Jesus Nava</td>
+          <td>$108</td>
+          <td>39</td>
+          <td><span class="pct high">$2.78</span></td>
+          <td>0</td>
+          <td><span class="pct low">∞</span></td>
+          <td><span class="pct low">0x</span></td>
+        </tr>
+        <tr style="background:var(--red-soft)">
+          <td>🔴 Jaime Orozco</td>
+          <td>$98</td>
+          <td>35</td>
+          <td><span class="pct high">$2.80</span></td>
+          <td>0</td>
+          <td><span class="pct low">∞</span></td>
+          <td><span class="pct low">0x</span></td>
+        </tr>
+        <tr style="background:var(--red-soft)">
+          <td>🔴 Víctor Alonso</td>
+          <td>$96</td>
+          <td>27</td>
+          <td><span class="pct mid">$3.56</span></td>
+          <td>0</td>
+          <td><span class="pct low">∞</span></td>
+          <td><span class="pct low">0x</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-title">👑 Luis Corona genera el 100% de las ventas</div>
+      <p>Es el único vendedor con ventas cerradas, el CPL más eficiente ($2.85), y un ROAS estimado de 5.8x. <strong>$1,031 → 3 ventas ≈ $6K (si ticket = $2K).</strong></p>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-title">🚨 $194 en campañas de Jaime y Víctor = CERO ventas</div>
+      <p>62 leads generados entre los dos y ninguna venta. Sin campañas pausadas, la inversión activa en socios sin resultados sigue corriendo.</p>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠️ Campaña de Febrero: CPL 2x más alto ($4.20 vs $2.19)</div>
+      <p>La campaña CP|FEB 19 tiene el CPL más caro. Posible fatiga de creativos o ampliación de targeting. Rotar creativos y revisar.</p>
+    </div>
+
+    <p style="font-size:11px;color:var(--text-muted);margin-top:12px">*Estimaciones basadas en ticket promedio de $2,000. No hay valor real de venta registrado en GHL (ver Sección 02).</p>
+  </div>
+</section>
+
+<!-- 02 ALERTA CRÍTICA: COMISIÓN -->
+<section class="section" style="background:rgba(239,68,68,.04)">
+  <div class="container">
+    <div class="section-num">02</div>
+    <div class="section-title">🚨 Problema Crítico: No Sabemos Cuánto se Vendió</div>
+    <p class="section-desc">Esto impacta directamente la comisión del 5% y la viabilidad de todo el modelo.</p>
+
+    <div class="callout danger" style="border-radius:var(--radius);border-left-width:6px;padding:28px">
+      <div class="callout-title" style="font-size:18px;margin-bottom:10px">💸 Nuestro acuerdo es cobrar el 5% de cada venta. Hoy no podemos cobrar.</div>
+      <p style="font-size:14px;opacity:1">
+        De las <strong>4 ventas cerradas</strong> en el pipeline, <strong>ninguna tiene un valor monetario registrado</strong>. Todas aparecen en $0 o con un valor default de $1,000 que no es real.
+        <br><br>
+        <strong>¿Qué significa esto?</strong>
+        <br>→ No podemos calcular la comisión del 5% que nos corresponde.
+        <br>→ No sabemos si el CAC real es rentable (¿cada venta vale $1K? ¿$2K? ¿$5K?).
+        <br>→ No podemos demostrar el ROI real del sistema.
+        <br>→ No podemos hacer proyecciones de revenue con datos reales.
+        <br><br>
+        <strong>Solución:</strong> Registrar el <strong>monto real en dólares</strong> de cada venta cerrada en GHL al momento de cerrar. Sin esto, el modelo de comisión no funciona y no tenemos forma de medir el éxito del sistema.
+      </p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card red">
+        <div class="card-label">Ventas sin valor registrado</div>
+        <div class="card-value">4 de 4</div>
+        <div class="card-sub">100% sin monto real</div>
+      </div>
+      <div class="card yellow">
+        <div class="card-label">Comisión acumulada (5%)</div>
+        <div class="card-value">???</div>
+        <div class="card-sub">No calculable sin valor de venta</div>
+      </div>
+      <div class="card gold">
+        <div class="card-label">Si ticket = $2K (estimado)</div>
+        <div class="card-value">$400</div>
+        <div class="card-sub">5% × $8K = $400 en comisión</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">Acción requerida</div>
+        <div class="card-value">HOY</div>
+        <div class="card-sub">Registrar valor de las 4 ventas</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-header">
+        ✅ Ventas Cerradas — Sin Valor Registrado
+        <span class="tag" style="background:var(--red-soft);color:#fca5a5">⚠️ $0 registrados</span>
+      </div>
+      <table>
+        <tr><th>Contacto</th><th>Vendedor</th><th>Fecha</th><th>Valor en GHL</th><th>Acción</th></tr>
+        <tr><td>Bella Lopez</td><td>Luis Corona</td><td>7 Mar 2026</td><td style="color:var(--red)"><strong>$0</strong></td><td>🔴 Registrar monto</td></tr>
+        <tr><td>Mari M Gutierrez (Jefferson)</td><td>Luis Corona</td><td>6 Mar 2026</td><td style="color:var(--red)"><strong>$0</strong></td><td>🔴 Registrar monto</td></tr>
+        <tr><td>Nachitho Perez (Chamblee)</td><td>Luis Corona</td><td>24 Feb 2026</td><td style="color:var(--red)"><strong>$0</strong></td><td>🔴 Registrar monto</td></tr>
+        <tr><td>Dairis Valdivieso Estrada</td><td>Sin asignar</td><td>20 Feb 2026</td><td style="color:var(--red)"><strong>$0</strong></td><td>🔴 Registrar monto</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PIPELINE -->
+<section class="section">
+  <div class="container">
+    <div class="section-num">03</div>
+    <div class="section-title">Pipeline: ¿Dónde Están los Leads?</div>
+    <p class="section-desc">402 oportunidades en el sistema. El cuello de botella no es la generación de leads — es la gestión.</p>
+
+    <!-- FUNNEL -->
     <div class="funnel">
       <div class="funnel-step">
-        <div class="num">259</div>
-        <div class="label"><strong>Registros totales</strong> (Meta Ads → Formulario)</div>
+        <div class="num">462</div>
+        <div class="label"><strong>Leads de campañas activas</strong> (Meta Ads)</div>
         <div class="pct-badge" style="background:var(--gold-soft);color:var(--gold-light)">100%</div>
       </div>
       <div class="funnel-arrow">↓</div>
       <div class="funnel-step">
-        <div class="num">124</div>
-        <div class="label"><strong>Clasificados a zona</strong> (107 prioritaria + 17 no prioritaria)</div>
-        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">47.9%</div>
+        <div class="num">259</div>
+        <div class="label"><strong>En pipeline de clasificación</strong> (GHL)</div>
+        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">56%</div>
       </div>
       <div class="funnel-arrow">↓</div>
       <div class="funnel-step">
         <div class="num">108</div>
-        <div class="label"><strong>En Zona Prioritaria</strong> (pipeline de gestión activo)</div>
-        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">41.7%</div>
+        <div class="label"><strong>Zona Prioritaria</strong> (listos para gestionar)</div>
+        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">23%</div>
       </div>
       <div class="funnel-arrow">↓</div>
       <div class="funnel-step">
         <div class="num">21</div>
-        <div class="label"><strong>Citas agendadas / visitados</strong> (en algún momento)</div>
-        <div class="pct-badge" style="background:var(--yellow-soft);color:#fde68a">19.4%</div>
+        <div class="label"><strong>Citas / Visitados</strong></div>
+        <div class="pct-badge" style="background:var(--yellow-soft);color:#fde68a">4.5%</div>
       </div>
       <div class="funnel-arrow">↓</div>
       <div class="funnel-step">
         <div class="num">4</div>
         <div class="label"><strong>Ventas cerradas</strong></div>
-        <div class="pct-badge" style="background:var(--red-soft);color:#fca5a5">3.7%</div>
+        <div class="pct-badge" style="background:var(--red-soft);color:#fca5a5">0.9%</div>
       </div>
     </div>
 
-    <!-- CALLOUTS -->
     <div class="callout danger">
-      <div class="callout-title">🚨 43.5% de leads en Zona Prioritaria están sin gestionar</div>
-      <p>47 de 108 leads en ZP están en "Disponible para llamar" — nunca se les ha hecho la primera llamada. Esto representa ingreso potencial perdido de al menos $47,000 – $141,000 (asumiendo $1K–$3K por venta y una tasa de cierre conservadora del 5-10%).</p>
+      <div class="callout-title">🚨 43.5% de leads en Zona Prioritaria sin gestionar</div>
+      <p>47 de 108 leads nunca recibieron una llamada. 16 más están en "Casi Venta" esperando seguimiento. El dinero está literalmente esperando que alguien conteste.</p>
     </div>
-    <div class="callout warning">
-      <div class="callout-title">⚠️ 16 "Casi Ventas" sin seguimiento activo</div>
-      <p>16 leads están marcados como "Casi Venta - Seguimiento" — personas que estuvieron a punto de comprar pero falta darles seguimiento. Estos son los leads de mayor valor/cierre rápido.</p>
-    </div>
+
     <div class="callout warning">
       <div class="callout-title">⚠️ 22% de registros caen en "Fuera de Zona"</div>
-      <p>57 de 259 registros no están en ninguna zona cubierta. Esto sugiere que los ads están llegando a áreas geográficas fuera de las zonas de servicio. Oportunidad: ajustar targeting geográfico de Meta Ads.</p>
-    </div>
-
-    <!-- CLASIFICACIÓN TABLE -->
-    <div class="table-wrap">
-      <div class="table-header">
-        📋 Pipeline 1: Corona Home Services — Clasificación
-        <span class="tag">259 Leads</span>
-      </div>
-      <table>
-        <tr><th>Stage</th><th>Cantidad</th><th>%</th><th>Distribución</th><th>Estado</th></tr>
-        <tr>
-          <td><span class="status-dot active"></span>Zona Prioritaria</td>
-          <td><span class="pct high">107</span></td>
-          <td>41.3%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:41.3%"></div></div></td>
-          <td>✅ Clasificados</td>
-        </tr>
-        <tr>
-          <td><span class="status-dot danger"></span>Inactivación</td>
-          <td><span class="pct low">60</span></td>
-          <td>23.2%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:23.2%;background:var(--red)"></div></div></td>
-          <td>🔴 Sin gestionar a tiempo</td>
-        </tr>
-        <tr>
-          <td><span class="status-dot warning"></span>Fuera de Zona</td>
-          <td><span class="pct mid">57</span></td>
-          <td>22.0%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:22%;background:var(--yellow)"></div></div></td>
-          <td>🟡 Targeting de ads</td>
-        </tr>
-        <tr>
-          <td><span class="status-dot warning"></span>Registro (sin clasificar)</td>
-          <td><span class="pct mid">18</span></td>
-          <td>6.9%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:6.9%;background:var(--yellow)"></div></div></td>
-          <td>🟡 Pendientes hoy</td>
-        </tr>
-        <tr>
-          <td><span class="status-dot active"></span>Zona No Prioritaria</td>
-          <td><span class="pct high">17</span></td>
-          <td>6.6%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:6.6%"></div></div></td>
-          <td>✅ Clasificados</td>
-        </tr>
-      </table>
+      <p>57 de 259 registros son de áreas sin servicio. Cada lead fuera de zona cuesta ~$3 que se pierde. Ajustar targeting geográfico en Meta.</p>
     </div>
 
     <!-- ZP TABLE -->
     <div class="table-wrap">
       <div class="table-header">
-        📋 Pipeline 2: Zona Prioritaria — Gestión de Ventas
+        📋 Zona Prioritaria — Detalle
         <span class="tag">108 Leads</span>
       </div>
       <table>
@@ -355,7 +513,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
           <td>✅ En proceso</td>
         </tr>
         <tr>
-          <td><span class="status-dot danger"></span>No Califica - No venta</td>
+          <td><span class="status-dot danger"></span>No Califica</td>
           <td>5</td>
           <td>4.6%</td>
           <td><div class="stage-bar"><div class="stage-bar-fill" style="width:4.6%;background:var(--red)"></div></div></td>
@@ -369,223 +527,29 @@ tr:hover td{background:rgba(255,255,255,.02)}
           <td>✅ Cerradas</td>
         </tr>
         <tr>
-          <td><span class="status-dot idle"></span>Llamada 2</td>
-          <td>1</td>
-          <td>0.9%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:0.9%;background:var(--blue)"></div></div></td>
-          <td>Continuar</td>
+          <td><span class="status-dot idle"></span>Otros (L2, Inactivación)</td>
+          <td>2</td>
+          <td>1.9%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:1.9%;background:rgba(255,255,255,.2)"></div></div></td>
+          <td>Evaluar</td>
         </tr>
-        <tr>
-          <td><span class="status-dot danger"></span>Inactivación</td>
-          <td>1</td>
-          <td>0.9%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:0.9%;background:var(--red)"></div></div></td>
-          <td>Evaluar reactivación</td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- VENTAS CERRADAS -->
-    <div class="table-wrap">
-      <div class="table-header">
-        ✅ Ventas Cerradas en Zona Prioritaria
-        <span class="tag" style="background:var(--green-soft);color:#86efac">4 Ventas</span>
-      </div>
-      <table>
-        <tr><th>Contacto</th><th>Vendedor</th><th>Fecha Registro</th><th>Status</th></tr>
-        <tr><td>Bella Lopez</td><td>Luis Corona</td><td>7 Mar 2026</td><td><span class="status-dot active"></span>Open</td></tr>
-        <tr><td>Mari M Gutierrez (Jefferson)</td><td>Luis Corona</td><td>6 Mar 2026</td><td><span class="status-dot active"></span>Open</td></tr>
-        <tr><td>Nachitho Perez (Chamblee)</td><td>Luis Corona</td><td>24 Feb 2026</td><td><span class="status-dot active"></span>Open</td></tr>
-        <tr><td>Dairis Valdivieso Estrada</td><td>Sin asignar</td><td>20 Feb 2026</td><td><span class="status-dot active"></span>Open</td></tr>
       </table>
     </div>
   </div>
 </section>
 
-<!-- 02 META ADS × PIPELINE -->
+<!-- 04 VENDEDORES -->
 <section class="section" style="background:rgba(255,255,255,.02)">
   <div class="container">
-    <div class="section-num">02</div>
-    <div class="section-title">Inversión en Meta Ads × Resultados</div>
-    <p class="section-desc">Cruce directo entre el gasto en Meta Ads y los resultados en el pipeline de GHL. Data de la cuenta publicitaria "corona home services" (ID: 1278359880764434).</p>
-
-    <div class="card-grid">
-      <div class="card gold">
-        <div class="card-label">Inversión Total</div>
-        <div class="card-value">$1,626</div>
-        <div class="card-sub">7 campañas activas desde Dic 2025</div>
-      </div>
-      <div class="card blue">
-        <div class="card-label">Leads Generados</div>
-        <div class="card-value">593</div>
-        <div class="card-sub">CPL promedio: $2.74</div>
-      </div>
-      <div class="card green">
-        <div class="card-label">CAC (Costo por Venta)</div>
-        <div class="card-value">$542</div>
-        <div class="card-sub">$1,626 ÷ 3 ventas cerradas</div>
-      </div>
-      <div class="card yellow">
-        <div class="card-label">ROAS Estimado</div>
-        <div class="card-value">3.7x</div>
-        <div class="card-sub">$6,000 revenue ÷ $1,626 (ticket $2K)</div>
-      </div>
-    </div>
-
-    <!-- CPL PER CAMPAIGN -->
-    <div class="table-wrap">
-      <div class="table-header">
-        📈 Rendimiento por Campaña de Meta Ads
-        <span class="tag">7 Campañas</span>
-      </div>
-      <table>
-        <tr><th>Campaña</th><th>Status</th><th>Spend</th><th>Leads</th><th>CPL</th><th>CTR</th><th>Vendedor</th></tr>
-        <tr>
-          <td>CP| DEC 15| C.1</td>
-          <td><span class="status-dot idle"></span>Paused</td>
-          <td>$284</td>
-          <td><span class="pct high">124</span></td>
-          <td><span class="pct high">$2.29</span></td>
-          <td>3.25%</td>
-          <td>Luis (general)</td>
-        </tr>
-        <tr>
-          <td><strong>CP| JAN 13| LEADS</strong></td>
-          <td><span class="status-dot active"></span>Active</td>
-          <td>$482</td>
-          <td><span class="pct high">220</span></td>
-          <td><span class="pct high">$2.19</span></td>
-          <td>2.40%</td>
-          <td>Luis (general)</td>
-        </tr>
-        <tr>
-          <td><strong>CP| FEB 19</strong></td>
-          <td><span class="status-dot active"></span>Active</td>
-          <td>$634</td>
-          <td><span class="pct mid">151</span></td>
-          <td><span class="pct mid">$4.20</span></td>
-          <td>2.01%</td>
-          <td>Mixto (socios)</td>
-        </tr>
-        <tr>
-          <td>Clientes Pot. | Jesus</td>
-          <td><span class="status-dot active"></span>Active</td>
-          <td>$73</td>
-          <td>38</td>
-          <td><span class="pct high">$1.91</span></td>
-          <td>3.17%</td>
-          <td>Jesus Nava</td>
-        </tr>
-        <tr>
-          <td>Clientes Pot. | Jaime Nashville</td>
-          <td><span class="status-dot active"></span>Active</td>
-          <td>$72</td>
-          <td>30</td>
-          <td><span class="pct high">$2.40</span></td>
-          <td>2.53%</td>
-          <td>Jaime Orozco</td>
-        </tr>
-        <tr>
-          <td>Clientes Pot. | Jaime Knoxville</td>
-          <td><span class="status-dot idle"></span>Paused</td>
-          <td>$9</td>
-          <td>7</td>
-          <td><span class="pct high">$1.30</span></td>
-          <td>3.61%</td>
-          <td>Jaime Orozco</td>
-        </tr>
-        <tr>
-          <td>Clientes Pot. | Victor</td>
-          <td><span class="status-dot active"></span>Active</td>
-          <td>$73</td>
-          <td>23</td>
-          <td><span class="pct mid">$3.16</span></td>
-          <td>2.00%</td>
-          <td>Víctor Alonso</td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- PER SELLER INVESTMENT -->
-    <div class="table-wrap">
-      <div class="table-header">
-        💰 Inversión vs Resultado por Vendedor (Meta Ads + GHL)
-        <span class="tag" style="background:var(--red-soft);color:#fca5a5">ROI por Vendedor</span>
-      </div>
-      <table>
-        <tr><th>Vendedor</th><th>Inversión Ads</th><th>Leads</th><th>CPL</th><th>Ventas</th><th>CAC</th><th>ROAS (×$2K)</th><th>Dinero Perdido</th></tr>
-        <tr style="background:var(--green-soft)">
-          <td><strong>👑 Luis Corona</strong></td>
-          <td>$1,300</td>
-          <td>483</td>
-          <td><span class="pct high">$2.69</span></td>
-          <td style="color:var(--green)"><strong>3</strong></td>
-          <td>$433</td>
-          <td><span class="pct high">4.6x</span></td>
-          <td>$35</td>
-        </tr>
-        <tr>
-          <td>🟡 Jesus Nava</td>
-          <td>$108</td>
-          <td>39</td>
-          <td><span class="pct high">$2.78</span></td>
-          <td>0</td>
-          <td><span class="pct low">∞</span></td>
-          <td><span class="pct low">0x</span></td>
-          <td>$8</td>
-        </tr>
-        <tr style="background:var(--red-soft)">
-          <td>🔴 Jaime Orozco</td>
-          <td>$122</td>
-          <td>44</td>
-          <td><span class="pct high">$2.77</span></td>
-          <td>0</td>
-          <td><span class="pct low">∞</span></td>
-          <td><span class="pct low">0x</span></td>
-          <td style="color:var(--red)"><strong>$75</strong></td>
-        </tr>
-        <tr style="background:var(--red-soft)">
-          <td>🔴 Víctor Alonso</td>
-          <td>$96</td>
-          <td>27</td>
-          <td><span class="pct mid">$3.56</span></td>
-          <td>0</td>
-          <td><span class="pct low">∞</span></td>
-          <td><span class="pct low">0x</span></td>
-          <td style="color:var(--red)">$14</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="callout danger">
-      <div class="callout-title">🚨 $218 invertidos en campañas de Jaime y Víctor = CERO ventas</div>
-      <p>Se han gastado <strong>$218</strong> en campañas específicas para Jaime ($122) y Víctor ($96) con <strong>71 leads generados y 0 ventas</strong>. Además, los 31 leads sin gestionar representan ~$85 en CPL pagado que se está tirando a la basura. Si estos leads se hubieran gestionado con la tasa de cierre de Luis (5.2%), habría ~1.6 ventas adicionales = <strong>$3,200 en revenue perdido</strong>.</p>
-    </div>
-
-    <div class="callout success">
-      <div class="callout-title">💡 Luis Corona: El CPL más eficiente + la única fuente de ventas</div>
-      <p>Luis tiene el CPL más bajo ($2.69), la mayor cantidad de leads (483) y el <strong>100% de las ventas</strong>. Su ROAS es 4.6x — por cada dólar invertido, genera $4.60 en revenue. La oportunidad: si se redirige toda la inversión hacia leads para Luis (o un closer de apoyo), el sistema puede producir ~$12K-$15K/mes con un gasto de ~$600-800.</p>
-    </div>
-
-    <div class="callout warning">
-      <div class="callout-title">⚠️ La campaña de Febrero tiene CPL 2x más alto</div>
-      <p>La campaña CP|FEB 19 tiene CPL de $4.20 vs $2.19 de la de Enero. Esto puede deberse a fatiga de creativos, cambio de targeting, o competencia estacional. <strong>Recomendación:</strong> Rotar creativos y evaluar si el targeting geográfico se amplió demasiado.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 03 VENDEDORES -->
-<section class="section">
-  <div class="container">
-    <div class="section-num">03</div>
+    <div class="section-num">04</div>
     <div class="section-title">Desempeño por Vendedor</div>
-    <p class="section-desc">Análisis del rendimiento de cada vendedor en Zona Prioritaria cruzado con inversión en Meta Ads.</p>
+    <p class="section-desc">Pipeline (ZP) + inversión en ads por vendedor.</p>
 
     <div class="seller-grid">
       <!-- LUIS CORONA -->
       <div class="seller-card" style="border-color:var(--gold-glow)">
         <div class="seller-name">👑 Luis Corona</div>
-        <span class="seller-role">Líder / Owner — 58 opps en ZP · $1,300 invertidos · ROAS 4.6x</span>
+        <span class="seller-role">Líder — 58 opps · $1,031 invertidos · ROAS ~5.8x*</span>
         <div class="seller-stats">
           <div class="seller-stat">
             <div class="seller-stat-label">Ventas</div>
@@ -600,46 +564,16 @@ tr:hover td{background:rgba(255,255,255,.02)}
             <div class="seller-stat-value" style="color:var(--red)">13</div>
           </div>
           <div class="seller-stat">
-            <div class="seller-stat-label">Citas</div>
-            <div class="seller-stat-value" style="color:var(--blue-light)">4</div>
+            <div class="seller-stat-label">% Gestión</div>
+            <div class="seller-stat-value" style="color:var(--green)">77.6%</div>
           </div>
-        </div>
-        <div style="margin-top:12px;padding:10px;background:rgba(200,150,62,.08);border-radius:8px;font-size:12px">
-          <strong>📊 Detalle:</strong> L1=10, Fuimos no estaba=8, No califica=5, No alcanzamos=4, Inactivación=1
-        </div>
-      </div>
-
-      <!-- JAIME OROZCO -->
-      <div class="seller-card" style="border-color:var(--red-soft)">
-        <div class="seller-name">🔴 Jaime Orozco</div>
-        <span class="seller-role">Socio / Vendedor — 27 opps en ZP · $122 invertidos · ROI: 0x</span>
-        <div class="seller-stats">
-          <div class="seller-stat">
-            <div class="seller-stat-label">Ventas</div>
-            <div class="seller-stat-value" style="color:var(--red)">0</div>
-          </div>
-          <div class="seller-stat">
-            <div class="seller-stat-label">Casi Ventas</div>
-            <div class="seller-stat-value" style="color:var(--red)">0</div>
-          </div>
-          <div class="seller-stat">
-            <div class="seller-stat-label">Sin Gestionar</div>
-            <div class="seller-stat-value" style="color:var(--red)">27</div>
-          </div>
-          <div class="seller-stat">
-            <div class="seller-stat-label">Citas</div>
-            <div class="seller-stat-value" style="color:var(--red)">0</div>
-          </div>
-        </div>
-        <div class="callout danger" style="margin-top:12px;margin-bottom:0;padding:10px">
-          <p><strong>🚨 ALERTA:</strong> Las 27 oportunidades de Jaime están TODAS en "Disponible para llamar". No se ha iniciado gestión en ninguna. Esto representa el 25% del total de ZP.</p>
         </div>
       </div>
 
       <!-- JESUS NAVA -->
       <div class="seller-card" style="border-color:var(--yellow-soft)">
         <div class="seller-name">🟡 Jesus Nava</div>
-        <span class="seller-role">Socio / Vendedor — 15 opps en ZP · $108 invertidos · ROI: 0x</span>
+        <span class="seller-role">Socio — 15 opps · $108 invertidos · ROI: 0x</span>
         <div class="seller-stats">
           <div class="seller-stat">
             <div class="seller-stat-label">Ventas</div>
@@ -654,19 +588,46 @@ tr:hover td{background:rgba(255,255,255,.02)}
             <div class="seller-stat-value" style="color:var(--red)">3</div>
           </div>
           <div class="seller-stat">
-            <div class="seller-stat-label">Citas</div>
-            <div class="seller-stat-value" style="color:var(--blue-light)">1</div>
+            <div class="seller-stat-label">% Gestión</div>
+            <div class="seller-stat-value" style="color:var(--green)">80%</div>
           </div>
         </div>
         <div style="margin-top:12px;padding:10px;background:var(--yellow-soft);border-radius:8px;font-size:12px">
-          <strong>📊 Detalle:</strong> Casi Venta=6, Disponible=3, L1=2, L2=1, Cita=1, No alcanzamos=1, Fuimos no estaba=1. <strong>Gestiona pero no cierra.</strong>
+          Gestiona pero no cierra. 6 "Casi Ventas" = oportunidad de coaching.
         </div>
       </div>
 
-      <!-- VICTOR ALONSO -->
-      <div class="seller-card" style="border-color:var(--red-soft)">
+      <!-- JAIME OROZCO -->
+      <div class="seller-card" style="border-color:rgba(239,68,68,.3)">
+        <div class="seller-name">🔴 Jaime Orozco</div>
+        <span class="seller-role">Socio — 27 opps · $98 invertidos · ROI: 0x</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Sin Gestionar</div>
+            <div class="seller-stat-value" style="color:var(--red)">27</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">% Gestión</div>
+            <div class="seller-stat-value" style="color:var(--red)">0%</div>
+          </div>
+        </div>
+        <div class="callout danger" style="margin-top:12px;margin-bottom:0;padding:10px">
+          <p><strong>27 leads, 0 llamadas, 0 ventas.</strong> $98 en ads desperdiciados. Mismo patrón que Maritza.</p>
+        </div>
+      </div>
+
+      <!-- VÍCTOR ALONSO -->
+      <div class="seller-card" style="border-color:rgba(239,68,68,.3)">
         <div class="seller-name">🔴 Víctor Alonso</div>
-        <span class="seller-role">Socio / Vendedor — 4 opps en ZP · $96 invertidos · ROI: 0x</span>
+        <span class="seller-role">Socio — 4 opps · $96 invertidos · ROI: 0x</span>
         <div class="seller-stats">
           <div class="seller-stat">
             <div class="seller-stat-label">Ventas</div>
@@ -681,289 +642,115 @@ tr:hover td{background:rgba(255,255,255,.02)}
             <div class="seller-stat-value" style="color:var(--red)">4</div>
           </div>
           <div class="seller-stat">
-            <div class="seller-stat-label">Citas</div>
-            <div class="seller-stat-value" style="color:var(--red)">0</div>
+            <div class="seller-stat-label">% Gestión</div>
+            <div class="seller-stat-value" style="color:var(--red)">0%</div>
           </div>
         </div>
         <div class="callout danger" style="margin-top:12px;margin-bottom:0;padding:10px">
-          <p><strong>🚨 ALERTA:</strong> 4 leads asignados, 0 gestionados. Pocas oportunidades pero también nula actividad.</p>
+          <p><strong>4 leads, 0 gestionados.</strong> Nula actividad.</p>
         </div>
       </div>
     </div>
 
-    <!-- RESUMEN VENDEDORES -->
-    <div class="table-wrap">
-      <div class="table-header">
-        📊 Resumen Comparativo de Vendedores (Zona Prioritaria)
-      </div>
-      <table>
-        <tr><th>Vendedor</th><th>Opps</th><th>Ventas</th><th>Casi Ventas</th><th>Sin Gestionar</th><th>% Gestión</th><th>Tasa Cierre</th></tr>
-        <tr>
-          <td><strong>Luis Corona</strong></td>
-          <td>58</td>
-          <td style="color:var(--green)"><strong>3</strong></td>
-          <td style="color:var(--yellow)">10</td>
-          <td style="color:var(--red)">13</td>
-          <td><span class="pct high">77.6%</span></td>
-          <td><span class="pct mid">5.2%</span></td>
-        </tr>
-        <tr>
-          <td>Jesus Nava</td>
-          <td>15</td>
-          <td>0</td>
-          <td style="color:var(--yellow)">6</td>
-          <td style="color:var(--red)">3</td>
-          <td><span class="pct high">80.0%</span></td>
-          <td><span class="pct low">0.0%</span></td>
-        </tr>
-        <tr style="background:var(--red-soft)">
-          <td>Jaime Orozco</td>
-          <td>27</td>
-          <td>0</td>
-          <td>0</td>
-          <td style="color:var(--red)"><strong>27</strong></td>
-          <td><span class="pct low">0.0%</span></td>
-          <td><span class="pct low">0.0%</span></td>
-        </tr>
-        <tr style="background:var(--red-soft)">
-          <td>Víctor Alonso</td>
-          <td>4</td>
-          <td>0</td>
-          <td>0</td>
-          <td style="color:var(--red)">4</td>
-          <td><span class="pct low">0.0%</span></td>
-          <td><span class="pct low">0.0%</span></td>
-        </tr>
-        <tr>
-          <td><em>Sin asignar</em></td>
-          <td>4</td>
-          <td style="color:var(--green)">1</td>
-          <td>0</td>
-          <td>0</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-      </table>
-    </div>
-
     <div class="callout info">
-      <div class="callout-title">💡 Insight clave</div>
-      <p>El <strong>100% de las ventas</strong> provienen de Luis Corona (3 de 4, la cuarta sin asignar). Ningún socio ha cerrado una venta. Jesus Nava muestra actividad (6 casi-ventas, movimiento en el pipeline) pero no ha convertido. Jaime tiene 27 oportunidades y CERO actividad — caso Maritza repitiéndose. Víctor está inactivo con 4 leads.</p>
+      <div class="callout-title">💡 Resumen</div>
+      <p><strong>100% de las ventas</strong> vienen de Luis Corona. Ningún socio ha cerrado. Jesus tiene actividad pero no convierte. Jaime y Víctor están inactivos — $194 en ads sin retorno.</p>
     </div>
   </div>
 </section>
 
-<!-- 03 VOLUMEN Y TENDENCIA -->
-<section class="section">
-  <div class="container">
-    <div class="section-num">04</div>
-    <div class="section-title">Volumen de Leads y Tendencia</div>
-    <p class="section-desc">Distribución mensual de registros y etiquetas de asignación por vendedor en el pipeline de clasificación.</p>
-
-    <div class="card-grid">
-      <div class="card gold">
-        <div class="card-label">Febrero 2026</div>
-        <div class="card-value">147</div>
-        <div class="card-sub">Primera oleada de ads</div>
-      </div>
-      <div class="card blue">
-        <div class="card-label">Marzo 2026 (parcial)</div>
-        <div class="card-value">112</div>
-        <div class="card-sub">9 días → ~12.4 leads/día</div>
-      </div>
-      <div class="card green">
-        <div class="card-label">Leads/Día Promedio</div>
-        <div class="card-value">~7</div>
-        <div class="card-sub">~210 leads/mes proyectado</div>
-      </div>
-      <div class="card yellow">
-        <div class="card-label">Tags de Vendedor</div>
-        <div class="card-value">4</div>
-        <div class="card-sub">Luis=160, Jaime=44, Jesus=39, Victor=27</div>
-      </div>
-    </div>
-
-    <div class="table-wrap">
-      <div class="table-header">
-        🏷️ Distribución de Leads por Vendedor (Tags en Pipeline de Clasificación)
-      </div>
-      <table>
-        <tr><th>Vendedor</th><th>Leads Taggeados</th><th>% del Total</th><th>Distribución</th></tr>
-        <tr>
-          <td>Luis Corona (tag: "luis c")</td>
-          <td><strong>160</strong></td>
-          <td>61.8%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:61.8%"></div></div></td>
-        </tr>
-        <tr>
-          <td>Jaime Orozco (tag: "jaime")</td>
-          <td><strong>44</strong></td>
-          <td>17.0%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:17%;background:var(--red)"></div></div></td>
-        </tr>
-        <tr>
-          <td>Jesus Nava (tag: "jesus")</td>
-          <td><strong>39</strong></td>
-          <td>15.1%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:15.1%;background:var(--yellow)"></div></div></td>
-        </tr>
-        <tr>
-          <td>Víctor Alonso (tag: "victor")</td>
-          <td><strong>27</strong></td>
-          <td>10.4%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:10.4%;background:var(--red)"></div></div></td>
-        </tr>
-        <tr>
-          <td>Maritza (inactiva)</td>
-          <td>10</td>
-          <td>3.9%</td>
-          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:3.9%;background:rgba(255,255,255,.2)"></div></div></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="callout warning">
-      <div class="callout-title">⚠️ Nota sobre "Inactivación" (60 leads — 23.2%)</div>
-      <p>60 leads llegaron al stage de Inactivación — fueron clasificados a la etapa automática por no haber sido gestionados dentro del período de tiempo definido. Estas son oportunidades perdidas por falta de seguimiento oportuno. 67 están taggeados como "inactivacion registro".</p>
-    </div>
-  </div>
-</section>
-
-<!-- Sección Llamadas HT removida — análisis enfocado solo en Corona Home Services -->
-
-<!-- 05 PLAN DE ACCIÓN -->
+<!-- 05 ACCIONES Y DECISIONES -->
 <section class="section">
   <div class="container">
     <div class="section-num">05</div>
-    <div class="section-title">Plan de Acción — Siguiente Sprint</div>
-    <p class="section-desc">Acciones priorizadas por velocidad de impacto. ¿Qué mover primero para generar resultados esta semana?</p>
+    <div class="section-title">Acciones — ¿Qué Hacemos?</div>
+    <p class="section-desc">5 acciones prioritarias + 3 decisiones que requieren aprobación.</p>
 
     <div class="phase p1">
-      <div class="phase-tag">🔴 Fase 1 — Acción Inmediata (Esta Semana)</div>
-      <div class="phase-title">Recuperar leads sin gestionar y cerrar "Casi Ventas"</div>
+      <div class="phase-tag">🔴 Esta Semana</div>
+      <div class="phase-title">Lo urgente</div>
       <ul>
-        <li><strong>Llamar las 16 "Casi Ventas"</strong> — Son los leads más calientes. Programar seguimiento esta misma semana con Luis y Nacari.</li>
-        <li><strong>Activar los 47 leads "Disponible para llamar" en ZP</strong> — Redistribuir los 27 de Jaime entre vendedores activos (Luis/Jesus) si Jaime no responde en 48h.</li>
-        <li><strong>Clasificar los 18 registros pendientes</strong> — Nacari debe completar la clasificación de los leads en stage "Registro" hoy.</li>
-        <li><strong>Confrontar a Jaime Orozco</strong> — 27 leads, 0% de gestión. Definir: ¿sigue en el sistema o se le retiran los leads? Repetición del caso Maritza.</li>
-        <li><strong>Evaluar a Víctor Alonso</strong> — 4 leads sin actividad. Verificar si está activo y comprometido.</li>
+        <li><strong>Registrar el valor real de las 4 ventas en GHL.</strong> Sin esto, no podemos cobrar la comisión del 5% ni medir el ROI real.</li>
+        <li><strong>Llamar las 16 "Casi Ventas"</strong> — son los leads más calientes. Seguimiento inmediato.</li>
+        <li><strong>Decidir sobre los 27 leads de Jaime:</strong> Redistribuir a Luis/Jesus o dar ultimátum de 48h.</li>
+        <li><strong>Activar los 47 leads sin gestionar en ZP</strong> — nadie los ha llamado.</li>
       </ul>
     </div>
 
     <div class="phase p2">
-      <div class="phase-tag">🟡 Fase 2 — Fundación (Semana 1-2)</div>
-      <div class="phase-title">Optimizar el pipeline y reducir pérdidas</div>
+      <div class="phase-tag">🟡 Semana 2</div>
+      <div class="phase-title">Optimizar</div>
       <ul>
-        <li><strong>Reducir "Fuera de Zona" (22%)</strong> — Revisar el targeting geográfico de Meta Ads. Cada lead fuera de zona cuesta ~$3-5 que va directo a la basura.</li>
-        <li><strong>Reactivar los 60 leads en "Inactivación"</strong> — Crear una secuencia de reactivación via SMS/WhatsApp para el sorteo. Estos son leads fríos pero con interés demostrado.</li>
-        <li><strong>Revisar los 28 leads de Zona No Prioritaria</strong> — 80% están sin llamar. Si hay zonas que empiezan a tener masa crítica, podrían activarse.</li>
-        <li><strong>Definir reglas de gestión claras:</strong> Si un socio no llama en 48h, los leads se redistribuyen automáticamente. Implementar automatización en GHL.</li>
-        <li><strong>Registrar valor de ventas en GHL</strong> — Las 4 ventas aparecen con valor $0. Registrar el monto real ($1K-$3K) para proyectar revenue real.</li>
+        <li><strong>Ajustar targeting geográfico de Meta Ads</strong> — reducir el 22% de leads "Fuera de Zona".</li>
+        <li><strong>Rotar creativos en campaña FEB 19</strong> — CPL de $4.20 es el doble de Enero ($2.19).</li>
+        <li><strong>Implementar regla de redistribución:</strong> Si un socio no llama en 48h → leads se reasignan automáticamente.</li>
+        <li><strong>Campaña de reactivación</strong> para los 60 leads en "Inactivación" (SMS/WhatsApp).</li>
       </ul>
     </div>
 
     <div class="phase p3">
-      <div class="phase-tag">🔵 Fase 3 — Aceleración (Semana 2-4)</div>
-      <div class="phase-title">Escalar lo que funciona, apagar lo que no</div>
+      <div class="phase-tag">🔵 Mes 2+</div>
+      <div class="phase-title">Escalar</div>
       <ul>
-        <li><strong>Decisión sobre Funnel de Reclutamiento:</strong> Con un 1.5% de conversión a calificado y $600/mes de inversión, evaluar si ese presupuesto se redirige a Corona Home Services donde hay tracción.</li>
-        <li><strong>Duplicar inversión en Corona Home Services</strong> si se apaga reclutamiento → $1,200/mes en sorteo = ~24 leads/día = ~720 leads/mes.</li>
-        <li><strong>Crear nuevos creativos de ads:</strong> Video de producto, unboxing, enfoque salud/agua. Los creativos actuales llevan tiempo corriendo.</li>
-        <li><strong>Coaching de ventas para Jesus Nava</strong> — Tiene 6 "Casi Ventas" pero 0 ventas cerradas. Perfil de setter que necesita mejorar el cierre.</li>
+        <li><strong>Si el modelo de socios no funciona → enfocar toda la inversión en leads para Luis.</strong></li>
+        <li><strong>Coaching de ventas para Jesus</strong> — tiene 6 "Casi Ventas" pero 0 cierres.</li>
+        <li><strong>Dashboard semanal automático</strong> con métricas por vendedor.</li>
       </ul>
     </div>
 
-    <div class="phase p4">
-      <div class="phase-tag">🟢 Fase 4 — Escala (Mes 2+)</div>
-      <div class="phase-title">Sistematizar y multiplicar</div>
-      <ul>
-        <li><strong>Modelo de socios validado:</strong> Solo activar socios que demuestren gestión activa del pipeline en las primeras 48h. Usar GHL como herramienta de control.</li>
-        <li><strong>Automatización de redistribución:</strong> Si un socio no mueve un lead en 48h → alerta. En 7 días → redistribución automática.</li>
-        <li><strong>Explorar cierre virtual:</strong> Para las "Casi Ventas" de zonas lejanas, probar cierre por videollamada.</li>
-        <li><strong>Dashboard semanal automático</strong> — Reportes de métricas por vendedor enviados cada lunes automáticamente.</li>
-      </ul>
+    <!-- DECISIONS -->
+    <div style="margin-top:40px">
+      <div class="section-title" style="font-size:22px">Decisiones para Hoy</div>
+      <div style="margin-top:16px">
+        <div class="decision">
+          <div class="decision-num">1</div>
+          <div class="decision-content">
+            <h4>¿Redistribuimos los 27 leads de Jaime ahora o le damos plazo?</h4>
+            <p>Recomendación: redistribuir ahora entre Luis y Jesus. El patrón es el mismo que Maritza.</p>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">2</div>
+          <div class="decision-content">
+            <h4>¿Qué hacemos con Víctor Alonso?</h4>
+            <p>4 leads, 0 gestión, $96 gastados. ¿Se desactiva o se da una última oportunidad?</p>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">3</div>
+          <div class="decision-content">
+            <h4>¿Cuál es el ticket promedio real por venta?</h4>
+            <p>Necesitamos este número hoy para calcular ROI real, comisión del 5%, y proyectar revenue. Todo el modelo depende de este dato.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 06 DECISIONES -->
+<!-- RESUMEN FINAL -->
 <section class="section" style="background:rgba(255,255,255,.02)">
   <div class="container">
-    <div class="section-num">06</div>
-    <div class="section-title">Decisiones Pendientes para Luis</div>
-    <p class="section-desc">Preguntas que necesitan respuesta en la reunión del 10 de marzo.</p>
-
-    <div class="decision">
-      <div class="decision-num">1</div>
-      <div class="decision-content">
-        <h4>¿Qué hacemos con los 27 leads de Jaime Orozco?</h4>
-        <p>Jaime tiene 27 leads en ZP con 0% de gestión. Opciones: (A) Darle 48h de ultimátum, (B) Redistribuir inmediatamente entre Luis/Jesus, (C) Retirarlo del sistema. <strong>Recomendación: Opción B — redistribuir ahora.</strong></p>
-      </div>
-    </div>
-    <div class="decision">
-      <div class="decision-num">2</div>
-      <div class="decision-content">
-        <h4>¿Mantenemos el funnel de reclutamiento de socios ($600/mes)?</h4>
-        <p>El funnel tiene 1.5% de conversión a calificado. Redirigir esos $600 a Corona Home Services podría generar ~120 leads adicionales/mes. <strong>Recomendación: Pausar reclutamiento y enfocar todo en ventas de producto.</strong></p>
-      </div>
-    </div>
-    <div class="decision">
-      <div class="decision-num">3</div>
-      <div class="decision-content">
-        <h4>¿Registrar las ventas cerradas con monto real?</h4>
-        <p>Las 4 ventas actuales aparecen con valor $0 en GHL. Necesitamos que Luis o Nacari registren el ticket real ($1K–$3K) para poder proyectar revenue y ROI del sistema. <strong>Recomendación: Hacer esto esta semana.</strong></p>
-      </div>
-    </div>
-    <div class="decision">
-      <div class="decision-num">4</div>
-      <div class="decision-content">
-        <h4>¿Qué zonas priorizar con los nuevos leads?</h4>
-        <p>22% de leads caen en "Fuera de Zona". ¿Ajustamos el targeting de Meta Ads para excluir áreas no cubiertas? Si Luis va a visitar ciertas zonas la próxima semana, podemos priorizar leads de esas zonas.</p>
-      </div>
-    </div>
-    <div class="decision">
-      <div class="decision-num">5</div>
-      <div class="decision-content">
-        <h4>¿Definimos una regla automática de redistribución de leads?</h4>
-        <p>Propuesta: Si un vendedor no mueve un lead del stage "Disponible para llamar" en 48 horas → alerta automática. En 7 días → redistribución automática a otro vendedor. <strong>Esto evita el problema de Jaime/Maritza.</strong></p>
-      </div>
-    </div>
-    <div class="decision">
-      <div class="decision-num">6</div>
-      <div class="decision-content">
-        <h4>¿Seguimos con el modelo de comisión 5% con socios?</h4>
-        <p>Ningún socio ha generado ventas. Jesus Nava tiene actividad pero no cierra. ¿Cambiamos a 10%? ¿O volvemos a fee fijo $300/mes? Los socios que no venden no generan ingresos bajo el modelo actual de comisión.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESUMEN EJECUTIVO -->
-<section class="section">
-  <div class="container">
-    <div class="section-num">07</div>
-    <div class="section-title">La Idea Central</div>
-
     <div class="callout success" style="border-radius:var(--radius);border-left-width:6px;padding:28px">
-      <div class="callout-title" style="font-size:18px;margin-bottom:10px">🎯 El sistema genera leads. El cuello de botella es la gestión.</div>
+      <div class="callout-title" style="font-size:18px;margin-bottom:10px">🎯 El sistema genera leads. El cuello de botella es la gestión y el registro.</div>
       <p style="font-size:14px;opacity:1">
-        Con <strong>259 registros en solo ~5 semanas</strong>, el sistema de generación de leads funciona. El problema no es la cantidad de leads ni el costo — es que <strong>el 43.5% de los leads en ZP no están siendo llamados</strong>, y los socios (Jaime, Víctor) no están ejecutando. Luis es el único que vende.
+        <strong>462 leads con $1,333 de inversión</strong> — el CPL de $2.89 es muy eficiente. El problema:
         <br><br>
-        <strong>La oportunidad:</strong> Si se gestionaran TODOS los leads con al menos una llamada y se mejora el rate de cita agendada de 19.4% a 35%, y se mantiene el ticket promedio de $2,000, la proyección sería:
+        ① <strong>43.5% de leads en ZP sin gestionar</strong> — dinero en la mesa sin recoger.<br>
+        ② <strong>$194 en socios que no venden</strong> — Jaime y Víctor con 0 ventas.<br>
+        ③ <strong>No se registra el valor de las ventas</strong> — no podemos cobrar comisión ni medir ROI real.
         <br><br>
-        <strong>108 leads × 35% citas × 40% cierre en demo × $2,000 = $30,240 potenciales</strong>
-        <br><br>
-        El dinero está en la mesa. Solo falta recogerlo.
+        <strong>Si se arreglan estos 3 problemas esta semana</strong>, el sistema puede producir resultados significativamente mayores con la misma inversión.
       </p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-brand">SALES VELOCITY × CORONA HOME SERVICES</div>
-  <div class="footer-sub">Data extraída de GoHighLevel API — 9 de Marzo 2026 · Confidencial</div>
-</footer>
+<div class="footer">
+  <div class="footer-brand">SALES VELOCITY × LUCHO BRANDING</div>
+  <div class="footer-sub">Reporte generado el 9 de marzo, 2026 · Datos de Meta Ads API + GoHighLevel API</div>
+</div>
 
 </body>
 </html>
