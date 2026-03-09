@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selector de Marca — Luis Corona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700;800&family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=Syne:wght@400;700;800&family=Instrument+Sans:wght@400;600;700&family=Outfit:wght@400;600;800;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:#111;color:#fff;padding:40px 20px;min-height:100vh}
+  .container{max-width:900px;margin:0 auto}
+  .page-header{text-align:center;margin-bottom:60px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .page-header h1{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+  .page-header h2{font-family:'Inter',sans-serif;font-size:32px;font-weight:600;color:#fff}
+  .page-header p{color:rgba(255,255,255,.5);margin-top:12px;font-size:14px;line-height:1.6;max-width:600px;margin-left:auto;margin-right:auto}
+
+  /* ── Approach Card ── */
+  .approach{margin-bottom:48px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:transform .3s ease}
+  .approach:hover{transform:translateY(-2px)}
+
+  /* Mode-specific bg */
+  .approach--dark{background:#0a0a0f}
+  .approach--light{background:#faf8f4;color:#1a1a2e}
+  .approach--cream{background:#f5f0e8;color:#1a1a2e}
+  .approach--split{background:linear-gradient(135deg,#0a0a14 50%,#faf8f4 50%)}
+  .approach--navy{background:#0c1425;color:#e8e4df}
+
+  .approach-inner{padding:48px 40px}
+  
+  /* ── Badge ── */
+  .badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:24px}
+  .badge--neon{background:rgba(0,210,255,.1);color:#00d2ff;border:1px solid rgba(0,210,255,.2)}
+  .badge--heritage{background:rgba(180,155,110,.12);color:#b49b6e;border:1px solid rgba(180,155,110,.2)}
+  .badge--bento{background:rgba(99,102,241,.1);color:#6366f1;border:1px solid rgba(99,102,241,.2)}
+  .badge--swiss{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.1)}
+  .badge--lifestyle{background:rgba(255,107,53,.1);color:#ff6b35;border:1px solid rgba(255,107,53,.2)}
+  .badge--dark{color:#fff}
+  .badge--light{color:#1a1a2e}
+
+  /* ── Name preview ── */
+  .name-preview{margin-bottom:28px}
+  .name-preview .first{display:block;font-size:48px;line-height:1.05}
+  .name-preview .last{display:block;font-size:48px;line-height:1.05;font-weight:800}
+
+  /* ── Swatches ── */
+  .swatches{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+  .swatch{width:48px;height:48px;border-radius:10px;position:relative;cursor:default;transition:transform .2s}
+  .swatch:hover{transform:scale(1.1)}
+  .swatch-label{position:absolute;bottom:-18px;left:0;right:0;text-align:center;font-size:9px;font-family:'JetBrains Mono',monospace;opacity:.5;white-space:nowrap}
+
+  /* ── Font pair ── */
+  .font-pair{margin-bottom:24px}
+  .font-pair .display-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;opacity:.4;margin-bottom:4px}
+  .font-pair .display-name{font-size:15px;opacity:.7}
+  .font-pair .body-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;opacity:.4;margin-top:12px;margin-bottom:4px}
+  .font-pair .body-name{font-size:15px;opacity:.7}
+
+  /* ── Objective ── */
+  .objective{padding:20px 24px;border-radius:12px;margin-top:20px;font-size:14px;line-height:1.7}
+  .objective--dark{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+  .objective--light{background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06);color:#333}
+  .objective strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;opacity:.5}
+
+  /* ── Approach Number ── */
+  .approach-num{font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.3;margin-bottom:8px}
+
+  /* ── Split layout helpers ── */
+  .split-preview{display:flex;gap:0}
+  .split-left,.split-right{flex:1;padding:40px 32px}
+  .split-left{background:#0a0a14;color:#fff;border-radius:16px 0 0 16px}
+  .split-right{background:#faf8f4;color:#1a1a2e;border-radius:0 16px 16px 0}
+  .split-left .name-preview .first,.split-left .name-preview .last{color:#fff}
+  .split-right .name-preview .first,.split-right .name-preview .last{color:#1a1a2e}
+
+  /* ── Footer ── */
+  .page-footer{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,.06);margin-top:20px}
+  .page-footer p{font-size:12px;color:rgba(255,255,255,.3)}
+
+  /* ── Responsive ── */
+  @media(max-width:600px){
+    .approach-inner{padding:32px 24px}
+    .name-preview .first,.name-preview .last{font-size:36px}
+    .split-preview{flex-direction:column}
+    .split-left,.split-right{border-radius:12px;margin-bottom:8px}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="page-header">
+    <h1>Selector de Marca</h1>
+    <h2>Luis Corona</h2>
+    <p>5 acercamientos visuales distintos. Cada uno con su propia identidad tipográfica, paleta y objetivo estratégico. Elige el que mejor represente la marca.</p>
+  </header>
+
+  <!-- ═══════════════ APPROACH 1: NEON MOMENTUM ═══════════════ -->
+  <div class="approach approach--dark">
+    <div class="approach-inner">
+      <div class="approach-num">01 / 05</div>
+      <span class="badge badge--neon">Neon Momentum</span>
+      
+      <div class="name-preview" style="font-family:'Space Grotesk',sans-serif">
+        <span class="first" style="color:rgba(255,255,255,.9)">Luis</span>
+        <span class="last" style="color:#00d2ff">CORONA</span>
+      </div>
+
+      <div class="swatches">
+        <div class="swatch" style="background:#00d2ff"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#00d2ff</span></div>
+        <div class="swatch" style="background:#0ea5e9"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#0ea5e9</span></div>
+        <div class="swatch" style="background:#030712"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#030712</span></div>
+        <div class="swatch" style="background:#111827"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#111827</span></div>
+        <div class="swatch" style="background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.1)"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#fff</span></div>
+      </div>
+
+      <div class="font-pair">
+        <div class="display-label">Display</div>
+        <div class="display-name" style="font-family:'Space Grotesk',sans-serif;color:rgba(255,255,255,.7)">Space Grotesk Bold</div>
+        <div class="body-label">Body / Specs</div>
+        <div class="body-name" style="font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,.7)">JetBrains Mono Regular</div>
+      </div>
+
+      <div class="objective objective--dark">
+        <strong>Objetivo ↓</strong>
+        Proyectar innovación y velocidad. Ideal para captar <b>socios jóvenes (18-35)</b> que buscan un vehículo de crecimiento moderno. Rompe con la imagen tradicional del network marketing. Glassmorphism + orbs animados + gradientes aurora.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ APPROACH 2: HERITAGE PRESTIGE ═══════════════ -->
+  <div class="approach approach--cream">
+    <div class="approach-inner">
+      <div class="approach-num" style="color:rgba(0,0,0,.3)">02 / 05</div>
+      <span class="badge badge--heritage">Heritage Prestige</span>
+      
+      <div class="name-preview" style="font-family:'Cormorant Garamond',serif">
+        <span class="first" style="color:#1a1a2e;font-weight:400">Luis</span>
+        <span class="last" style="color:#b49b6e;font-weight:700">CORONA</span>
+      </div>
+
+      <div class="swatches">
+        <div class="swatch" style="background:#1a1a2e"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#1a1a2e</span></div>
+        <div class="swatch" style="background:#b49b6e"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#b49b6e</span></div>
+        <div class="swatch" style="background:#f5f0e8;border:1px solid rgba(0,0,0,.08)"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#f5f0e8</span></div>
+        <div class="swatch" style="background:#d4c5a9"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#d4c5a9</span></div>
+        <div class="swatch" style="background:#8b7355"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#8b7355</span></div>
+      </div>
+
+      <div class="font-pair">
+        <div class="display-label" style="color:rgba(0,0,0,.4)">Display</div>
+        <div class="display-name" style="font-family:'Cormorant Garamond',serif;color:#555">Cormorant Garamond Semibold</div>
+        <div class="body-label" style="color:rgba(0,0,0,.4)">Body</div>
+        <div class="body-name" style="font-family:'DM Sans',sans-serif;color:#555">DM Sans Regular</div>
+      </div>
+
+      <div class="objective objective--light">
+        <strong style="color:rgba(0,0,0,.4)">Objetivo ↓</strong>
+        Comunicar tradición, calidad y prestigio. Alineado con la estética de <b>Royal Prestige</b> y el valor aspiracional de familias hispanas (30-60). Tipografía serif elegante, layout editorial con espacios amplios. Mínimas animaciones, máxima sofisticación.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ APPROACH 3: BENTO DUAL ═══════════════ -->
+  <div class="approach approach--dark">
+    <div class="approach-inner">
+      <div class="approach-num">03 / 05</div>
+      <span class="badge badge--bento">Bento Dual</span>
+      
+      <div class="split-preview" style="margin-bottom:24px">
+        <div class="split-left">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.4);margin-bottom:12px">● Socios</div>
+          <div class="name-preview" style="font-family:'Plus Jakarta Sans',sans-serif">
+            <span class="first" style="font-size:32px">Luis</span>
+            <span class="last" style="font-size:32px;color:#6366f1">CORONA</span>
+          </div>
+        </div>
+        <div class="split-right">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(0,0,0,.3);margin-bottom:12px">● Clientes</div>
+          <div class="name-preview" style="font-family:'Plus Jakarta Sans',sans-serif">
+            <span class="first" style="font-size:32px">Luis</span>
+            <span class="last" style="font-size:32px;color:#d4a853">CORONA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatches">
+        <div class="swatch" style="background:#6366f1"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#6366f1</span></div>
+        <div class="swatch" style="background:#d4a853"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#d4a853</span></div>
+        <div class="swatch" style="background:#0a0a14"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#0a0a14</span></div>
+        <div class="swatch" style="background:#faf8f4;border:1px solid rgba(255,255,255,.1)"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#faf8f4</span></div>
+        <div class="swatch" style="background:#1e1b4b"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#1e1b4b</span></div>
+      </div>
+
+      <div class="font-pair">
+        <div class="display-label">Display</div>
+        <div class="display-name" style="font-family:'Plus Jakarta Sans',sans-serif;color:rgba(255,255,255,.7)">Plus Jakarta Sans ExtraBold</div>
+        <div class="body-label">Body</div>
+        <div class="body-name" style="font-family:'Inter',sans-serif;color:rgba(255,255,255,.7)">Inter Regular</div>
+      </div>
+
+      <div class="objective objective--dark">
+        <strong>Objetivo ↓</strong>
+        Representar visualmente la <b>dualidad de marca</b> (socios + clientes) dentro de un solo sistema. Bento grid con paneles alternados dark/cream. Cada audiencia tiene su propia sub-paleta pero comparten la misma tipografía. Moderno, dashboard-like.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ APPROACH 4: SWISS VELOCITY ═══════════════ -->
+  <div class="approach approach--navy">
+    <div class="approach-inner">
+      <div class="approach-num" style="color:rgba(255,255,255,.2)">04 / 05</div>
+      <span class="badge badge--swiss">Swiss Velocity</span>
+      
+      <div class="name-preview" style="font-family:'Syne',sans-serif">
+        <span class="first" style="color:rgba(232,228,223,.9);font-weight:700">LUIS</span>
+        <span class="last" style="color:#ff3d00;font-weight:800;font-size:56px">CORONA</span>
+      </div>
+
+      <div class="swatches">
+        <div class="swatch" style="background:#ff3d00"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#ff3d00</span></div>
+        <div class="swatch" style="background:#0c1425"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#0c1425</span></div>
+        <div class="swatch" style="background:#e8e4df"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#e8e4df</span></div>
+        <div class="swatch" style="background:#1a2744"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#1a2744</span></div>
+        <div class="swatch" style="background:#ff6b35"><span class="swatch-label" style="color:rgba(255,255,255,.5)">#ff6b35</span></div>
+      </div>
+
+      <div class="font-pair">
+        <div class="display-label" style="color:rgba(255,255,255,.3)">Display</div>
+        <div class="display-name" style="font-family:'Syne',sans-serif;color:rgba(255,255,255,.6)">Syne ExtraBold</div>
+        <div class="body-label" style="color:rgba(255,255,255,.3)">Body</div>
+        <div class="body-name" style="font-family:'Instrument Sans',sans-serif;color:rgba(255,255,255,.6)">Instrument Sans Regular</div>
+      </div>
+
+      <div class="objective objective--dark">
+        <strong>Objetivo ↓</strong>
+        Tipografía de impacto máximo + paleta navy/rojo. Inspirado en diseño suizo contemporáneo: módulos rígidos, tipografía oversized, white space agresivo. Transmite <b>autoridad y confianza</b>. Para una marca personal que quiere dominar su espacio sin parecer corporativa.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ APPROACH 5: LIFESTYLE GLOW ═══════════════ -->
+  <div class="approach approach--light">
+    <div class="approach-inner">
+      <div class="approach-num" style="color:rgba(0,0,0,.2)">05 / 05</div>
+      <span class="badge badge--lifestyle">Lifestyle Glow</span>
+      
+      <div class="name-preview" style="font-family:'Outfit',sans-serif">
+        <span class="first" style="color:#1a1a2e;font-weight:600">Luis</span>
+        <span class="last" style="color:#ff6b35;font-weight:900;font-size:56px">CORONA</span>
+      </div>
+
+      <div class="swatches">
+        <div class="swatch" style="background:#ff6b35"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#ff6b35</span></div>
+        <div class="swatch" style="background:#ffb347"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#ffb347</span></div>
+        <div class="swatch" style="background:#faf8f4;border:1px solid rgba(0,0,0,.08)"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#faf8f4</span></div>
+        <div class="swatch" style="background:#1a1a2e"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#1a1a2e</span></div>
+        <div class="swatch" style="background:#ff8c42"><span class="swatch-label" style="color:rgba(0,0,0,.4)">#ff8c42</span></div>
+        <div class="swatch" style="background:linear-gradient(135deg,#ff6b35,#ffb347)"><span class="swatch-label" style="color:rgba(0,0,0,.4)">gradient</span></div>
+      </div>
+
+      <div class="font-pair">
+        <div class="display-label" style="color:rgba(0,0,0,.3)">Display</div>
+        <div class="display-name" style="font-family:'Outfit',sans-serif;color:#555">Outfit Black (900)</div>
+        <div class="body-label" style="color:rgba(0,0,0,.3)">Body</div>
+        <div class="body-name" style="font-family:'Manrope',sans-serif;color:#555">Manrope Regular</div>
+      </div>
+
+      <div class="objective objective--light">
+        <strong style="color:rgba(0,0,0,.3)">Objetivo ↓</strong>
+        Energía cálida y accesible. Paleta sunset naranja/ámbar sobre fondo claro. Ideal para conectar con <b>familias jóvenes</b> que valoran bienestar y estilo de vida saludable. Gradientes suaves, bordes redondeados, micro-animaciones de entrada. Cercana pero aspiracional.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="page-footer">
+    <p>Sales Velocity System · Brand Selector v2.0 · Elige un acercamiento para construir el manual completo</p>
+  </footer>
+
+</div>
+</body>
+</html>
