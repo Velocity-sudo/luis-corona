@@ -61,8 +61,7 @@ section{padding:80px 24px}
 
 /* ── NAV ── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(12,24,41,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05)}
-.nav-brand{font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:-0.5px}
-.nav-brand span{color:var(--socios-primary)}
+.nav-brand{font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:-0.5px;color:var(--text-light)}
 .nav-links{display:flex;gap:24px;list-style:none}
 .nav-links a{color:var(--text-muted-light);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.5px;transition:var(--transition)}
 .nav-links a:hover{color:var(--text-light)}
@@ -114,7 +113,7 @@ section{padding:80px 24px}
 .pillar-card{padding:36px 28px;border-radius:var(--radius-lg);border:1px solid rgba(12,24,41,.06);background:#fff;transition:var(--transition);position:relative;overflow:hidden}
 .pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transition:var(--transition)}
 .pillar-card:nth-child(1)::before{background:var(--socios-primary)}
-.pillar-card:nth-child(2)::before{background:linear-gradient(90deg,var(--socios-primary),var(--clientes-primary))}
+.pillar-card:nth-child(2)::before{background:var(--navy)}
 .pillar-card:nth-child(3)::before{background:var(--clientes-primary)}
 .pillar-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
 .pillar-num{font-family:var(--font-mono);font-size:12px;color:var(--text-muted-dark);margin-bottom:16px}
@@ -153,12 +152,17 @@ section{padding:80px 24px}
 .type-meta{font-family:var(--font-mono);font-size:11px;color:var(--text-muted-dark);margin-top:8px}
 .type-meta span{display:inline-block;background:rgba(12,24,41,.05);padding:3px 8px;border-radius:4px;margin-right:6px;margin-bottom:4px}
 
-/* full-width sample */
-.type-full{margin-top:40px;padding:48px;background:var(--navy-mid);border-radius:var(--radius-lg);border:1px solid rgba(255,255,255,.04);text-align:center}
-.type-full .display-big{font-family:var(--font-display);font-size:64px;font-weight:800;letter-spacing:-2px;color:var(--text-light)}
-.type-full .display-big .s{color:var(--socios-primary)}
-.type-full .display-big .c{color:var(--clientes-primary)}
-.type-full p{color:var(--text-muted-light);font-size:13px;margin-top:12px}
+/* full-width branded samples — side by side, never mixed */
+.type-duo{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.type-duo-card{padding:48px;border-radius:var(--radius-lg);text-align:center}
+.type-duo-card--socios{background:var(--navy-mid);border:1px solid rgba(255,255,255,.04)}
+.type-duo-card--clientes{background:var(--cream);border:1px solid rgba(12,24,41,.06)}
+.type-duo-card .display-big{font-family:var(--font-display);font-size:48px;font-weight:800;letter-spacing:-2px}
+.type-duo-card--socios .display-big{color:var(--socios-primary)}
+.type-duo-card--clientes .display-big{color:var(--clientes-primary)}
+.type-duo-card p{font-size:12px;margin-top:12px}
+.type-duo-card--socios p{color:var(--text-muted-light)}
+.type-duo-card--clientes p{color:var(--text-muted-dark)}
 
 /* ═══════════════════ VOICE & TONE ═══════════════════ */
 .voice{background:var(--navy)}
@@ -213,7 +217,7 @@ section{padding:80px 24px}
 
 /* ═══════════════════ RESPONSIVE ═══════════════════ */
 @media(max-width:768px){
-  .hero-grid,.identity-content,.color-system,.type-showcase,.voice-grid,.comp-grid{grid-template-columns:1fr}
+  .hero-grid,.identity-content,.color-system,.type-showcase,.voice-grid,.comp-grid,.type-duo{grid-template-columns:1fr}
   .pillar-grid,.tokens-grid{grid-template-columns:1fr}
   .hero-panel{padding:40px 28px}
   .hero-name{font-size:38px}
@@ -226,7 +230,7 @@ section{padding:80px 24px}
 
 <!-- ═══════════════════ NAV ═══════════════════ -->
 <nav class="nav">
-  <div class="nav-brand"><span class="nav-indicator"></span>Luis <span>Corona</span></div>
+  <div class="nav-brand"><span class="nav-indicator"></span>Luis Corona</div>
   <ul class="nav-links">
     <li><a href="#identity">Identidad</a></li>
     <li><a href="#pillars">Pilares</a></li>
@@ -415,10 +419,16 @@ section{padding:80px 24px}
       </div>
     </div>
 
-    <!-- Full-width dual name display -->
-    <div class="type-full">
-      <div class="display-big">Luis <span class="s">C</span><span class="c">orona</span></div>
-      <p>Display tipográfico dual — la "C" usa el acento de socios, "orona" usa el acento de clientes</p>
+    <!-- Branded name display — each brand separate -->
+    <div class="type-duo">
+      <div class="type-duo-card type-duo-card--socios">
+        <div class="display-big">Luis Corona</div>
+        <p>Versión Socios · Dark mode + azul</p>
+      </div>
+      <div class="type-duo-card type-duo-card--clientes">
+        <div class="display-big">Luis Corona</div>
+        <p>Versión Clientes · Light mode + dorado</p>
+      </div>
     </div>
   </div>
 </section>
