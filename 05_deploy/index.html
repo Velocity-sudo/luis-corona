@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Marca — Luis Corona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════
+   BRAND MANUAL — LUIS CORONA · Bento Dual System
+   Archetype: Split Dark/Light · Dual Brand
+   Version 1.0
+   ══════════════════════════════════════════════════════ */
+
+/* ── RESET & BASE ── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* ── Shared anchors ── */
+  --navy:#0c1829;
+  --navy-mid:#132540;
+  --navy-light:#1a3150;
+  --cream:#f8f5ef;
+  --cream-dark:#ede8de;
+  --text-dark:#0c1829;
+  --text-light:#f8f5ef;
+  --text-muted-dark:rgba(12,24,41,.5);
+  --text-muted-light:rgba(248,245,239,.5);
+
+  /* ── Socios palette (cool blue spectrum) ── */
+  --socios-primary:#2563eb;
+  --socios-accent:#60a5fa;
+  --socios-soft:rgba(37,99,235,.12);
+  --socios-glow:rgba(96,165,250,.15);
+
+  /* ── Clientes palette (warm gold spectrum) ── */
+  --clientes-primary:#c8963e;
+  --clientes-accent:#dbb06b;
+  --clientes-soft:rgba(200,150,62,.12);
+  --clientes-glow:rgba(219,176,107,.15);
+
+  /* ── Shared UI tokens ── */
+  --radius-sm:8px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --radius-xl:32px;
+  --shadow-card:0 2px 20px rgba(0,0,0,.08);
+  --shadow-hover:0 8px 32px rgba(0,0,0,.12);
+  --transition:all .3s cubic-bezier(.4,0,.2,1);
+  --font-display:'Plus Jakarta Sans',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--navy);color:var(--text-light);line-height:1.6;font-size:16px;overflow-x:hidden}
+
+/* ── SECTIONS ── */
+section{padding:80px 24px}
+.container{max-width:1100px;margin:0 auto}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(12,24,41,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05)}
+.nav-brand{font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:-0.5px;color:var(--text-light)}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{color:var(--text-muted-light);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.5px;transition:var(--transition)}
+.nav-links a:hover{color:var(--text-light)}
+.nav-indicator{width:6px;height:6px;border-radius:50%;background:var(--socios-primary);display:inline-block;margin-right:8px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ═══════════════════ HERO — SPLIT ═══════════════════ */
+.hero{padding:140px 0 100px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--radius-xl);overflow:hidden;min-height:420px}
+.hero-panel{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-panel--socios{background:var(--navy-mid);border-right:1px solid rgba(255,255,255,.04)}
+.hero-panel--clientes{background:var(--cream);color:var(--text-dark)}
+
+.hero-tag{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.hero-tag .dot{width:8px;height:8px;border-radius:50%}
+.hero-tag--socios .dot{background:var(--socios-primary)}
+.hero-tag--clientes .dot{background:var(--clientes-primary)}
+
+.hero-name{font-family:var(--font-display);font-size:52px;font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px}
+.hero-name--socios .accent{color:var(--socios-primary)}
+.hero-name--clientes .accent{color:var(--clientes-primary)}
+
+.hero-desc{font-size:15px;line-height:1.7;max-width:360px}
+.hero-desc--socios{color:var(--text-muted-light)}
+.hero-desc--clientes{color:var(--text-muted-dark)}
+
+/* ═══════════════════ IDENTITY ═══════════════════ */
+.identity{background:var(--navy)}
+.identity-header{text-align:center;margin-bottom:56px}
+.section-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--socios-accent);margin-bottom:12px}
+.section-title{font-family:var(--font-display);font-size:36px;font-weight:800;letter-spacing:-1px}
+.section-sub{color:var(--text-muted-light);margin-top:8px;font-size:15px;max-width:560px;margin-left:auto;margin-right:auto}
+
+.identity-content{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.identity-card{padding:40px;border-radius:var(--radius-lg);transition:var(--transition)}
+.identity-card:hover{transform:translateY(-4px)}
+.identity-card--dark{background:var(--navy-mid);border:1px solid rgba(255,255,255,.04)}
+.identity-card--light{background:var(--cream);color:var(--text-dark);border:1px solid rgba(0,0,0,.04)}
+.identity-card h3{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:16px}
+.identity-card p{font-size:14px;line-height:1.8;opacity:.75}
+
+/* ═══════════════════ PILLARS ═══════════════════ */
+.pillars{background:var(--cream);color:var(--text-dark)}
+.pillars .section-label{color:var(--clientes-primary)}
+.pillars .section-title{color:var(--text-dark)}
+.pillars .section-sub{color:var(--text-muted-dark)}
+
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.pillar-card{padding:36px 28px;border-radius:var(--radius-lg);border:1px solid rgba(12,24,41,.06);background:#fff;transition:var(--transition);position:relative;overflow:hidden}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transition:var(--transition)}
+.pillar-card:nth-child(1)::before{background:var(--socios-primary)}
+.pillar-card:nth-child(2)::before{background:var(--navy)}
+.pillar-card:nth-child(3)::before{background:var(--clientes-primary)}
+.pillar-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.pillar-num{font-family:var(--font-mono);font-size:12px;color:var(--text-muted-dark);margin-bottom:16px}
+.pillar-card h3{font-family:var(--font-display);font-size:20px;font-weight:700;margin-bottom:12px;color:var(--text-dark)}
+.pillar-card p{font-size:13px;line-height:1.7;color:rgba(12,24,41,.65)}
+
+/* ═══════════════════ COLORS ═══════════════════ */
+.colors{background:var(--navy)}
+.color-system{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px}
+.color-block{padding:36px;border-radius:var(--radius-lg)}
+.color-block--socios{background:var(--navy-mid);border:1px solid rgba(255,255,255,.04)}
+.color-block--clientes{background:var(--cream);color:var(--text-dark);border:1px solid rgba(0,0,0,.04)}
+.color-block h3{font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:24px}
+.palette{display:flex;gap:12px;flex-wrap:wrap}
+.color-swatch{width:72px;text-align:center}
+.color-swatch .box{width:72px;height:72px;border-radius:var(--radius-md);margin-bottom:8px;transition:var(--transition)}
+.color-swatch .box:hover{transform:scale(1.08)}
+.color-swatch .hex{font-family:var(--font-mono);font-size:10px;opacity:.6}
+.color-swatch .name{font-size:10px;font-weight:600;margin-top:2px;opacity:.5}
+
+/* Shared row */
+.shared-colors{margin-top:40px;padding:32px;background:var(--navy-mid);border-radius:var(--radius-lg);border:1px solid rgba(255,255,255,.04);text-align:center}
+.shared-colors h3{font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:20px;color:var(--text-muted-light)}
+.shared-colors .palette{justify-content:center}
+
+/* ═══════════════════ TYPOGRAPHY ═══════════════════ */
+.typography{background:var(--cream);color:var(--text-dark)}
+.typography .section-label{color:var(--clientes-primary)}
+.typography .section-title{color:var(--text-dark)}
+.type-showcase{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px}
+.type-card{padding:36px;border-radius:var(--radius-lg);border:1px solid rgba(12,24,41,.06);background:#fff}
+.type-card h4{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted-dark);margin-bottom:16px}
+.type-sample{font-family:var(--font-display);font-size:42px;font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:16px}
+.type-card--body .type-sample{font-family:var(--font-body);font-size:20px;font-weight:400;letter-spacing:0;line-height:1.6}
+.type-card--mono .type-sample{font-family:var(--font-mono);font-size:16px;font-weight:400;letter-spacing:0}
+.type-meta{font-family:var(--font-mono);font-size:11px;color:var(--text-muted-dark);margin-top:8px}
+.type-meta span{display:inline-block;background:rgba(12,24,41,.05);padding:3px 8px;border-radius:4px;margin-right:6px;margin-bottom:4px}
+
+/* full-width branded samples — side by side, never mixed */
+.type-duo{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.type-duo-card{padding:48px;border-radius:var(--radius-lg);text-align:center}
+.type-duo-card--socios{background:var(--navy-mid);border:1px solid rgba(255,255,255,.04)}
+.type-duo-card--clientes{background:var(--cream);border:1px solid rgba(12,24,41,.06)}
+.type-duo-card .display-big{font-family:var(--font-display);font-size:48px;font-weight:800;letter-spacing:-2px}
+.type-duo-card--socios .display-big{color:var(--socios-primary)}
+.type-duo-card--clientes .display-big{color:var(--clientes-primary)}
+.type-duo-card p{font-size:12px;margin-top:12px}
+.type-duo-card--socios p{color:var(--text-muted-light)}
+.type-duo-card--clientes p{color:var(--text-muted-dark)}
+
+/* ═══════════════════ VOICE & TONE ═══════════════════ */
+.voice{background:var(--navy)}
+.voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+.voice-card{padding:32px;border-radius:var(--radius-lg);border:1px solid rgba(255,255,255,.04);background:var(--navy-mid)}
+.voice-card h4{font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.voice-example{font-size:14px;line-height:1.7;padding:16px;border-radius:var(--radius-sm);margin-bottom:8px}
+.voice-example--do{background:rgba(37,99,235,.08);border-left:3px solid var(--socios-primary)}
+.voice-example--dont{background:rgba(239,68,68,.06);border-left:3px solid #ef4444}
+.voice-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.voice-label--do{color:var(--socios-accent)}
+.voice-label--dont{color:#ef4444}
+
+/* ═══════════════════ COMPONENTS ═══════════════════ */
+.components{background:var(--cream);color:var(--text-dark)}
+.components .section-label{color:var(--clientes-primary)}
+.components .section-title{color:var(--text-dark)}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+.comp-card{padding:32px;border-radius:var(--radius-lg);background:#fff;border:1px solid rgba(12,24,41,.06)}
+.comp-card h4{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted-dark);margin-bottom:20px}
+
+/* Buttons */
+.btn{display:inline-block;padding:14px 32px;border-radius:var(--radius-sm);font-family:var(--font-display);font-weight:700;font-size:14px;text-decoration:none;transition:var(--transition);cursor:pointer;border:none;margin:4px}
+.btn--socios{background:var(--socios-primary);color:#fff}
+.btn--socios:hover{background:#1d4ed8;transform:translateY(-2px)}
+.btn--clientes{background:var(--clientes-primary);color:#fff}
+.btn--clientes:hover{background:#b5832f;transform:translateY(-2px)}
+.btn--outline-s{background:transparent;border:2px solid var(--socios-primary);color:var(--socios-primary)}
+.btn--outline-c{background:transparent;border:2px solid var(--clientes-primary);color:var(--clientes-primary)}
+
+/* Badges */
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.badge{display:inline-block;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600}
+.badge--s{background:var(--socios-soft);color:var(--socios-primary)}
+.badge--c{background:var(--clientes-soft);color:var(--clientes-primary)}
+.badge--dark{background:rgba(12,24,41,.06);color:var(--text-dark)}
+
+/* ═══════════════════ TOKENS ═══════════════════ */
+.tokens{background:var(--navy)}
+.tokens-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.token-card{padding:28px;border-radius:var(--radius-lg);background:var(--navy-mid);border:1px solid rgba(255,255,255,.04)}
+.token-card h4{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted-light);margin-bottom:16px}
+.token-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px}
+.token-row:last-child{border-bottom:none}
+.token-key{font-family:var(--font-mono);font-size:12px;color:var(--socios-accent)}
+.token-val{font-family:var(--font-mono);font-size:12px;color:var(--text-muted-light)}
+
+/* ═══════════════════ FOOTER ═══════════════════ */
+.footer{background:var(--navy);padding:40px 24px;border-top:1px solid rgba(255,255,255,.04);text-align:center}
+.footer p{font-size:12px;color:var(--text-muted-light)}
+.footer .version{font-family:var(--font-mono);margin-top:8px;font-size:11px;color:rgba(255,255,255,.2)}
+
+/* ═══════════════════ RESPONSIVE ═══════════════════ */
+@media(max-width:768px){
+  .hero-grid,.identity-content,.color-system,.type-showcase,.voice-grid,.comp-grid,.type-duo{grid-template-columns:1fr}
+  .pillar-grid,.tokens-grid{grid-template-columns:1fr}
+  .hero-panel{padding:40px 28px}
+  .hero-name{font-size:38px}
+  .type-full .display-big{font-size:36px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="nav">
+  <div class="nav-brand"><span class="nav-indicator"></span>Luis Corona</div>
+  <ul class="nav-links">
+    <li><a href="#identity">Identidad</a></li>
+    <li><a href="#pillars">Pilares</a></li>
+    <li><a href="#colors">Colores</a></li>
+    <li><a href="#typography">Tipografía</a></li>
+    <li><a href="#voice">Voz</a></li>
+    <li><a href="#components">UI</a></li>
+    <li><a href="#tokens">Tokens</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════ HERO — SPLIT ═══════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Socios Panel -->
+      <div class="hero-panel hero-panel--socios">
+        <div class="hero-tag hero-tag--socios"><span class="dot"></span>MARCA SOCIOS</div>
+        <div class="hero-name hero-name--socios">
+          Luis<br><span class="accent">CORONA</span>
+        </div>
+        <p class="hero-desc hero-desc--socios">
+          Red de líderes. Oportunidad de negocio para jóvenes ambiciosos (18-35) que buscan independencia financiera a través de Royal Prestige.
+        </p>
+      </div>
+      <!-- Clientes Panel -->
+      <div class="hero-panel hero-panel--clientes">
+        <div class="hero-tag hero-tag--clientes"><span class="dot"></span>MARCA CLIENTES</div>
+        <div class="hero-name hero-name--clientes">
+          Luis<br><span class="accent">CORONA</span>
+        </div>
+        <p class="hero-desc hero-desc--clientes">
+          Bienestar para familias hispanas (30-60). Productos premium que transforman la cocina del hogar en una experiencia de salud y tradición.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ IDENTITY ═══════════════════ -->
+<section class="identity" id="identity">
+  <div class="container">
+    <div class="identity-header">
+      <div class="section-label">Identidad de Marca</div>
+      <div class="section-title">Dos Caminos, Una Visión</div>
+      <p class="section-sub">Luis Corona opera dos líneas de marca bajo la misma identidad personal. Cada una habla a una audiencia diferente con un tono adaptado, pero comparten valores centrales.</p>
+    </div>
+    <div class="identity-content">
+      <div class="identity-card identity-card--dark">
+        <h3>🔷 Socios — Oportunidad</h3>
+        <p>Dirigida a jóvenes de 18-35 años que buscan una fuente de ingresos escalable. El tono es directo, aspiracional y energético. Se enfoca en resultados, comunidad y crecimiento profesional dentro del ecosistema Royal Prestige.</p>
+        <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--socios-accent)">@esluiscorona · esluiscorona.com</p>
+      </div>
+      <div class="identity-card identity-card--light">
+        <h3>🔶 Clientes — Bienestar</h3>
+        <p>Dirigida a familias hispanas de 30-60 años. El tono es cálido, confiable y educativo. Se enfoca en la salud familiar, la calidad de los productos y la transformación del estilo de vida a través de la cocina saludable.</p>
+        <p style="margin-top:12px;font-family:var(--font-mono);font-size:12px;color:var(--clientes-primary)">@luiscoronasalud</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PILLARS ═══════════════════ -->
+<section class="pillars" id="pillars">
+  <div class="container">
+    <div class="identity-header">
+      <div class="section-label">Pilares de Marca</div>
+      <div class="section-title">Fundamentos de la Marca</div>
+      <p class="section-sub" style="color:var(--text-muted-dark)">Tres pilares que sostienen toda la comunicación de Luis Corona, aplicables tanto a socios como a clientes.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <h3>Liderazgo con Resultados</h3>
+        <p>No se predica desde la teoría. Todo se respalda con números, testimonios y casos reales. Luis Corona muestra, no cuenta. Cada pieza de contenido debe incluir una prueba tangible.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <h3>Comunidad y Mentoría</h3>
+        <p>El network marketing es un deporte de equipo. La marca refuerza que unirse a Luis Corona es unirse a un sistema de mentoría activo, no a una venta solitaria. Entrenamiento, acceso, y red.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <h3>Calidad Premium</h3>
+        <p>Alineado con Royal Prestige: los productos son de clase mundial. La marca nunca compite por precio, siempre por valor. La cocina saludable es una inversión en la familia, no un gasto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ COLORS ═══════════════════ -->
+<section class="colors" id="colors">
+  <div class="container">
+    <div class="identity-header">
+      <div class="section-label">Sistema de Color</div>
+      <div class="section-title">Paleta Dual Armonizada</div>
+      <p class="section-sub">Ambas paletas comparten anclas de color (navy + cream) para mantener coherencia. Los acentos se diferencian por temperatura: azul frío para socios, dorado cálido para clientes.</p>
+    </div>
+
+    <div class="color-system">
+      <!-- Socios palette -->
+      <div class="color-block color-block--socios">
+        <h3>🔷 Paleta Socios</h3>
+        <div class="palette">
+          <div class="color-swatch"><div class="box" style="background:var(--socios-primary)"></div><div class="hex">#2563eb</div><div class="name">Primary</div></div>
+          <div class="color-swatch"><div class="box" style="background:var(--socios-accent)"></div><div class="hex">#60a5fa</div><div class="name">Accent</div></div>
+          <div class="color-swatch"><div class="box" style="background:var(--navy)"></div><div class="hex">#0c1829</div><div class="name">Navy</div></div>
+          <div class="color-swatch"><div class="box" style="background:var(--navy-mid)"></div><div class="hex">#132540</div><div class="name">Surface</div></div>
+          <div class="color-swatch"><div class="box" style="background:var(--text-light);border:1px solid rgba(255,255,255,.1)"></div><div class="hex">#f8f5ef</div><div class="name">Text</div></div>
+        </div>
+      </div>
+      <!-- Clientes palette -->
+      <div class="color-block color-block--clientes">
+        <h3>🔶 Paleta Clientes</h3>
+        <div class="palette">
+          <div class="color-swatch"><div class="box" style="background:var(--clientes-primary)"></div><div class="hex">#c8963e</div><div class="name">Primary</div></div>
+          <div class="color-swatch"><div class="box" style="background:var(--clientes-accent)"></div><div class="hex">#dbb06b</div><div class="name">Accent</div></div>
+          <div class="color-swatch"><div class="box" style="background:var(--cream);border:1px solid rgba(0,0,0,.06)"></div><div class="hex">#f8f5ef</div><div class="name">Cream</div></div>
+          <div class="color-swatch"><div class="box" style="background:#fff;border:1px solid rgba(0,0,0,.06)"></div><div class="hex">#ffffff</div><div class="name">Surface</div></div>
+          <div class="color-swatch"><div class="box" style="background:var(--text-dark)"></div><div class="hex">#0c1829</div><div class="name">Text</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shared anchors -->
+    <div class="shared-colors">
+      <h3>Colores Compartidos (Anclas)</h3>
+      <div class="palette">
+        <div class="color-swatch"><div class="box" style="background:var(--navy)"></div><div class="hex" style="color:var(--text-muted-light)">#0c1829</div><div class="name" style="color:var(--text-muted-light)">Navy Base</div></div>
+        <div class="color-swatch"><div class="box" style="background:var(--navy-mid)"></div><div class="hex" style="color:var(--text-muted-light)">#132540</div><div class="name" style="color:var(--text-muted-light)">Navy Mid</div></div>
+        <div class="color-swatch"><div class="box" style="background:var(--cream);border:1px solid rgba(255,255,255,.1)"></div><div class="hex" style="color:var(--text-muted-light)">#f8f5ef</div><div class="name" style="color:var(--text-muted-light)">Cream</div></div>
+        <div class="color-swatch"><div class="box" style="background:var(--cream-dark);border:1px solid rgba(255,255,255,.1)"></div><div class="hex" style="color:var(--text-muted-light)">#ede8de</div><div class="name" style="color:var(--text-muted-light)">Cream Dark</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TYPOGRAPHY ═══════════════════ -->
+<section class="typography" id="typography">
+  <div class="container">
+    <div class="identity-header">
+      <div class="section-label">Sistema Tipográfico</div>
+      <div class="section-title" style="color:var(--text-dark)">Tipografía Compartida</div>
+      <p class="section-sub" style="color:var(--text-muted-dark)">Ambas líneas de marca usan el mismo stack tipográfico para mantener unidad. La diferenciación está en color y modo, no en fuentes.</p>
+    </div>
+
+    <div class="type-showcase">
+      <div class="type-card">
+        <h4>Display · Headings</h4>
+        <div class="type-sample">Plus Jakarta Sans</div>
+        <div class="type-meta">
+          <span>ExtraBold 800</span>
+          <span>Bold 700</span>
+          <span>Semibold 600</span>
+        </div>
+      </div>
+      <div class="type-card type-card--body">
+        <h4>Body · Párrafos</h4>
+        <div class="type-sample">Inter es la fuente de cuerpo. Limpia, neutral, legible en cualquier tamaño y pantalla.</div>
+        <div class="type-meta">
+          <span>Regular 400</span>
+          <span>Medium 500</span>
+          <span>Semibold 600</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-showcase" style="margin-top:24px">
+      <div class="type-card type-card--mono">
+        <h4>Mono · Datos & Specs</h4>
+        <div class="type-sample">JetBrains Mono → $12,500 MXN · v1.0 · 2026.03</div>
+        <div class="type-meta">
+          <span>Regular 400</span>
+          <span>Medium 500</span>
+        </div>
+      </div>
+      <div class="type-card">
+        <h4>Jerarquía de Tamaños</h4>
+        <div style="font-family:var(--font-display)">
+          <div style="font-size:36px;font-weight:800;letter-spacing:-1px">H1 — 36px / 800</div>
+          <div style="font-size:24px;font-weight:700;margin-top:8px">H2 — 24px / 700</div>
+          <div style="font-size:18px;font-weight:600;margin-top:8px">H3 — 18px / 600</div>
+          <div style="font-size:16px;font-weight:400;margin-top:8px;font-family:var(--font-body)">Body — 16px / 400</div>
+          <div style="font-size:13px;font-weight:400;margin-top:8px;font-family:var(--font-mono);color:var(--text-muted-dark)">Mono — 13px / 400</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Branded name display — each brand separate -->
+    <div class="type-duo">
+      <div class="type-duo-card type-duo-card--socios">
+        <div class="display-big">Luis Corona</div>
+        <p>Versión Socios · Dark mode + azul</p>
+      </div>
+      <div class="type-duo-card type-duo-card--clientes">
+        <div class="display-big">Luis Corona</div>
+        <p>Versión Clientes · Light mode + dorado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ VOICE & TONE ═══════════════════ -->
+<section class="voice" id="voice">
+  <div class="container">
+    <div class="identity-header">
+      <div class="section-label">Voz y Tono</div>
+      <div class="section-title">Cómo Habla la Marca</div>
+      <p class="section-sub">El tono se adapta según la audiencia, pero la voz siempre es auténtica, directa y orientada a resultados.</p>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <h4>🔷 Tono Socios</h4>
+        <div class="voice-label voice-label--do">✓ Así sí</div>
+        <div class="voice-example voice-example--do">
+          "En 90 días generé mi primer ingreso de $15,000 MXN mensuales. No fue suerte — fue el sistema. Y hoy puedes acceder al mismo entrenamiento."
+        </div>
+        <div class="voice-label voice-label--dont" style="margin-top:12px">✕ Así no</div>
+        <div class="voice-example voice-example--dont">
+          "¡Únete a nuestro increíble equipo y empieza a ganar dinero ya!"
+        </div>
+      </div>
+      <div class="voice-card">
+        <h4>🔶 Tono Clientes</h4>
+        <div class="voice-label voice-label--do">✓ Así sí</div>
+        <div class="voice-example voice-example--do">
+          "Tu familia merece lo mejor en la mesa. Con sartenes que cocinan sin aceite, transformas cada comida en un paso hacia una vida más saludable."
+        </div>
+        <div class="voice-label voice-label--dont" style="margin-top:12px">✕ Así no</div>
+        <div class="voice-example voice-example--dont">
+          "¡Los mejores productos de cocina! ¡Compra ahora!"
+        </div>
+      </div>
+      <div class="voice-card">
+        <h4>📋 Principios de Voz</h4>
+        <div class="voice-example voice-example--do">
+          <strong>Directo:</strong> Sin rodeos. El primer párrafo siempre dice qué hay para la persona.<br><br>
+          <strong>Con prueba:</strong> Cada claim lleva un dato real, testimonio o resultado.<br><br>
+          <strong>Accionable:</strong> Cada pieza de contenido termina con un paso claro a seguir.
+        </div>
+      </div>
+      <div class="voice-card">
+        <h4>🚫 Errores Comunes</h4>
+        <div class="voice-example voice-example--dont">
+          <strong>Hype vacío:</strong> "¡Increíble oportunidad!", "¡Cambiarás tu vida!" sin contexto.<br><br>
+          <strong>Presión agresiva:</strong> "Solo quedan 2 lugares" (cuando no es real).<br><br>
+          <strong>Jerga MLM:</strong> "Downline", "línea directa", "comisiones en cascada" — traducir a lenguaje humano.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ COMPONENTS ═══════════════════ -->
+<section class="components" id="components">
+  <div class="container">
+    <div class="identity-header">
+      <div class="section-label">Componentes UI</div>
+      <div class="section-title" style="color:var(--text-dark)">Kit de Interfaz</div>
+      <p class="section-sub" style="color:var(--text-muted-dark)">Botones, badges y elementos reutilizables para GHL, landing pages y comunicaciones.</p>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <h4>Botones — Socios</h4>
+        <button class="btn btn--socios">Únete al Equipo</button>
+        <button class="btn btn--outline-s">Ver Más</button>
+        <div class="badge-row">
+          <span class="badge badge--s">Nuevo Socio</span>
+          <span class="badge badge--s">En Capacitación</span>
+          <span class="badge badge--s">Líder</span>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h4>Botones — Clientes</h4>
+        <button class="btn btn--clientes">Agenda tu Demostración</button>
+        <button class="btn btn--outline-c">Conoce Más</button>
+        <div class="badge-row">
+          <span class="badge badge--c">Familia Saludable</span>
+          <span class="badge badge--c">Royal Prestige</span>
+          <span class="badge badge--dark">Premium</span>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h4>Cards — Dark (Socios)</h4>
+        <div style="background:var(--navy);padding:24px;border-radius:var(--radius-md);color:var(--text-light)">
+          <div style="font-family:var(--font-display);font-weight:700;font-size:18px;margin-bottom:8px">Próximo Entrenamiento</div>
+          <div style="font-size:14px;color:var(--text-muted-light)">Martes 18:00 · Zoom</div>
+          <button class="btn btn--socios" style="margin-top:16px;padding:10px 24px;font-size:13px">Reservar</button>
+        </div>
+      </div>
+      <div class="comp-card">
+        <h4>Cards — Light (Clientes)</h4>
+        <div style="background:var(--cream);padding:24px;border-radius:var(--radius-md);color:var(--text-dark)">
+          <div style="font-family:var(--font-display);font-weight:700;font-size:18px;margin-bottom:8px">Receta de la Semana</div>
+          <div style="font-size:14px;color:var(--text-muted-dark)">Pollo en sartén de titanio · Sin aceite</div>
+          <button class="btn btn--clientes" style="margin-top:16px;padding:10px 24px;font-size:13px">Ver Receta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TOKENS ═══════════════════ -->
+<section class="tokens" id="tokens">
+  <div class="container">
+    <div class="identity-header">
+      <div class="section-label">Design Tokens</div>
+      <div class="section-title">Especificaciones Técnicas</div>
+      <p class="section-sub">Variables reutilizables para desarrollo. Usar con CSS custom properties o como referencia en GHL.</p>
+    </div>
+    <div class="tokens-grid">
+      <div class="token-card">
+        <h4>Spacing</h4>
+        <div class="token-row"><span class="token-key">--space-xs</span><span class="token-val">4px</span></div>
+        <div class="token-row"><span class="token-key">--space-sm</span><span class="token-val">8px</span></div>
+        <div class="token-row"><span class="token-key">--space-md</span><span class="token-val">16px</span></div>
+        <div class="token-row"><span class="token-key">--space-lg</span><span class="token-val">24px</span></div>
+        <div class="token-row"><span class="token-key">--space-xl</span><span class="token-val">40px</span></div>
+        <div class="token-row"><span class="token-key">--space-2xl</span><span class="token-val">64px</span></div>
+      </div>
+      <div class="token-card">
+        <h4>Border Radius</h4>
+        <div class="token-row"><span class="token-key">--radius-sm</span><span class="token-val">8px</span></div>
+        <div class="token-row"><span class="token-key">--radius-md</span><span class="token-val">16px</span></div>
+        <div class="token-row"><span class="token-key">--radius-lg</span><span class="token-val">24px</span></div>
+        <div class="token-row"><span class="token-key">--radius-xl</span><span class="token-val">32px</span></div>
+        <div class="token-row"><span class="token-key">--radius-full</span><span class="token-val">100px</span></div>
+      </div>
+      <div class="token-card">
+        <h4>Shadows</h4>
+        <div class="token-row"><span class="token-key">--shadow-card</span><span class="token-val">0 2px 20px .08</span></div>
+        <div class="token-row"><span class="token-key">--shadow-hover</span><span class="token-val">0 8px 32px .12</span></div>
+        <div class="token-row"><span class="token-key">--blur-nav</span><span class="token-val">blur(20px)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <p>Manual de Marca — Luis Corona · Bento Dual System</p>
+  <p class="version">v1.0 · Marzo 2026 · Sales Velocity System</p>
+</footer>
+
+</body>
+</html>

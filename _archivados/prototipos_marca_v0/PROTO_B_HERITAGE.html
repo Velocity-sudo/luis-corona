@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta B — Heritage Prestige · Luis Corona</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+        :root {
+            --cream: #FAF8F4;
+            --cream-warm: #F3EDE4;
+            --cream-card: #FFFFFF;
+            --navy: #0F172A;
+            --navy-soft: #1E293B;
+            --navy-muted: #475569;
+            --gold: #B8860B;
+            --gold-light: #D4A843;
+            --gold-pale: #E8D5A0;
+            --blue-prestige: #1D4ED8;
+            --border-light: rgba(15, 23, 42, 0.08);
+            --border-gold: rgba(184, 134, 11, 0.2);
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── TOP RULE ── */
+        .top-rule {
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 60%, var(--gold) 60%, var(--gold) 100%);
+        }
+
+        /* ── NAV ── */
+        .nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 24px 8%; border-bottom: 1px solid var(--border-light);
+            max-width: 1200px; margin: 0 auto;
+        }
+        .nav-logo {
+            font-family: var(--font-serif); font-weight: 600; font-size: 1.1rem;
+            letter-spacing: 0.08em; color: var(--navy);
+        }
+        .nav-tag {
+            font-size: 0.6rem; color: var(--gold); letter-spacing: 0.25em;
+            text-transform: uppercase; font-weight: 500;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            max-width: 800px; margin: 0 auto; padding: 140px 8% 120px;
+            text-align: center; position: relative;
+        }
+        .hero-eyebrow {
+            font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.4em;
+            color: var(--gold); margin-bottom: 48px; font-weight: 500;
+            display: inline-flex; align-items: center; gap: 16px;
+        }
+        .hero-eyebrow::before, .hero-eyebrow::after {
+            content: ''; width: 40px; height: 1px; background: var(--gold-pale);
+        }
+        .hero h1 {
+            font-family: var(--font-serif); font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 400; letter-spacing: -0.02em; line-height: 0.95;
+            color: var(--navy); margin-bottom: 8px;
+        }
+        .hero h1 em {
+            font-style: italic; color: var(--gold);
+        }
+        .hero .subtitle {
+            font-family: var(--font-serif); font-size: 1.2rem; font-style: italic;
+            color: var(--navy-muted); margin-top: 20px; font-weight: 400;
+        }
+        .hero-divider {
+            width: 1px; height: 60px; background: var(--gold-pale);
+            margin: 56px auto 0;
+        }
+
+        /* ── DUAL LABELS ── */
+        .dual-labels {
+            display: flex; gap: 32px; justify-content: center; margin-top: 40px;
+        }
+        .brand-label {
+            font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+            padding: 12px 28px; font-weight: 500;
+        }
+        .label-socios {
+            color: var(--blue-prestige); border: 1px solid rgba(29, 78, 216, 0.2);
+            border-radius: 0;
+        }
+        .label-clientes {
+            color: var(--gold); border: 1px solid var(--border-gold);
+            border-radius: 0;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            max-width: 800px; margin: 0 auto; padding: 100px 8%;
+            border-top: 1px solid var(--border-light);
+        }
+        .section-label {
+            font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.35em;
+            color: var(--gold); margin-bottom: 24px; font-weight: 500;
+        }
+        .section h2 {
+            font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400; letter-spacing: -0.01em; margin-bottom: 20px;
+        }
+        .section .intro {
+            font-size: 1rem; color: var(--navy-muted); max-width: 560px;
+            margin-bottom: 56px; line-height: 1.8;
+        }
+
+        /* ── EDITORIAL CARDS (no bg, just lines) ── */
+        .editorial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+        .editorial-card {
+            padding: 40px 28px; border-right: 1px solid var(--border-light);
+            transition: background 0.3s;
+        }
+        .editorial-card:last-child { border-right: none; }
+        .editorial-card:hover { background: var(--cream-warm); }
+        .editorial-card .num {
+            font-family: var(--font-serif); font-size: 2.5rem; font-weight: 300;
+            color: var(--gold-pale); margin-bottom: 20px; line-height: 1;
+        }
+        .editorial-card h3 {
+            font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600;
+            margin-bottom: 14px; letter-spacing: -0.01em;
+        }
+        .editorial-card p {
+            font-size: 0.85rem; color: var(--navy-muted); line-height: 1.8;
+        }
+
+        /* ── SWATCH STRIP ── */
+        .swatch-strip {
+            display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+            margin-top: 40px; border: 1px solid var(--border-light); overflow: hidden;
+        }
+        .strip-swatch { text-align: center; }
+        .strip-color { height: 120px; }
+        .strip-info {
+            padding: 16px 8px; background: var(--cream-card);
+            border-top: 1px solid var(--border-light);
+        }
+        .strip-name { font-weight: 600; font-size: 0.75rem; color: var(--navy); margin-bottom: 4px; }
+        .strip-hex {
+            font-size: 0.65rem; color: var(--navy-muted);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+        }
+        .strip-use { font-size: 0.6rem; color: var(--navy-muted); margin-top: 6px; font-style: italic; }
+
+        /* ── QUOTE ── */
+        .pull-quote {
+            max-width: 800px; margin: 0 auto; padding: 80px 8%;
+            text-align: center; border-top: 1px solid var(--border-light);
+        }
+        .pull-quote blockquote {
+            font-family: var(--font-serif); font-size: 1.8rem; font-style: italic;
+            font-weight: 400; color: var(--navy); line-height: 1.5;
+            max-width: 600px; margin: 0 auto;
+        }
+        .pull-quote cite {
+            display: block; margin-top: 24px; font-style: normal;
+            font-family: var(--font-sans); font-size: 0.65rem;
+            text-transform: uppercase; letter-spacing: 0.25em; color: var(--gold);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            text-align: center; padding: 60px 8%; border-top: 1px solid var(--border-light);
+        }
+        .footer p {
+            font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.25em;
+            color: var(--navy-muted);
+        }
+
+        @media (max-width: 768px) {
+            .editorial-grid { grid-template-columns: 1fr; }
+            .editorial-card { border-right: none; border-bottom: 1px solid var(--border-light); }
+            .swatch-strip { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-rule"></div>
+
+    <nav class="nav">
+        <span class="nav-logo">LUIS CORONA</span>
+        <span class="nav-tag">Propuesta B · Heritage Prestige</span>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+        <p class="hero-eyebrow">Brand Guidelines</p>
+        <h1>Luis<br><em>Corona</em></h1>
+        <p class="subtitle">Royal Prestige · Network Marketing · Sistema 8K</p>
+        <div class="dual-labels">
+            <span class="brand-label label-socios">@esluiscorona · Socios</span>
+            <span class="brand-label label-clientes">@luiscoronasalud · Clientes</span>
+        </div>
+        <div class="hero-divider"></div>
+    </section>
+
+    <!-- ═══ 01 IDENTIDAD ═══ -->
+    <section class="section">
+        <p class="section-label">Identidad</p>
+        <h2>Arquitectura de Marca Dual</h2>
+        <p class="intro">Dos identidades visuales distintas bajo un mismo paraguas. Una para reclutar socios jóvenes y otra para vender bienestar a familias.</p>
+
+        <div class="editorial-grid">
+            <div class="editorial-card">
+                <p class="num">I</p>
+                <h3>Sistema 8K</h3>
+                <p>Framework de reclutamiento para jóvenes latinos 18-35. Velocidad, resultados, independencia financiera.</p>
+            </div>
+            <div class="editorial-card">
+                <p class="num">II</p>
+                <h3>Royal Prestige</h3>
+                <p>Utensilios de cocina premium para familias hispanas 30-60. Tradición, salud, inversión en calidad de vida.</p>
+            </div>
+            <div class="editorial-card">
+                <p class="num">III</p>
+                <h3>Marca Paraguas</h3>
+                <p>Luis Corona como conector y puente de confianza entre ambas audiencias.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PALETA CLIENTES ═══ -->
+    <section class="section">
+        <p class="section-label">Color System · Clientes</p>
+        <h2>Prestige Blue + Warm Gold</h2>
+        <p class="intro">Inspirada en el heritage de Royal Prestige. Azul profundo como autoridad y oro cálido como tradición premium.</p>
+
+        <div class="swatch-strip">
+            <div class="strip-swatch">
+                <div class="strip-color" style="background:#FAF8F4"></div>
+                <div class="strip-info"><p class="strip-name">Cream</p><p class="strip-hex">#FAF8F4</p><p class="strip-use">Fondo</p></div>
+            </div>
+            <div class="strip-swatch">
+                <div class="strip-color" style="background:#0F172A"></div>
+                <div class="strip-info"><p class="strip-name">Navy</p><p class="strip-hex">#0F172A</p><p class="strip-use">Texto</p></div>
+            </div>
+            <div class="strip-swatch">
+                <div class="strip-color" style="background:#1D4ED8"></div>
+                <div class="strip-info"><p class="strip-name">Prestige Blue</p><p class="strip-hex">#1D4ED8</p><p class="strip-use">Links, CTAs</p></div>
+            </div>
+            <div class="strip-swatch">
+                <div class="strip-color" style="background:#B8860B"></div>
+                <div class="strip-info"><p class="strip-name">Heritage Gold</p><p class="strip-hex">#B8860B</p><p class="strip-use">Acentos</p></div>
+            </div>
+            <div class="strip-swatch">
+                <div class="strip-color" style="background:#D4A843"></div>
+                <div class="strip-info"><p class="strip-name">Warm Gold</p><p class="strip-hex">#D4A843</p><p class="strip-use">Labels</p></div>
+            </div>
+            <div class="strip-swatch">
+                <div class="strip-color" style="background:#475569"></div>
+                <div class="strip-info"><p class="strip-name">Slate</p><p class="strip-hex">#475569</p><p class="strip-use">Body text</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PULL QUOTE ═══ -->
+    <section class="pull-quote">
+        <blockquote>"El éxito no es un accidente. Es disciplina, trabajo duro, y la decisión de invertir en ti y en tu familia."</blockquote>
+        <cite>Luis Corona · Filosofía de Marca</cite>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <p>Propuesta B · Heritage Prestige · Arquetipo Editorial · Marzo 2026</p>
+    </footer>
+</body>
+</html>

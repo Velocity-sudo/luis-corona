@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corona Home Services — Análisis de Pipeline · Campañas Activas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0c1829;--navy-mid:#132540;--navy-light:#1a3150;
+  --gold:#c8963e;--gold-light:#dbb06b;--gold-soft:rgba(200,150,62,.12);--gold-glow:rgba(219,176,107,.15);
+  --blue:#2563eb;--blue-light:#60a5fa;
+  --cream:#f8f5ef;--cream-dark:#ede8de;
+  --green:#22c55e;--green-soft:rgba(34,197,94,.12);
+  --red:#ef4444;--red-soft:rgba(239,68,68,.12);
+  --yellow:#eab308;--yellow-soft:rgba(234,179,8,.12);
+  --orange:#f97316;--orange-soft:rgba(249,115,22,.12);
+  --text-light:#f8f5ef;--text-muted:rgba(248,245,239,.5);
+  --font-display:'Plus Jakarta Sans',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --radius:16px;--radius-sm:10px;
+  --transition:all .3s cubic-bezier(.4,0,.2,1);
+}
+body{font-family:var(--font-body);background:var(--navy);color:var(--text-light);line-height:1.6;font-size:15px;overflow-x:hidden}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(12,24,41,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,150,62,.15)}
+.nav-brand{font-family:var(--font-display);font-weight:800;font-size:16px;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+.nav-brand .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.nav-date{color:var(--text-muted);font-size:12px;font-weight:500}
+
+/* HERO */
+.hero{padding:120px 0 60px;text-align:center}
+.hero-tag{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.hero-tag::before,.hero-tag::after{content:'';width:30px;height:1px;background:var(--gold);opacity:.4}
+.hero h1{font-family:var(--font-display);font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px}
+.hero h1 span{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{color:var(--text-muted);font-size:16px;max-width:600px;margin:0 auto 20px}
+.hero-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
+.badge.gold{border-color:var(--gold-glow);background:var(--gold-soft);color:var(--gold-light)}
+.badge.blue{border-color:rgba(37,99,235,.2);background:rgba(37,99,235,.1);color:var(--blue-light)}
+
+/* SECTION */
+.section{padding:50px 0}
+.section-num{font-family:var(--font-display);font-size:12px;font-weight:800;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;opacity:.7}
+.section-title{font-family:var(--font-display);font-size:clamp(22px,3.5vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:8px}
+.section-desc{color:var(--text-muted);font-size:14px;margin-bottom:32px;max-width:700px}
+
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:32px}
+.card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:24px;transition:var(--transition);position:relative;overflow:hidden}
+.card:hover{border-color:var(--gold-glow);transform:translateY(-2px)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.card.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.card.red::before{background:var(--red)}
+.card.green::before{background:var(--green)}
+.card.blue::before{background:var(--blue)}
+.card.yellow::before{background:var(--yellow)}
+.card-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
+.card-value{font-family:var(--font-display);font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:4px}
+.card-sub{font-size:12px;color:var(--text-muted)}
+
+/* TABLE */
+.table-wrap{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;margin-bottom:24px}
+.table-header{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);font-family:var(--font-display);font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.table-header .tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:12px;background:var(--gold-soft);color:var(--gold-light)}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+td{padding:10px 16px;font-size:13px;border-bottom:1px solid rgba(255,255,255,.03)}
+tr:hover td{background:rgba(255,255,255,.02)}
+.stage-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.06);position:relative;min-width:60px}
+.stage-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width .6s ease}
+.pct{font-family:var(--font-display);font-weight:700;font-size:13px}
+.pct.high{color:var(--green)}
+.pct.mid{color:var(--yellow)}
+.pct.low{color:var(--red)}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+.status-dot.active{background:var(--green)}
+.status-dot.warning{background:var(--yellow)}
+.status-dot.danger{background:var(--red)}
+.status-dot.idle{background:rgba(255,255,255,.2)}
+
+/* CALLOUT */
+.callout{padding:20px 24px;border-radius:var(--radius-sm);margin-bottom:20px;border-left:4px solid}
+.callout.danger{background:var(--red-soft);border-color:var(--red);color:#fca5a5}
+.callout.warning{background:var(--yellow-soft);border-color:var(--yellow);color:#fde68a}
+.callout.success{background:var(--green-soft);border-color:var(--green);color:#86efac}
+.callout.info{background:rgba(37,99,235,.1);border-color:var(--blue);color:var(--blue-light)}
+.callout-title{font-family:var(--font-display);font-weight:700;font-size:14px;margin-bottom:4px}
+.callout p{font-size:13px;opacity:.9;line-height:1.5}
+
+/* SELLER CARD */
+.seller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:32px}
+.seller-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:20px;transition:var(--transition)}
+.seller-card:hover{border-color:var(--gold-glow)}
+.seller-name{font-family:var(--font-display);font-weight:700;font-size:16px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.seller-role{font-size:11px;color:var(--text-muted);margin-bottom:14px;display:block}
+.seller-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seller-stat{background:rgba(255,255,255,.03);border-radius:8px;padding:10px}
+.seller-stat-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.seller-stat-value{font-family:var(--font-display);font-weight:700;font-size:18px}
+
+/* PHASE */
+.phase{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:24px;margin-bottom:16px;position:relative;overflow:hidden}
+.phase::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px}
+.phase.p1::before{background:var(--red)}
+.phase.p2::before{background:var(--yellow)}
+.phase.p3::before{background:var(--blue)}
+.phase.p4::before{background:var(--green)}
+.phase-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:12px}
+.phase.p1 .phase-tag{background:var(--red-soft);color:#fca5a5}
+.phase.p2 .phase-tag{background:var(--yellow-soft);color:#fde68a}
+.phase.p3 .phase-tag{background:rgba(37,99,235,.1);color:var(--blue-light)}
+.phase.p4 .phase-tag{background:var(--green-soft);color:#86efac}
+.phase-title{font-family:var(--font-display);font-weight:700;font-size:18px;margin-bottom:10px}
+.phase ul{list-style:none;padding:0}
+.phase li{padding:6px 0;font-size:13px;color:rgba(248,245,239,.8);display:flex;align-items:flex-start;gap:8px}
+.phase li::before{content:'→';color:var(--gold);font-weight:700;flex-shrink:0}
+
+/* DECISION */
+.decision{background:var(--navy-mid);border:1px solid rgba(200,150,62,.15);border-radius:var(--radius);padding:20px;margin-bottom:12px;display:flex;gap:16px;align-items:flex-start}
+.decision-num{font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--gold);flex-shrink:0;width:32px}
+.decision-content h4{font-family:var(--font-display);font-weight:700;font-size:14px;margin-bottom:4px}
+.decision-content p{font-size:13px;color:var(--text-muted);line-height:1.5}
+
+/* FOOTER */
+.footer{text-align:center;padding:40px 0;border-top:1px solid rgba(255,255,255,.06);margin-top:40px}
+.footer-brand{font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.footer-sub{font-size:11px;color:var(--text-muted);margin-top:4px}
+
+/* FUNNEL VIZ */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:4px;margin:32px 0}
+.funnel-step{display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:var(--radius-sm);background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);transition:var(--transition);width:100%;max-width:600px}
+.funnel-step:hover{border-color:var(--gold-glow)}
+.funnel-step .num{font-family:var(--font-display);font-weight:800;font-size:22px;min-width:50px;color:var(--gold-light)}
+.funnel-step .label{flex:1;font-size:13px}
+.funnel-step .pct-badge{font-size:11px;font-weight:700;padding:3px 8px;border-radius:8px}
+.funnel-arrow{color:var(--text-muted);font-size:18px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .card-grid{grid-template-columns:1fr 1fr}
+  .seller-grid{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+  .nav{padding:12px 16px}
+  .container{padding:0 16px}
+  table{font-size:12px}
+  th,td{padding:8px 10px}
+}
+@media(max-width:480px){
+  .card-grid{grid-template-columns:1fr}
+  .hero-badges{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span> SALES VELOCITY × CORONA</div>
+  <div class="nav-date">Marzo 9, 2026 — Preparación reunión</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Análisis de Pipeline</div>
+    <h1>Corona Home Services<br><span>Radiografía del Pipeline</span></h1>
+    <p class="hero-sub">Análisis completo del flujo de leads, desempeño de vendedores, y oportunidades de mejora para la reunión del 10 de marzo.</p>
+    <div class="hero-badges">
+      <span class="badge gold">📊 402 Oportunidades (CHS)</span>
+      <span class="badge blue">👥 4 Vendedores Activos</span>
+      <span class="badge gold">🗓 Data al 9 de Marzo 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- 01 PANORAMA -->
+<section class="section">
+  <div class="container">
+    <div class="section-num">01</div>
+    <div class="section-title">Panorama General del Pipeline</div>
+    <p class="section-desc">Visión completa de las 402 oportunidades en el sistema Corona Home Services (clasificación + Zona Prioritaria + Zona No Prioritaria). Data extraída directamente de la API de GHL.</p>
+
+    <div class="card-grid">
+      <div class="card gold">
+        <div class="card-label">Total Registros</div>
+        <div class="card-value">259</div>
+        <div class="card-sub">Corona Home Services (clasificación)</div>
+      </div>
+      <div class="card blue">
+        <div class="card-label">Zona Prioritaria</div>
+        <div class="card-value">108</div>
+        <div class="card-sub">Leads clasificados en zonas activas</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">Ventas Cerradas</div>
+        <div class="card-value">4</div>
+        <div class="card-sub">3.7% de conversión en ZP</div>
+      </div>
+      <div class="card red">
+        <div class="card-label">Sin Gestionar</div>
+        <div class="card-value">75</div>
+        <div class="card-sub">47 en ZP + 28 en ZNP esperando llamada</div>
+      </div>
+    </div>
+
+    <!-- FUNNEL VISUAL -->
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="num">259</div>
+        <div class="label"><strong>Registros totales</strong> (Meta Ads → Formulario)</div>
+        <div class="pct-badge" style="background:var(--gold-soft);color:var(--gold-light)">100%</div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="num">124</div>
+        <div class="label"><strong>Clasificados a zona</strong> (107 prioritaria + 17 no prioritaria)</div>
+        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">47.9%</div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="num">108</div>
+        <div class="label"><strong>En Zona Prioritaria</strong> (pipeline de gestión activo)</div>
+        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">41.7%</div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="num">21</div>
+        <div class="label"><strong>Citas agendadas / visitados</strong> (en algún momento)</div>
+        <div class="pct-badge" style="background:var(--yellow-soft);color:#fde68a">19.4%</div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="num">4</div>
+        <div class="label"><strong>Ventas cerradas</strong></div>
+        <div class="pct-badge" style="background:var(--red-soft);color:#fca5a5">3.7%</div>
+      </div>
+    </div>
+
+    <!-- CALLOUTS -->
+    <div class="callout danger">
+      <div class="callout-title">🚨 43.5% de leads en Zona Prioritaria están sin gestionar</div>
+      <p>47 de 108 leads en ZP están en "Disponible para llamar" — nunca se les ha hecho la primera llamada. Esto representa ingreso potencial perdido de al menos $47,000 – $141,000 (asumiendo $1K–$3K por venta y una tasa de cierre conservadora del 5-10%).</p>
+    </div>
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 16 "Casi Ventas" sin seguimiento activo</div>
+      <p>16 leads están marcados como "Casi Venta - Seguimiento" — personas que estuvieron a punto de comprar pero falta darles seguimiento. Estos son los leads de mayor valor/cierre rápido.</p>
+    </div>
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 22% de registros caen en "Fuera de Zona"</div>
+      <p>57 de 259 registros no están en ninguna zona cubierta. Esto sugiere que los ads están llegando a áreas geográficas fuera de las zonas de servicio. Oportunidad: ajustar targeting geográfico de Meta Ads.</p>
+    </div>
+
+    <!-- CLASIFICACIÓN TABLE -->
+    <div class="table-wrap">
+      <div class="table-header">
+        📋 Pipeline 1: Corona Home Services — Clasificación
+        <span class="tag">259 Leads</span>
+      </div>
+      <table>
+        <tr><th>Stage</th><th>Cantidad</th><th>%</th><th>Distribución</th><th>Estado</th></tr>
+        <tr>
+          <td><span class="status-dot active"></span>Zona Prioritaria</td>
+          <td><span class="pct high">107</span></td>
+          <td>41.3%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:41.3%"></div></div></td>
+          <td>✅ Clasificados</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot danger"></span>Inactivación</td>
+          <td><span class="pct low">60</span></td>
+          <td>23.2%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:23.2%;background:var(--red)"></div></div></td>
+          <td>🔴 Sin gestionar a tiempo</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot warning"></span>Fuera de Zona</td>
+          <td><span class="pct mid">57</span></td>
+          <td>22.0%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:22%;background:var(--yellow)"></div></div></td>
+          <td>🟡 Targeting de ads</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot warning"></span>Registro (sin clasificar)</td>
+          <td><span class="pct mid">18</span></td>
+          <td>6.9%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:6.9%;background:var(--yellow)"></div></div></td>
+          <td>🟡 Pendientes hoy</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot active"></span>Zona No Prioritaria</td>
+          <td><span class="pct high">17</span></td>
+          <td>6.6%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:6.6%"></div></div></td>
+          <td>✅ Clasificados</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ZP TABLE -->
+    <div class="table-wrap">
+      <div class="table-header">
+        📋 Pipeline 2: Zona Prioritaria — Gestión de Ventas
+        <span class="tag">108 Leads</span>
+      </div>
+      <table>
+        <tr><th>Stage</th><th>Cantidad</th><th>%</th><th>Distribución</th><th>Acción</th></tr>
+        <tr>
+          <td><span class="status-dot danger"></span>Disponible para llamar</td>
+          <td><span class="pct low">47</span></td>
+          <td>43.5%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:43.5%;background:var(--red)"></div></div></td>
+          <td>🔴 Llamar YA</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot warning"></span>Casi Venta - Seguimiento</td>
+          <td><span class="pct mid">16</span></td>
+          <td>14.8%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:14.8%;background:var(--yellow)"></div></div></td>
+          <td>🟡 Seguimiento urgente</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot warning"></span>Llamada 1</td>
+          <td>12</td>
+          <td>11.1%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:11.1%;background:var(--blue)"></div></div></td>
+          <td>Continuar proceso</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot warning"></span>Fuimos y no Estaba</td>
+          <td>10</td>
+          <td>9.3%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:9.3%;background:var(--orange)"></div></div></td>
+          <td>🟡 Reagendar</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot idle"></span>No Alcanzamos a ir</td>
+          <td>7</td>
+          <td>6.5%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:6.5%;background:var(--orange)"></div></div></td>
+          <td>Priorizar agenda</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot active"></span>Cita Agendada</td>
+          <td>5</td>
+          <td>4.6%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:4.6%"></div></div></td>
+          <td>✅ En proceso</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot danger"></span>No Califica - No venta</td>
+          <td>5</td>
+          <td>4.6%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:4.6%;background:var(--red)"></div></div></td>
+          <td>Descartados</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot active"></span>Venta</td>
+          <td><span class="pct high">4</span></td>
+          <td>3.7%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:3.7%;background:var(--green)"></div></div></td>
+          <td>✅ Cerradas</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot idle"></span>Llamada 2</td>
+          <td>1</td>
+          <td>0.9%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:0.9%;background:var(--blue)"></div></div></td>
+          <td>Continuar</td>
+        </tr>
+        <tr>
+          <td><span class="status-dot danger"></span>Inactivación</td>
+          <td>1</td>
+          <td>0.9%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:0.9%;background:var(--red)"></div></div></td>
+          <td>Evaluar reactivación</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- VENTAS CERRADAS -->
+    <div class="table-wrap">
+      <div class="table-header">
+        ✅ Ventas Cerradas en Zona Prioritaria
+        <span class="tag" style="background:var(--green-soft);color:#86efac">4 Ventas</span>
+      </div>
+      <table>
+        <tr><th>Contacto</th><th>Vendedor</th><th>Fecha Registro</th><th>Status</th></tr>
+        <tr><td>Bella Lopez</td><td>Luis Corona</td><td>7 Mar 2026</td><td><span class="status-dot active"></span>Open</td></tr>
+        <tr><td>Mari M Gutierrez (Jefferson)</td><td>Luis Corona</td><td>6 Mar 2026</td><td><span class="status-dot active"></span>Open</td></tr>
+        <tr><td>Nachitho Perez (Chamblee)</td><td>Luis Corona</td><td>24 Feb 2026</td><td><span class="status-dot active"></span>Open</td></tr>
+        <tr><td>Dairis Valdivieso Estrada</td><td>Sin asignar</td><td>20 Feb 2026</td><td><span class="status-dot active"></span>Open</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 02 VENDEDORES -->
+<section class="section" style="background:rgba(255,255,255,.02)">
+  <div class="container">
+    <div class="section-num">02</div>
+    <div class="section-title">Desempeño por Vendedor</div>
+    <p class="section-desc">Análisis del rendimiento de cada vendedor en Zona Prioritaria. Los IDs de GHL están mapeados a los nombres reales del equipo.</p>
+
+    <div class="seller-grid">
+      <!-- LUIS CORONA -->
+      <div class="seller-card" style="border-color:var(--gold-glow)">
+        <div class="seller-name">👑 Luis Corona</div>
+        <span class="seller-role">Líder / Owner — 58 oportunidades en ZP</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--green)">3</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value" style="color:var(--yellow)">10</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Sin Gestionar</div>
+            <div class="seller-stat-value" style="color:var(--red)">13</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Citas</div>
+            <div class="seller-stat-value" style="color:var(--blue-light)">4</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:rgba(200,150,62,.08);border-radius:8px;font-size:12px">
+          <strong>📊 Detalle:</strong> L1=10, Fuimos no estaba=8, No califica=5, No alcanzamos=4, Inactivación=1
+        </div>
+      </div>
+
+      <!-- JAIME OROZCO -->
+      <div class="seller-card" style="border-color:var(--red-soft)">
+        <div class="seller-name">🔴 Jaime Orozco</div>
+        <span class="seller-role">Socio / Vendedor — 27 oportunidades en ZP</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Sin Gestionar</div>
+            <div class="seller-stat-value" style="color:var(--red)">27</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Citas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+        </div>
+        <div class="callout danger" style="margin-top:12px;margin-bottom:0;padding:10px">
+          <p><strong>🚨 ALERTA:</strong> Las 27 oportunidades de Jaime están TODAS en "Disponible para llamar". No se ha iniciado gestión en ninguna. Esto representa el 25% del total de ZP.</p>
+        </div>
+      </div>
+
+      <!-- JESUS NAVA -->
+      <div class="seller-card" style="border-color:var(--yellow-soft)">
+        <div class="seller-name">🟡 Jesus Nava</div>
+        <span class="seller-role">Socio / Vendedor — 15 oportunidades en ZP</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value" style="color:var(--yellow)">6</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Sin Gestionar</div>
+            <div class="seller-stat-value" style="color:var(--red)">3</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Citas</div>
+            <div class="seller-stat-value" style="color:var(--blue-light)">1</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:var(--yellow-soft);border-radius:8px;font-size:12px">
+          <strong>📊 Detalle:</strong> Casi Venta=6, Disponible=3, L1=2, L2=1, Cita=1, No alcanzamos=1, Fuimos no estaba=1. <strong>Gestiona pero no cierra.</strong>
+        </div>
+      </div>
+
+      <!-- VICTOR ALONSO -->
+      <div class="seller-card" style="border-color:var(--red-soft)">
+        <div class="seller-name">🔴 Víctor Alonso</div>
+        <span class="seller-role">Socio / Vendedor — 4 oportunidades en ZP</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Sin Gestionar</div>
+            <div class="seller-stat-value" style="color:var(--red)">4</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Citas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+        </div>
+        <div class="callout danger" style="margin-top:12px;margin-bottom:0;padding:10px">
+          <p><strong>🚨 ALERTA:</strong> 4 leads asignados, 0 gestionados. Pocas oportunidades pero también nula actividad.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUMEN VENDEDORES -->
+    <div class="table-wrap">
+      <div class="table-header">
+        📊 Resumen Comparativo de Vendedores (Zona Prioritaria)
+      </div>
+      <table>
+        <tr><th>Vendedor</th><th>Opps</th><th>Ventas</th><th>Casi Ventas</th><th>Sin Gestionar</th><th>% Gestión</th><th>Tasa Cierre</th></tr>
+        <tr>
+          <td><strong>Luis Corona</strong></td>
+          <td>58</td>
+          <td style="color:var(--green)"><strong>3</strong></td>
+          <td style="color:var(--yellow)">10</td>
+          <td style="color:var(--red)">13</td>
+          <td><span class="pct high">77.6%</span></td>
+          <td><span class="pct mid">5.2%</span></td>
+        </tr>
+        <tr>
+          <td>Jesus Nava</td>
+          <td>15</td>
+          <td>0</td>
+          <td style="color:var(--yellow)">6</td>
+          <td style="color:var(--red)">3</td>
+          <td><span class="pct high">80.0%</span></td>
+          <td><span class="pct low">0.0%</span></td>
+        </tr>
+        <tr style="background:var(--red-soft)">
+          <td>Jaime Orozco</td>
+          <td>27</td>
+          <td>0</td>
+          <td>0</td>
+          <td style="color:var(--red)"><strong>27</strong></td>
+          <td><span class="pct low">0.0%</span></td>
+          <td><span class="pct low">0.0%</span></td>
+        </tr>
+        <tr style="background:var(--red-soft)">
+          <td>Víctor Alonso</td>
+          <td>4</td>
+          <td>0</td>
+          <td>0</td>
+          <td style="color:var(--red)">4</td>
+          <td><span class="pct low">0.0%</span></td>
+          <td><span class="pct low">0.0%</span></td>
+        </tr>
+        <tr>
+          <td><em>Sin asignar</em></td>
+          <td>4</td>
+          <td style="color:var(--green)">1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">💡 Insight clave</div>
+      <p>El <strong>100% de las ventas</strong> provienen de Luis Corona (3 de 4, la cuarta sin asignar). Ningún socio ha cerrado una venta. Jesus Nava muestra actividad (6 casi-ventas, movimiento en el pipeline) pero no ha convertido. Jaime tiene 27 oportunidades y CERO actividad — caso Maritza repitiéndose. Víctor está inactivo con 4 leads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 VOLUMEN Y TENDENCIA -->
+<section class="section">
+  <div class="container">
+    <div class="section-num">03</div>
+    <div class="section-title">Volumen de Leads y Tendencia</div>
+    <p class="section-desc">Distribución mensual de registros y etiquetas de asignación por vendedor en el pipeline de clasificación.</p>
+
+    <div class="card-grid">
+      <div class="card gold">
+        <div class="card-label">Febrero 2026</div>
+        <div class="card-value">147</div>
+        <div class="card-sub">Primera oleada de ads</div>
+      </div>
+      <div class="card blue">
+        <div class="card-label">Marzo 2026 (parcial)</div>
+        <div class="card-value">112</div>
+        <div class="card-sub">9 días → ~12.4 leads/día</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">Leads/Día Promedio</div>
+        <div class="card-value">~7</div>
+        <div class="card-sub">~210 leads/mes proyectado</div>
+      </div>
+      <div class="card yellow">
+        <div class="card-label">Tags de Vendedor</div>
+        <div class="card-value">4</div>
+        <div class="card-sub">Luis=160, Jaime=44, Jesus=39, Victor=27</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-header">
+        🏷️ Distribución de Leads por Vendedor (Tags en Pipeline de Clasificación)
+      </div>
+      <table>
+        <tr><th>Vendedor</th><th>Leads Taggeados</th><th>% del Total</th><th>Distribución</th></tr>
+        <tr>
+          <td>Luis Corona (tag: "luis c")</td>
+          <td><strong>160</strong></td>
+          <td>61.8%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:61.8%"></div></div></td>
+        </tr>
+        <tr>
+          <td>Jaime Orozco (tag: "jaime")</td>
+          <td><strong>44</strong></td>
+          <td>17.0%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:17%;background:var(--red)"></div></div></td>
+        </tr>
+        <tr>
+          <td>Jesus Nava (tag: "jesus")</td>
+          <td><strong>39</strong></td>
+          <td>15.1%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:15.1%;background:var(--yellow)"></div></div></td>
+        </tr>
+        <tr>
+          <td>Víctor Alonso (tag: "victor")</td>
+          <td><strong>27</strong></td>
+          <td>10.4%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:10.4%;background:var(--red)"></div></div></td>
+        </tr>
+        <tr>
+          <td>Maritza (inactiva)</td>
+          <td>10</td>
+          <td>3.9%</td>
+          <td><div class="stage-bar"><div class="stage-bar-fill" style="width:3.9%;background:rgba(255,255,255,.2)"></div></div></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠️ Nota sobre "Inactivación" (60 leads — 23.2%)</div>
+      <p>60 leads llegaron al stage de Inactivación — fueron clasificados a la etapa automática por no haber sido gestionados dentro del período de tiempo definido. Estas son oportunidades perdidas por falta de seguimiento oportuno. 67 están taggeados como "inactivacion registro".</p>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Llamadas HT removida — análisis enfocado solo en Corona Home Services -->
+
+<!-- 05 PLAN DE ACCIÓN -->
+<section class="section">
+  <div class="container">
+    <div class="section-num">04</div>
+    <div class="section-title">Plan de Acción — Siguiente Sprint</div>
+    <p class="section-desc">Acciones priorizadas por velocidad de impacto. ¿Qué mover primero para generar resultados esta semana?</p>
+
+    <div class="phase p1">
+      <div class="phase-tag">🔴 Fase 1 — Acción Inmediata (Esta Semana)</div>
+      <div class="phase-title">Recuperar leads sin gestionar y cerrar "Casi Ventas"</div>
+      <ul>
+        <li><strong>Llamar las 16 "Casi Ventas"</strong> — Son los leads más calientes. Programar seguimiento esta misma semana con Luis y Nacari.</li>
+        <li><strong>Activar los 47 leads "Disponible para llamar" en ZP</strong> — Redistribuir los 27 de Jaime entre vendedores activos (Luis/Jesus) si Jaime no responde en 48h.</li>
+        <li><strong>Clasificar los 18 registros pendientes</strong> — Nacari debe completar la clasificación de los leads en stage "Registro" hoy.</li>
+        <li><strong>Confrontar a Jaime Orozco</strong> — 27 leads, 0% de gestión. Definir: ¿sigue en el sistema o se le retiran los leads? Repetición del caso Maritza.</li>
+        <li><strong>Evaluar a Víctor Alonso</strong> — 4 leads sin actividad. Verificar si está activo y comprometido.</li>
+      </ul>
+    </div>
+
+    <div class="phase p2">
+      <div class="phase-tag">🟡 Fase 2 — Fundación (Semana 1-2)</div>
+      <div class="phase-title">Optimizar el pipeline y reducir pérdidas</div>
+      <ul>
+        <li><strong>Reducir "Fuera de Zona" (22%)</strong> — Revisar el targeting geográfico de Meta Ads. Cada lead fuera de zona cuesta ~$3-5 que va directo a la basura.</li>
+        <li><strong>Reactivar los 60 leads en "Inactivación"</strong> — Crear una secuencia de reactivación via SMS/WhatsApp para el sorteo. Estos son leads fríos pero con interés demostrado.</li>
+        <li><strong>Revisar los 28 leads de Zona No Prioritaria</strong> — 80% están sin llamar. Si hay zonas que empiezan a tener masa crítica, podrían activarse.</li>
+        <li><strong>Definir reglas de gestión claras:</strong> Si un socio no llama en 48h, los leads se redistribuyen automáticamente. Implementar automatización en GHL.</li>
+        <li><strong>Registrar valor de ventas en GHL</strong> — Las 4 ventas aparecen con valor $0. Registrar el monto real ($1K-$3K) para proyectar revenue real.</li>
+      </ul>
+    </div>
+
+    <div class="phase p3">
+      <div class="phase-tag">🔵 Fase 3 — Aceleración (Semana 2-4)</div>
+      <div class="phase-title">Escalar lo que funciona, apagar lo que no</div>
+      <ul>
+        <li><strong>Decisión sobre Funnel de Reclutamiento:</strong> Con un 1.5% de conversión a calificado y $600/mes de inversión, evaluar si ese presupuesto se redirige a Corona Home Services donde hay tracción.</li>
+        <li><strong>Duplicar inversión en Corona Home Services</strong> si se apaga reclutamiento → $1,200/mes en sorteo = ~24 leads/día = ~720 leads/mes.</li>
+        <li><strong>Crear nuevos creativos de ads:</strong> Video de producto, unboxing, enfoque salud/agua. Los creativos actuales llevan tiempo corriendo.</li>
+        <li><strong>Coaching de ventas para Jesus Nava</strong> — Tiene 6 "Casi Ventas" pero 0 ventas cerradas. Perfil de setter que necesita mejorar el cierre.</li>
+      </ul>
+    </div>
+
+    <div class="phase p4">
+      <div class="phase-tag">🟢 Fase 4 — Escala (Mes 2+)</div>
+      <div class="phase-title">Sistematizar y multiplicar</div>
+      <ul>
+        <li><strong>Modelo de socios validado:</strong> Solo activar socios que demuestren gestión activa del pipeline en las primeras 48h. Usar GHL como herramienta de control.</li>
+        <li><strong>Automatización de redistribución:</strong> Si un socio no mueve un lead en 48h → alerta. En 7 días → redistribución automática.</li>
+        <li><strong>Explorar cierre virtual:</strong> Para las "Casi Ventas" de zonas lejanas, probar cierre por videollamada.</li>
+        <li><strong>Dashboard semanal automático</strong> — Reportes de métricas por vendedor enviados cada lunes automáticamente.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 06 DECISIONES -->
+<section class="section" style="background:rgba(255,255,255,.02)">
+  <div class="container">
+    <div class="section-num">05</div>
+    <div class="section-title">Decisiones Pendientes para Luis</div>
+    <p class="section-desc">Preguntas que necesitan respuesta en la reunión del 10 de marzo.</p>
+
+    <div class="decision">
+      <div class="decision-num">1</div>
+      <div class="decision-content">
+        <h4>¿Qué hacemos con los 27 leads de Jaime Orozco?</h4>
+        <p>Jaime tiene 27 leads en ZP con 0% de gestión. Opciones: (A) Darle 48h de ultimátum, (B) Redistribuir inmediatamente entre Luis/Jesus, (C) Retirarlo del sistema. <strong>Recomendación: Opción B — redistribuir ahora.</strong></p>
+      </div>
+    </div>
+    <div class="decision">
+      <div class="decision-num">2</div>
+      <div class="decision-content">
+        <h4>¿Mantenemos el funnel de reclutamiento de socios ($600/mes)?</h4>
+        <p>El funnel tiene 1.5% de conversión a calificado. Redirigir esos $600 a Corona Home Services podría generar ~120 leads adicionales/mes. <strong>Recomendación: Pausar reclutamiento y enfocar todo en ventas de producto.</strong></p>
+      </div>
+    </div>
+    <div class="decision">
+      <div class="decision-num">3</div>
+      <div class="decision-content">
+        <h4>¿Registrar las ventas cerradas con monto real?</h4>
+        <p>Las 4 ventas actuales aparecen con valor $0 en GHL. Necesitamos que Luis o Nacari registren el ticket real ($1K–$3K) para poder proyectar revenue y ROI del sistema. <strong>Recomendación: Hacer esto esta semana.</strong></p>
+      </div>
+    </div>
+    <div class="decision">
+      <div class="decision-num">4</div>
+      <div class="decision-content">
+        <h4>¿Qué zonas priorizar con los nuevos leads?</h4>
+        <p>22% de leads caen en "Fuera de Zona". ¿Ajustamos el targeting de Meta Ads para excluir áreas no cubiertas? Si Luis va a visitar ciertas zonas la próxima semana, podemos priorizar leads de esas zonas.</p>
+      </div>
+    </div>
+    <div class="decision">
+      <div class="decision-num">5</div>
+      <div class="decision-content">
+        <h4>¿Definimos una regla automática de redistribución de leads?</h4>
+        <p>Propuesta: Si un vendedor no mueve un lead del stage "Disponible para llamar" en 48 horas → alerta automática. En 7 días → redistribución automática a otro vendedor. <strong>Esto evita el problema de Jaime/Maritza.</strong></p>
+      </div>
+    </div>
+    <div class="decision">
+      <div class="decision-num">6</div>
+      <div class="decision-content">
+        <h4>¿Seguimos con el modelo de comisión 5% con socios?</h4>
+        <p>Ningún socio ha generado ventas. Jesus Nava tiene actividad pero no cierra. ¿Cambiamos a 10%? ¿O volvemos a fee fijo $300/mes? Los socios que no venden no generan ingresos bajo el modelo actual de comisión.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUMEN EJECUTIVO -->
+<section class="section">
+  <div class="container">
+    <div class="section-num">06</div>
+    <div class="section-title">La Idea Central</div>
+
+    <div class="callout success" style="border-radius:var(--radius);border-left-width:6px;padding:28px">
+      <div class="callout-title" style="font-size:18px;margin-bottom:10px">🎯 El sistema genera leads. El cuello de botella es la gestión.</div>
+      <p style="font-size:14px;opacity:1">
+        Con <strong>259 registros en solo ~5 semanas</strong>, el sistema de generación de leads funciona. El problema no es la cantidad de leads ni el costo — es que <strong>el 43.5% de los leads en ZP no están siendo llamados</strong>, y los socios (Jaime, Víctor) no están ejecutando. Luis es el único que vende.
+        <br><br>
+        <strong>La oportunidad:</strong> Si se gestionaran TODOS los leads con al menos una llamada y se mejora el rate de cita agendada de 19.4% a 35%, y se mantiene el ticket promedio de $2,000, la proyección sería:
+        <br><br>
+        <strong>108 leads × 35% citas × 40% cierre en demo × $2,000 = $30,240 potenciales</strong>
+        <br><br>
+        El dinero está en la mesa. Solo falta recogerlo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">SALES VELOCITY × CORONA HOME SERVICES</div>
+  <div class="footer-sub">Data extraída de GoHighLevel API — 9 de Marzo 2026 · Confidencial</div>
+</footer>
+
+</body>
+</html>

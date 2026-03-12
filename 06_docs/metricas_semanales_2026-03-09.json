@@ -1,0 +1,73 @@
+{
+  "client": "Luis Corona",
+  "extraction_date": "2026-03-09",
+  "extraction_timestamp": "2026-03-09T14:36:52.919291",
+  "meta_ads": {},
+  "pipeline": {
+    "corona_home_services": {
+      "total": 259,
+      "by_stage": {
+        "Registro": 18,
+        "Zona Prioritaria": 107,
+        "Fuera de Zona": 57,
+        "Inactivación": 60,
+        "Zona No Prioritaria": 17
+      },
+      "total_pipeline_value": 259000.0
+    },
+    "zona_prioritaria": {
+      "total": 108,
+      "by_stage": {
+        "Disponible para llamar": 47,
+        "Venta": 4,
+        "Cita Agendada": 5,
+        "No Califica - No venta": 5,
+        "Llamada 2": 1,
+        "Fuimos y no Estaba": 10,
+        "No Alcanzamos a ir": 7,
+        "Llamada 1": 12,
+        "Casi Venta - Seguimiento": 16,
+        "Inactivación": 1
+      },
+      "total_pipeline_value": 0.0
+    },
+    "zona_no_prioritaria": {
+      "total": 35,
+      "by_stage": {
+        "Disponible para llamar": 28,
+        "Reactivación": 3,
+        "No Venta": 1,
+        "No Califica": 2,
+        "Llamada 1": 1
+      },
+      "total_pipeline_value": 0.0
+    },
+    "llamadas_ht": {
+      "total": 402,
+      "by_stage": {
+        "REGISTRO": 48,
+        "AGENDO LLAMADA": 6,
+        "NO INTERESADO / NO CALIFICADO": 217,
+        "CONTACTO 2: WHATSAPP - AUDIO": 5,
+        "EN PROCESO - CALIFICADO": 4,
+        "EN PROCESO": 5,
+        "CALIFICADO INICIO ENTRENAMIENTO": 2,
+        "NO WHATSAPP": 99,
+        "ENTREVIStADO Y NO CALIFICADO": 6,
+        "NO CONTESTO": 5,
+        "CONTACTO 4: MENSAJE WHATSAPP NOMBRE": 3,
+        "CALIFICADO ASISTIÓ Y NO SIGUIO": 2
+      },
+      "total_pipeline_value": 0.0
+    }
+  },
+  "kpis": {
+    "total_leads_in_pipeline": 804,
+    "total_active_clients": 0,
+    "lead_to_client_conversion_pct": 0.0,
+    "total_pipeline_value": 259000.0,
+    "total_opportunities": 804,
+    "meta_cpl_7d": 0,
+    "meta_spend_30d": 0
+  }
+}
