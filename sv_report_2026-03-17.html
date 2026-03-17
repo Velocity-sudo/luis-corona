@@ -2,891 +2,858 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sales Velocity Report — Luis Corona | 2026-03-17</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sales Velocity Report — Luis Corona | 17 Mar 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #0c1829;
-  --navy-mid: #132540;
-  --navy-light: #1a3150;
-  --cream: #f8f5ef;
-  --cream-dark: #ede8de;
-  --gold: #c8963e;
-  --gold-light: #dbb06b;
-  --blue: #2563eb;
-  --blue-light: #60a5fa;
-  --green: #10b981;
-  --green-bg: rgba(16,185,129,.12);
-  --red: #ef4444;
-  --red-bg: rgba(239,68,68,.12);
-  --yellow: #f59e0b;
-  --yellow-bg: rgba(245,158,11,.12);
-  --font-display: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --radius: 16px;
-  --shadow: 0 2px 20px rgba(0,0,0,.08);
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0c1829;--navy-mid:#132540;--navy-light:#1a3150;
+  --gold:#c8963e;--gold-light:#dbb06b;--gold-soft:rgba(200,150,62,.12);--gold-glow:rgba(219,176,107,.15);
+  --blue:#2563eb;--blue-light:#60a5fa;
+  --cream:#f8f5ef;--cream-dark:#ede8de;
+  --green:#22c55e;--green-soft:rgba(34,197,94,.12);
+  --red:#ef4444;--red-soft:rgba(239,68,68,.12);
+  --yellow:#eab308;--yellow-soft:rgba(234,179,8,.12);
+  --orange:#f97316;--orange-soft:rgba(249,115,22,.12);
+  --text-light:#f8f5ef;--text-muted:rgba(248,245,239,.5);
+  --font-display:'Plus Jakarta Sans',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --radius:16px;--radius-sm:10px;
+  --transition:all .3s cubic-bezier(.4,0,.2,1);
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--font-body); background: var(--navy); color: var(--cream); line-height: 1.6; }
-.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+body{font-family:var(--font-body);background:var(--navy);color:var(--text-light);line-height:1.6;font-size:15px;overflow-x:hidden}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
 
-/* Header */
-.header { text-align: center; padding: 48px 24px 32px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 32px; }
-.header-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,150,62,.15); color: var(--gold); padding: 6px 16px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
-.header h1 { font-family: var(--font-display); font-size: 36px; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; }
-.header-sub { color: rgba(248,245,239,.5); font-size: 14px; }
-.header-meta { display: flex; justify-content: center; gap: 24px; margin-top: 16px; font-size: 13px; color: rgba(248,245,239,.4); }
-.baseline-tag { background: var(--gold); color: var(--navy); padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(12,24,41,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,150,62,.15)}
+.nav-brand{font-family:var(--font-display);font-weight:800;font-size:16px;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+.nav-brand .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.nav-date{color:var(--text-muted);font-size:12px;font-weight:500}
 
-/* Section */
-.section { margin-bottom: 40px; }
-.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.06); }
-.section-number { background: var(--gold); color: var(--navy); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 14px; flex-shrink: 0; }
-.section-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+/* HERO */
+.hero{padding:120px 0 60px;text-align:center}
+.hero-tag{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.hero-tag::before,.hero-tag::after{content:'';width:30px;height:1px;background:var(--gold);opacity:.4}
+.hero h1{font-family:var(--font-display);font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px}
+.hero h1 span{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{color:var(--text-muted);font-size:16px;max-width:600px;margin:0 auto 20px}
+.hero-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
+.badge.gold{border-color:var(--gold-glow);background:var(--gold-soft);color:var(--gold-light)}
+.badge.blue{border-color:rgba(37,99,235,.2);background:rgba(37,99,235,.1);color:var(--blue-light)}
+.badge.green{border-color:rgba(34,197,94,.2);background:var(--green-soft);color:#86efac}
 
-/* Cards grid */
-.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-.kpi-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 20px; transition: transform .2s; }
-.kpi-card:hover { transform: translateY(-2px); }
-.kpi-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(248,245,239,.4); font-weight: 600; margin-bottom: 8px; }
-.kpi-value { font-family: var(--font-display); font-size: 32px; font-weight: 800; letter-spacing: -1px; }
-.kpi-sub { font-size: 12px; color: rgba(248,245,239,.4); margin-top: 4px; }
-.kpi-baseline { display: inline-block; background: rgba(200,150,62,.15); color: var(--gold); padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-top: 6px; }
+/* SECTION */
+.section{padding:50px 0}
+.section-num{font-family:var(--font-display);font-size:12px;font-weight:800;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;opacity:.7}
+.section-title{font-family:var(--font-display);font-size:clamp(22px,3.5vw,32px);font-weight:800;letter-spacing:-1px;margin-bottom:8px}
+.section-desc{color:var(--text-muted);font-size:14px;margin-bottom:32px;max-width:700px}
 
-/* Verdict */
-.verdict { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 24px; display: flex; gap: 20px; align-items: flex-start; }
-.verdict-light { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; }
-.verdict-light.yellow { background: var(--yellow-bg); box-shadow: 0 0 20px rgba(245,158,11,.2); }
-.verdict-text { font-size: 15px; line-height: 1.7; }
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:32px}
+.card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:24px;transition:var(--transition);position:relative;overflow:hidden}
+.card:hover{border-color:var(--gold-glow);transform:translateY(-2px)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.card.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.card.red::before{background:var(--red)}
+.card.green::before{background:var(--green)}
+.card.blue::before{background:var(--blue)}
+.card.yellow::before{background:var(--yellow)}
+.card-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
+.card-value{font-family:var(--font-display);font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:4px}
+.card-sub{font-size:12px;color:var(--text-muted)}
 
-/* Tables */
-.table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.06); }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-th { background: var(--navy-light); padding: 12px 16px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(248,245,239,.5); white-space: nowrap; }
-td { padding: 12px 16px; border-top: 1px solid rgba(255,255,255,.04); white-space: nowrap; }
-tr:hover td { background: rgba(255,255,255,.02); }
-.tag { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: .5px; }
-.tag-green { background: var(--green-bg); color: var(--green); }
-.tag-red { background: var(--red-bg); color: var(--red); }
-.tag-yellow { background: var(--yellow-bg); color: var(--yellow); }
-.tag-blue { background: rgba(37,99,235,.12); color: var(--blue-light); }
-.tag-gold { background: rgba(200,150,62,.15); color: var(--gold); }
+/* TABLE */
+.table-wrap{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;margin-bottom:24px}
+.table-header{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);font-family:var(--font-display);font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.table-header .tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:12px;background:var(--gold-soft);color:var(--gold-light)}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+td{padding:10px 16px;font-size:13px;border-bottom:1px solid rgba(255,255,255,.03)}
+tr:hover td{background:rgba(255,255,255,.02)}
+.stage-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.06);position:relative;min-width:60px}
+.stage-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width .6s ease}
+.pct{font-family:var(--font-display);font-weight:700;font-size:13px}
+.pct.high{color:var(--green)}
+.pct.mid{color:var(--yellow)}
+.pct.low{color:var(--red)}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+.status-dot.active{background:var(--green)}
+.status-dot.warning{background:var(--yellow)}
+.status-dot.danger{background:var(--red)}
+.status-dot.idle{background:rgba(255,255,255,.2)}
 
-/* Commission section */
-.commission-card { background: linear-gradient(135deg, var(--navy-mid), var(--navy-light)); border: 1px solid var(--gold); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
-.commission-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.commission-total { font-family: var(--font-display); font-size: 28px; font-weight: 800; color: var(--gold); }
-.commission-seller { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
-.commission-seller-name { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-bottom: 8px; }
-.commission-detail { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-.commission-item { text-align: center; }
-.commission-item .label { font-size: 11px; color: rgba(248,245,239,.4); text-transform: uppercase; letter-spacing: 1px; }
-.commission-item .value { font-family: var(--font-display); font-size: 20px; font-weight: 700; }
-.no-sales { color: rgba(248,245,239,.3); font-style: italic; font-size: 13px; }
+/* CALLOUT */
+.callout{padding:20px 24px;border-radius:var(--radius-sm);margin-bottom:20px;border-left:4px solid}
+.callout.danger{background:var(--red-soft);border-color:var(--red);color:#fca5a5}
+.callout.warning{background:var(--yellow-soft);border-color:var(--yellow);color:#fde68a}
+.callout.success{background:var(--green-soft);border-color:var(--green);color:#86efac}
+.callout.info{background:rgba(37,99,235,.1);border-color:var(--blue);color:var(--blue-light)}
+.callout-title{font-family:var(--font-display);font-weight:700;font-size:14px;margin-bottom:4px}
+.callout p{font-size:13px;opacity:.9;line-height:1.5}
 
-/* Actions */
-.action-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 20px; margin-bottom: 12px; }
-.action-priority { font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
-.action-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-.action-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: rgba(248,245,239,.4); margin-bottom: 10px; }
-.action-steps { font-size: 13px; padding-left: 20px; }
-.action-steps li { margin-bottom: 4px; color: rgba(248,245,239,.7); }
+/* SELLER CARD */
+.seller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:32px}
+.seller-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:20px;transition:var(--transition)}
+.seller-card:hover{border-color:var(--gold-glow)}
+.seller-name{font-family:var(--font-display);font-weight:700;font-size:16px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.seller-role{font-size:11px;color:var(--text-muted);margin-bottom:14px;display:block}
+.seller-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seller-stat{background:rgba(255,255,255,.03);border-radius:8px;padding:10px}
+.seller-stat-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.seller-stat-value{font-family:var(--font-display);font-weight:700;font-size:18px}
 
-/* Footer */
-.footer { text-align: center; padding: 32px; color: rgba(248,245,239,.3); font-size: 12px; border-top: 1px solid rgba(255,255,255,.04); margin-top: 40px; }
+/* PHASE */
+.phase{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:24px;margin-bottom:16px;position:relative;overflow:hidden}
+.phase::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px}
+.phase.p1::before{background:var(--red)}
+.phase.p2::before{background:var(--yellow)}
+.phase.p3::before{background:var(--blue)}
+.phase.p4::before{background:var(--green)}
+.phase-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:12px}
+.phase.p1 .phase-tag{background:var(--red-soft);color:#fca5a5}
+.phase.p2 .phase-tag{background:var(--yellow-soft);color:#fde68a}
+.phase.p3 .phase-tag{background:rgba(37,99,235,.1);color:var(--blue-light)}
+.phase.p4 .phase-tag{background:var(--green-soft);color:#86efac}
+.phase-title{font-family:var(--font-display);font-weight:700;font-size:18px;margin-bottom:10px}
+.phase ul{list-style:none;padding:0}
+.phase li{padding:6px 0;font-size:13px;color:rgba(248,245,239,.8);display:flex;align-items:flex-start;gap:8px}
+.phase li::before{content:'→';color:var(--gold);font-weight:700;flex-shrink:0}
 
-/* Funnel bar */
-.funnel { margin: 20px 0; }
-.funnel-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.funnel-label { width: 160px; font-size: 12px; text-align: right; color: rgba(248,245,239,.5); flex-shrink: 0; }
-.funnel-fill { height: 28px; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: 12px; font-weight: 600; min-width: 36px; transition: width .5s; }
+/* DECISION */
+.decision{background:var(--navy-mid);border:1px solid rgba(200,150,62,.15);border-radius:var(--radius);padding:20px;margin-bottom:12px;display:flex;gap:16px;align-items:flex-start}
+.decision-num{font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--gold);flex-shrink:0;width:32px}
+.decision-content h4{font-family:var(--font-display);font-weight:700;font-size:14px;margin-bottom:4px}
+.decision-content p{font-size:13px;color:var(--text-muted);line-height:1.5}
 
-@media (max-width: 768px) {
-  .header h1 { font-size: 24px; }
-  .kpi-grid { grid-template-columns: 1fr 1fr; }
-  .commission-detail { grid-template-columns: 1fr; }
-  .funnel-label { width: 100px; font-size: 11px; }
+/* FUNNEL VIZ */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:4px;margin:32px 0}
+.funnel-step{display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:var(--radius-sm);background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);transition:var(--transition);width:100%;max-width:600px}
+.funnel-step:hover{border-color:var(--gold-glow)}
+.funnel-step .num{font-family:var(--font-display);font-weight:800;font-size:22px;min-width:50px;color:var(--gold-light)}
+.funnel-step .label{flex:1;font-size:13px}
+.funnel-step .pct-badge{font-size:11px;font-weight:700;padding:3px 8px;border-radius:8px}
+.funnel-arrow{color:var(--text-muted);font-size:18px}
+
+/* COMMISSION */
+.commission-box{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:2px solid var(--gold);border-radius:var(--radius);padding:28px;margin-bottom:24px}
+.commission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.commission-item{text-align:center}
+.commission-item .lbl{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+.commission-item .val{font-family:var(--font-display);font-weight:800;font-size:24px}
+
+/* FOOTER */
+.footer{text-align:center;padding:40px 0;border-top:1px solid rgba(255,255,255,.06);margin-top:40px}
+.footer-brand{font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.footer-sub{font-size:11px;color:var(--text-muted);margin-top:4px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .card-grid{grid-template-columns:1fr 1fr}
+  .seller-grid{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+  .nav{padding:12px 16px}
+  .container{padding:0 16px}
+  table{font-size:12px}
+  th,td{padding:8px 10px}
+  .commission-grid{grid-template-columns:1fr}
 }
-@media print { body { background: #fff; color: #000; } }
+@media(max-width:480px){
+  .card-grid{grid-template-columns:1fr}
+  .hero-badges{flex-direction:column;align-items:center}
+}
 </style>
 </head>
 <body>
-<div class="container">
 
-<!-- HEADER -->
-<div class="header">
-  <div class="header-badge">📊 REPORT #1 — BASELINE</div>
-  <h1>SALES VELOCITY REPORT</h1>
-  <div class="header-sub">Luis Corona — Corona Home Services × Royal Prestige</div>
-  <div class="header-meta">
-    <span>📅 2026-03-17</span>
-    <span>📆 Período: Mar 10–16, 2026</span>
-    <span>⚡ Sales Velocity × Luis Corona</span>
-  </div>
-</div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span> SALES VELOCITY × CORONA</div>
+  <div class="nav-date">Marzo 17, 2026 — Reporte Semanal #2</div>
+</nav>
 
-<!-- 01 VEREDICTO EJECUTIVO -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-number">01</div>
-    <div class="section-title">Veredicto Ejecutivo</div>
-  </div>
-  <div class="verdict">
-    <div class="verdict-light yellow">🟡</div>
-    <div class="verdict-text">
-      <strong>6 ventas activas en pipeline — 3 con valor registrado ($5,722). Comisión acumulada: $286.10.</strong><br><br>
-      Se generaron <strong>131 leads</strong> con <strong>$337.36</strong> de inversión en 7 días (CPR promedio: <strong>$2.58</strong>). 
-      Se sumaron 2 nuevas socias (<strong>Maritza</strong> en Gainesville y <strong>Crismar</strong> en Lawrenceville) que ya están generando leads activamente.
-      <strong>3 ventas tienen valor registrado</strong> en GHL: Angel Bonilla (<strong>$2,674</strong>) + Mari M Gutierrez (<strong>$1,748</strong>) + Magdalena Perez (<strong>$1,300</strong>) = <strong>$5,722</strong> → Comisión 5%: <strong>$286.10</strong>.
-      Las 3 ventas restantes aparecen con <strong>$0</strong> — pendientes de registro. 1 venta cancelada (Bella Lopez).
-      <br><br>
-      <strong>⚠️ ALERTA CRÍTICA:</strong> Los vendedores NO están registrando los valores de venta en GHL. Sin datos reales, el modelo de comisiones no funciona. Se requiere actualización inmediata de TODOS los valores pendientes.
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Reporte de Resultados</div>
+    <h1>Corona Home Services<br><span>$5,722 en ventas confirmadas</span></h1>
+    <p class="hero-sub">6 ventas activas, 24 en seguimiento, 995 oportunidades en el sistema. Inversión semanal: $337. Comisión acumulada: $286.10.</p>
+    <div class="hero-badges">
+      <span class="badge green">✅ $5,722 valor registrado</span>
+      <span class="badge gold">💰 Comisión 5%: $286.10</span>
+      <span class="badge blue">📊 131 leads · $2.58 CPR · 7 días</span>
     </div>
   </div>
-</div>
+</section>
 
-<!-- 02 KPIs CONSOLIDADOS -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-number">02</div>
-    <div class="section-title">KPIs Consolidados</div>
-  </div>
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-label">Inversión 7d</div>
-      <div class="kpi-value">$337.36</div>
-      <div class="kpi-sub">7 campañas activas</div>
-      <div class="kpi-baseline">BASELINE</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Leads generados</div>
-      <div class="kpi-value">131</div>
-      <div class="kpi-sub">18.7/día promedio</div>
-      <div class="kpi-baseline">BASELINE</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">CPR Promedio</div>
-      <div class="kpi-value">$2.58</div>
-      <div class="kpi-sub">Ref. anterior: $2.89</div>
-      <div class="kpi-baseline">BASELINE</div>
-    </div>
-    <div class="kpi-card" style="border-color: var(--green); border-width: 2px;">
-      <div class="kpi-label">Ventas en Pipeline</div>
-      <div class="kpi-value">6</div>
-      <div class="kpi-sub">3 con valor ($5,722) · 3 pendientes · 1 cancelada</div>
-      <div class="kpi-baseline">BASELINE</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Casi Ventas</div>
-      <div class="kpi-value">24</div>
-      <div class="kpi-sub">En seguimiento activo</div>
-      <div class="kpi-baseline">BASELINE</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Total Oportunidades</div>
-      <div class="kpi-value">995</div>
-      <div class="kpi-sub">Across 4 pipelines</div>
-      <div class="kpi-baseline">BASELINE</div>
-    </div>
-  </div>
-</div>
+<!-- 01 INVERSIÓN Y RESULTADOS -->
+<section class="section">
+  <div class="container">
+    <div class="section-num">01</div>
+    <div class="section-title">Inversión y Resultados</div>
+    <p class="section-desc">Campañas activas (7 días). Cruce directo Meta Ads + pipeline GHL. 3 ventas con valor real registrado, 3 pendientes de registro.</p>
 
-<!-- 03 DESGLOSE POR CAMPAÑA -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-number">03</div>
-    <div class="section-title">Desglose por Campaña (7 días)</div>
-  </div>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Campaña</th>
-          <th>Vendedor</th>
-          <th>Inversión</th>
-          <th>Leads</th>
-          <th>CPR</th>
-          <th>CTR</th>
-          <th>Alcance</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>CP| FEB 19</strong></td>
-          <td>Luis Corona</td>
-          <td>$77.75</td>
-          <td><strong>25</strong></td>
-          <td><span class="tag tag-yellow">$3.11</span></td>
-          <td>2.3%</td>
-          <td>3,481</td>
-          <td><span class="tag tag-green">ACTIVE</span></td>
-        </tr>
+    <div class="card-grid">
+      <div class="card gold">
+        <div class="card-label">Inversión 7d</div>
+        <div class="card-value">$337.36</div>
+        <div class="card-sub">7 campañas activas en Meta Ads</div>
+      </div>
+      <div class="card blue">
+        <div class="card-label">Leads 7d</div>
+        <div class="card-value">131</div>
+        <div class="card-sub">CPR promedio: $2.58</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">Ventas Activas</div>
+        <div class="card-value">6</div>
+        <div class="card-sub">3 con valor ($5,722) · 3 pendientes · 1 cancelada</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">Valor Ventas Confirmado</div>
+        <div class="card-value" style="color:var(--green)">$5,722</div>
+        <div class="card-sub">Angel $2,674 + Mari $1,748 + Magdalena $1,300</div>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card gold">
+        <div class="card-label">Comisión 5%</div>
+        <div class="card-value" style="color:var(--gold)">$286.10</div>
+        <div class="card-sub">Sobre $5,722 confirmados</div>
+      </div>
+      <div class="card yellow">
+        <div class="card-label">CAC (real)</div>
+        <div class="card-value">$56</div>
+        <div class="card-sub">$337 ÷ 6 ventas</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">ROAS (confirmado)</div>
+        <div class="card-value" style="color:var(--green)">17x</div>
+        <div class="card-sub">$5,722 / $337 inversión</div>
+      </div>
+      <div class="card yellow">
+        <div class="card-label">Casi Ventas</div>
+        <div class="card-value" style="color:var(--yellow)">24</div>
+        <div class="card-sub">En seguimiento activo</div>
+      </div>
+    </div>
+
+    <!-- CAMPAIGN TABLE -->
+    <div class="table-wrap">
+      <div class="table-header">
+        📈 Campañas Activas — Meta Ads (7 días)
+        <span class="tag">7 Activas</span>
+      </div>
+      <table>
+        <tr><th>Campaña</th><th>Inversión</th><th>Leads</th><th>CPR</th><th>CTR</th><th>Vendedor</th></tr>
         <tr>
           <td><strong>CP| JAN 13| LEADS</strong></td>
+          <td>$42.01</td>
+          <td><span class="pct high">19</span></td>
+          <td><span class="pct high">$2.21</span></td>
+          <td>1.90%</td>
           <td>Luis Corona</td>
-          <td>$71.22</td>
-          <td><strong>35</strong></td>
-          <td><span class="tag tag-green">$2.03</span></td>
-          <td>4.2%</td>
-          <td>2,151</td>
-          <td><span class="tag tag-green">ACTIVE</span></td>
         </tr>
         <tr>
-          <td><strong>Clientes Potenciales | Victor</strong></td>
-          <td>Víctor Alonso</td>
-          <td>$46.34</td>
-          <td><strong>25</strong></td>
-          <td><span class="tag tag-green">$1.85</span></td>
-          <td>2.2%</td>
-          <td>2,334</td>
-          <td><span class="tag tag-green">ACTIVE</span></td>
+          <td><strong>CP| FEB 19</strong></td>
+          <td>$97.27</td>
+          <td><span class="pct mid">42</span></td>
+          <td><span class="pct mid">$2.32</span></td>
+          <td>2.05%</td>
+          <td>Mixto (todos)</td>
         </tr>
         <tr>
-          <td><strong>Clientes Potenciales |Maritza| Gainesville, GA</strong></td>
-          <td>Maritza</td>
-          <td>$40.83</td>
-          <td><strong>11</strong></td>
-          <td><span class="tag tag-yellow">$3.71</span></td>
-          <td>4.3%</td>
-          <td>1,205</td>
-          <td><span class="tag tag-green">ACTIVE</span></td>
-        </tr>
-        <tr>
-          <td><strong>Clientes Potenciales |Crismar| Lawrenceville</strong></td>
-          <td>Crismar</td>
-          <td>$40.34</td>
-          <td><strong>15</strong></td>
-          <td><span class="tag tag-green">$2.69</span></td>
-          <td>3.5%</td>
-          <td>1,756</td>
-          <td><span class="tag tag-green">ACTIVE</span></td>
-        </tr>
-        <tr>
-          <td><strong>Clientes Potenciales | Jaime | 37087 Nashville TN</strong></td>
-          <td>Jaime Orozco</td>
-          <td>$31.33</td>
-          <td><strong>9</strong></td>
-          <td><span class="tag tag-yellow">$3.48</span></td>
-          <td>2.9%</td>
-          <td>1,239</td>
-          <td><span class="tag tag-green">ACTIVE</span></td>
-        </tr>
-        <tr>
-          <td><strong>Clientes Potenciales | Jesus</strong></td>
-          <td>Jesus Nava</td>
+          <td>Clientes Pot. | Jesus</td>
           <td>$29.55</td>
-          <td><strong>11</strong></td>
-          <td><span class="tag tag-green">$2.69</span></td>
-          <td>2.4%</td>
-          <td>1,564</td>
-          <td><span class="tag tag-green">ACTIVE</span></td>
-        </tr>
-        <tr style="background: var(--navy-light); font-weight: 700;">
-          <td>TOTAL</td>
-          <td>—</td>
-          <td>$337.36</td>
-          <td><strong>131</strong></td>
-          <td><span class="tag tag-gold">$2.58</span></td>
-          <td>—</td>
-          <td>13,730</td>
-          <td>—</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- 04 CORRELACION META → PIPELINE GHL -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-number">04</div>
-    <div class="section-title">Correlación Meta → Pipeline GHL</div>
-  </div>
-  <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
-    <div class="kpi-card" style="border-color: var(--green); border-width: 2px;">
-      <div class="kpi-label">✅ Ventas</div>
-      <div class="kpi-value" style="color: var(--green);">6</div>
-      <div class="kpi-sub">5 Zona Prioritaria + 1 Zona No Prioritaria (+ 1 cancelada)</div>
-    </div>
-    <div class="kpi-card" style="border-color: var(--yellow); border-width: 2px;">
-      <div class="kpi-label">🟡 Casi Ventas</div>
-      <div class="kpi-value" style="color: var(--yellow);">24</div>
-      <div class="kpi-sub">En seguimiento</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">📋 En Gestión</div>
-      <div class="kpi-value">89</div>
-      <div class="kpi-sub">Llamadas + disponibles</div>
-    </div>
-    <div class="kpi-card" style="border-color: var(--red);">
-      <div class="kpi-label">❌ No Califica</div>
-      <div class="kpi-value" style="color: var(--red);">8</div>
-      <div class="kpi-sub">Descalificados</div>
-    </div>
-  </div>
-
-  <!-- Funnel -->
-  <div class="funnel">
-    <div class="funnel-bar">
-      <div class="funnel-label">Disponible para llamar</div>
-      <div class="funnel-fill" style="width: 100%; background: #3b82f6;">47</div>
-    </div>
-    <div class="funnel-bar">
-      <div class="funnel-label">Llamada 1</div>
-      <div class="funnel-fill" style="width: 25%; background: #60a5fa;">12</div>
-    </div>
-    <div class="funnel-bar">
-      <div class="funnel-label">Llamada 2</div>
-      <div class="funnel-fill" style="width: 5%; background: #93c5fd;">1</div>
-    </div>
-    <div class="funnel-bar">
-      <div class="funnel-label">Cita Agendada</div>
-      <div class="funnel-fill" style="width: 10%; background: #f59e0b;">5</div>
-    </div>
-    <div class="funnel-bar">
-      <div class="funnel-label">Casi Venta - Seguimiento</div>
-      <div class="funnel-fill" style="width: 51%; background: #eab308;">24</div>
-    </div>
-    <div class="funnel-bar">
-      <div class="funnel-label">Venta</div>
-      <div class="funnel-fill" style="width: 13%; background: #10b981;">6</div>
-    </div>
-    <div class="funnel-bar">
-      <div class="funnel-label">No Califica - No venta</div>
-      <div class="funnel-fill" style="width: 10%; background: #ef4444;">5</div>
-    </div>
-  </div>
-</div>
-
-<!-- 05 ROI POR VENDEDOR -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-number">05</div>
-    <div class="section-title">ROI por Vendedor / Socio</div>
-  </div>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Vendedor</th>
-          <th>Inversión 7d</th>
-          <th>Leads 7d</th>
-          <th>Opps Pipeline</th>
-          <th>Ventas</th>
-          <th>Casi Ventas</th>
-          <th>ROI</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>👑 <strong>Luis Corona</strong></td>
-          <td>$148.97</td>
-          <td>60</td>
-          <td>132</td>
-          <td><strong>4</strong></td>
-          <td>15</td>
-          <td><span class="tag tag-green">CON VENTAS</span></td>
+          <td>11</td>
+          <td><span class="pct mid">$2.69</span></td>
+          <td>3.73%</td>
+          <td>Jesus Nava</td>
         </tr>
         <tr>
-          <td>👤 <strong>Jaime Orozco</strong></td>
+          <td>Clientes Pot. | Jaime Nashville</td>
           <td>$31.33</td>
           <td>9</td>
-          <td>47</td>
-          <td><strong>1</strong></td>
-          <td>1</td>
-          <td><span class="tag tag-yellow">SIN VALOR GHL</span></td>
+          <td><span class="pct mid">$3.48</span></td>
+          <td>2.90%</td>
+          <td>Jaime Orozco</td>
         </tr>
         <tr>
-          <td>👤 <strong>Jesus Nava</strong></td>
-          <td>$29.55</td>
-          <td>11</td>
-          <td>24</td>
-          <td><strong>0</strong></td>
-          <td>7</td>
-          <td><span class="tag tag-yellow">SIN REGISTRO GHL</span></td>
-        </tr>
-        <tr>
-          <td>👤 <strong>Víctor Alonso</strong></td>
+          <td>Clientes Pot. | Victor</td>
           <td>$46.34</td>
-          <td>25</td>
-          <td>23</td>
-          <td><strong>0</strong></td>
-          <td>0</td>
-          <td><span class="tag tag-red">VENTA CANCELADA (Bella Lopez)</span></td>
+          <td><span class="pct high">25</span></td>
+          <td><span class="pct high">$1.85</span></td>
+          <td>2.18%</td>
+          <td>Víctor Alonso</td>
         </tr>
         <tr>
-          <td>🆕 <strong>Maritza</strong></td>
+          <td>Clientes Pot. | Maritza | Gainesville</td>
           <td>$40.83</td>
           <td>11</td>
-          <td>0</td>
-          <td><strong>0</strong></td>
-          <td>0</td>
-          <td><span class="tag tag-red">SIN VENTAS</span></td>
+          <td><span class="pct mid">$3.71</span></td>
+          <td>4.29%</td>
+          <td>🆕 Maritza</td>
         </tr>
         <tr>
-          <td>🆕 <strong>Crismar</strong></td>
+          <td>Clientes Pot. | Crismar | Lawrenceville</td>
           <td>$40.34</td>
           <td>15</td>
-          <td>0</td>
-          <td><strong>0</strong></td>
-          <td>0</td>
-          <td><span class="tag tag-red">SIN VENTAS</span></td>
+          <td><span class="pct mid">$2.69</span></td>
+          <td>3.48%</td>
+          <td>🆕 Crismar</td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- 06 COMISIONES (5%) -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-number">06</div>
-    <div class="section-title">💰 Pago de Comisiones — 5% sobre Ventas</div>
-  </div>
-  <div class="commission-card">
-    <div class="commission-header">
-      <div>
-        <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: rgba(248,245,239,.5);">Comisión Acumulada Total (parcial)</div>
-        <div class="commission-total">$286.10</div>
-      </div>
-      <div class="baseline-tag" style="background: var(--yellow); color: var(--navy);">PARCIAL — 3 VENTAS SIN VALOR</div>
+      </table>
     </div>
-    <div style="padding: 16px; background: rgba(245,158,11,.08); border: 1px solid rgba(245,158,11,.2); border-radius: 12px; margin-bottom: 16px;">
-      <p style="font-size: 14px; color: var(--yellow);">
-        <strong>⚠️ PARCIAL:</strong> 3 de 6 ventas activas tienen valor registrado. Valor total confirmado: <strong>$5,722.00</strong>. 
-        Las 3 ventas restantes aparecen con <strong>$0</strong> en GHL. 1 venta cancelada (Bella Lopez).
-        <strong>Cada vendedor debe registrar el monto real de sus ventas esta semana.</strong>
+
+    <!-- PER SELLER ROI -->
+    <div class="table-wrap">
+      <div class="table-header">
+        💰 ¿Quién vende y quién no? — ROI por Vendedor
+        <span class="tag" style="background:var(--green-soft);color:#86efac">ROI REAL</span>
+      </div>
+      <table>
+        <tr><th>Vendedor</th><th>Inversión</th><th>Leads</th><th>CPL</th><th>Ventas</th><th>Valor</th><th>ROI</th></tr>
+        <tr style="background:var(--green-soft)">
+          <td><strong>👑 Luis Corona</strong></td>
+          <td>$148.97</td>
+          <td>60</td>
+          <td><span class="pct high">$2.48</span></td>
+          <td style="color:var(--green)"><strong>4</strong></td>
+          <td style="color:var(--green)"><strong>$5,722</strong></td>
+          <td><span class="pct high">38.4x</span></td>
+        </tr>
+        <tr>
+          <td>🟡 Jaime Orozco</td>
+          <td>$31.33</td>
+          <td>9</td>
+          <td><span class="pct mid">$3.48</span></td>
+          <td style="color:var(--yellow)">1</td>
+          <td style="color:var(--red)">$0*</td>
+          <td><span class="pct mid">?x</span></td>
+        </tr>
+        <tr>
+          <td>🟡 Jesus Nava</td>
+          <td>$29.55</td>
+          <td>11</td>
+          <td><span class="pct high">$2.69</span></td>
+          <td>0</td>
+          <td>$0</td>
+          <td><span class="pct low">0x</span></td>
+        </tr>
+        <tr style="background:var(--red-soft)">
+          <td>🔴 Víctor Alonso</td>
+          <td>$46.34</td>
+          <td>25</td>
+          <td><span class="pct high">$1.85</span></td>
+          <td>0 <span style="font-size:11px;color:var(--red)">❌ 1 cancelada</span></td>
+          <td>$0</td>
+          <td><span class="pct low">0x</span></td>
+        </tr>
+        <tr>
+          <td>🆕 Maritza</td>
+          <td>$40.83</td>
+          <td>11</td>
+          <td><span class="pct mid">$3.71</span></td>
+          <td>0</td>
+          <td>$0</td>
+          <td><span class="pct low">Nueva</span></td>
+        </tr>
+        <tr>
+          <td>🆕 Crismar</td>
+          <td>$40.34</td>
+          <td>15</td>
+          <td><span class="pct mid">$2.69</span></td>
+          <td>0</td>
+          <td>$0</td>
+          <td><span class="pct low">Nueva</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-title">👑 Luis Corona genera el 100% del valor confirmado</div>
+      <p>4 ventas cerradas, $5,722 registrados, ROI de 38.4x. Es el único vendedor con valor real de ventas en el sistema. <strong>$148.97 invertidos → $5,722 en valor = $286.10 de comisión.</strong></p>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 3 ventas sin valor registrado — comisión podría ser MAYOR</div>
+      <p>Nachitho Perez (Luis), Sandy Chsparrita (Jaime), y Dairis Valdivieso (sin asignar) tienen ventas en GHL con $0. Si registran los montos reales, la comisión sube significativamente.</p>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-title">🚨 Víctor Alonso: $46.34 invertidos, 25 leads, 0 ventas + 1 cancelada</div>
+      <p>Víctor tiene el mejor CPL ($1.85) pero cero resultados. Bella Lopez fue cancelada. Los leads están ahí, pero no se están convirtiendo.</p>
+    </div>
+
+    <p style="font-size:11px;color:var(--text-muted);margin-top:12px">*$0 = valor no registrado en GHL. La venta existe pero el vendedor no ingresó el monto real.</p>
+  </div>
+</section>
+
+<!-- 02 COMISIÓN 5% (SOLO LUIS CORONA) -->
+<section class="section" style="background:rgba(200,150,62,.04)">
+  <div class="container">
+    <div class="section-num">02</div>
+    <div class="section-title">💰 Comisión 5% — Luis Corona (Acuerdo Comercial)</div>
+    <p class="section-desc">Nuestro acuerdo con Luis Corona es cobrar el 5% de cada venta cerrada. Aquí el desglose actualizado:</p>
+
+    <div class="commission-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted)">Comisión Total Acumulada</div>
+          <div style="font-family:var(--font-display);font-size:36px;font-weight:800;color:var(--gold)">$286.10</div>
+        </div>
+        <div style="background:var(--yellow-soft);color:#fde68a;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px">PARCIAL — 3 VENTAS SIN VALOR</div>
+      </div>
+      <div class="commission-grid">
+        <div class="commission-item">
+          <div class="lbl">Ventas con valor</div>
+          <div class="val" style="color:var(--green)">3 de 6</div>
+        </div>
+        <div class="commission-item">
+          <div class="lbl">Valor total</div>
+          <div class="val" style="color:var(--green)">$5,722</div>
+        </div>
+        <div class="commission-item">
+          <div class="lbl">Pendientes de valor</div>
+          <div class="val" style="color:var(--red)">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VENTAS DETAIL TABLE -->
+    <div class="table-wrap">
+      <div class="table-header">
+        ✅ Detalle de Ventas — Desglose de Comisión
+        <span class="tag" style="background:var(--green-soft);color:#86efac">$286.10 confirmados</span>
+      </div>
+      <table>
+        <tr><th>Contacto</th><th>Vendedor</th><th>Pipeline</th><th>Valor</th><th>Comisión 5%</th><th>Status</th></tr>
+        <tr style="background:var(--green-soft)">
+          <td><strong>Angel Bonilla</strong></td>
+          <td>Luis Corona</td>
+          <td>Zona Prioritaria</td>
+          <td style="color:var(--green)"><strong>$2,674</strong></td>
+          <td style="color:var(--green)"><strong>$133.70</strong></td>
+          <td>✅ Confirmada</td>
+        </tr>
+        <tr style="background:var(--green-soft)">
+          <td><strong>Mari M Gutierrez</strong></td>
+          <td>Luis Corona</td>
+          <td>Zona Prioritaria</td>
+          <td style="color:var(--green)"><strong>$1,748</strong></td>
+          <td style="color:var(--green)"><strong>$87.40</strong></td>
+          <td>✅ Confirmada</td>
+        </tr>
+        <tr style="background:var(--green-soft)">
+          <td><strong>Magdalena Perez</strong></td>
+          <td>Luis Corona</td>
+          <td>Zona No Prioritaria</td>
+          <td style="color:var(--green)"><strong>$1,300</strong></td>
+          <td style="color:var(--green)"><strong>$65.00</strong></td>
+          <td>✅ Confirmada</td>
+        </tr>
+        <tr>
+          <td>Nachitho Perez</td>
+          <td>Luis Corona</td>
+          <td>ZP (Nivel 9)</td>
+          <td style="color:var(--red)"><strong>$0*</strong></td>
+          <td style="color:var(--red)">$0.00</td>
+          <td>⚠️ Sin valor</td>
+        </tr>
+        <tr>
+          <td>Sandy Chsparrita</td>
+          <td>Jaime Orozco</td>
+          <td>Zona Prioritaria</td>
+          <td style="color:var(--red)"><strong>$0*</strong></td>
+          <td style="color:var(--red)">$0.00</td>
+          <td>⚠️ Sin valor</td>
+        </tr>
+        <tr>
+          <td>Dairis Valdivieso</td>
+          <td>Sin asignar</td>
+          <td>Zona Prioritaria</td>
+          <td style="color:var(--red)"><strong>$0*</strong></td>
+          <td style="color:var(--red)">$0.00</td>
+          <td>⚠️ Sin asignar</td>
+        </tr>
+        <tr style="background:var(--red-soft)">
+          <td><s>Bella Lopez</s></td>
+          <td>Luis Corona</td>
+          <td>Zona Prioritaria</td>
+          <td style="color:var(--red)">—</td>
+          <td style="color:var(--red)">$0.00</td>
+          <td>❌ Cancelada</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠️ Cada venta sin valor = comisión que no podemos cobrar</div>
+      <p>3 ventas con $0 en GHL. Si el ticket promedio confirmado es ~$1,907 (promedio de las 3 registradas), hay potencialmente <strong>~$5,721 adicionales → $286 más en comisión</strong> pendientes de registro.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PIPELINE -->
+<section class="section">
+  <div class="container">
+    <div class="section-num">03</div>
+    <div class="section-title">Pipeline: ¿Dónde Están los Leads?</div>
+    <p class="section-desc">995 oportunidades en el sistema. El flujo: Meta Ads → Corona Home Services → Zona Prioritaria/No Prioritaria → Venta.</p>
+
+    <!-- FUNNEL -->
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="num">995</div>
+        <div class="label"><strong>Total oportunidades</strong> (across 4 pipelines)</div>
+        <div class="pct-badge" style="background:var(--gold-soft);color:var(--gold-light)">100%</div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="num">226</div>
+        <div class="label"><strong>Pipeline de clasificación</strong> (Corona Home Services)</div>
+        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">22.7%</div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="num">132</div>
+        <div class="label"><strong>Zona Prioritaria</strong> (listos para gestionar)</div>
+        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">13.3%</div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="num">24</div>
+        <div class="label"><strong>Casi Venta — Seguimiento</strong></div>
+        <div class="pct-badge" style="background:var(--yellow-soft);color:#fde68a">2.4%</div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="num" style="color:var(--green)">6</div>
+        <div class="label"><strong>Ventas cerradas</strong> (+ 1 cancelada)</div>
+        <div class="pct-badge" style="background:var(--green-soft);color:#86efac">0.6%</div>
+      </div>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-title">📈 Ventas subieron de 4 a 6 (+50% vs semana anterior)</div>
+      <p>Nuevas ventas: Angel Bonilla ($2,674), Sandy Chsparrita (sin valor). Las Casi Ventas subieron de 16 a <strong>24</strong> — oportunidades en la puerta esperando cierre.</p>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-title">🚨 24 prospectos en "Casi Venta" = dinero esperando</div>
+      <p>Si se convierten mínimo 3 de 24, a un ticket promedio de $1,907, son <strong>~$5,721 potenciales → $286 en comisión adicional.</strong> Estos son los leads más calientes del pipeline.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 VENDEDORES -->
+<section class="section" style="background:rgba(255,255,255,.02)">
+  <div class="container">
+    <div class="section-num">04</div>
+    <div class="section-title">Desempeño por Vendedor</div>
+    <p class="section-desc">Pipeline + inversión en ads por vendedor. Datos de GHL + Meta Ads combinados.</p>
+
+    <div class="seller-grid">
+      <!-- LUIS CORONA -->
+      <div class="seller-card" style="border-color:var(--gold-glow)">
+        <div class="seller-name">👑 Luis Corona</div>
+        <span class="seller-role">Líder — 132 opps · $148.97 invertidos · ROI: 38.4x</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--green)">4</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Valor</div>
+            <div class="seller-stat-value" style="color:var(--green)">$5,722</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value" style="color:var(--yellow)">15</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Comisión 5%</div>
+            <div class="seller-stat-value" style="color:var(--gold)">$286.10</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JAIME OROZCO -->
+      <div class="seller-card" style="border-color:var(--yellow-soft)">
+        <div class="seller-name">🟡 Jaime Orozco</div>
+        <span class="seller-role">Socio — 47 opps · $31.33 invertidos · ROI: ?x</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--yellow)">1</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Valor</div>
+            <div class="seller-stat-value" style="color:var(--red)">$0*</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value">1</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Comisión 5%</div>
+            <div class="seller-stat-value" style="color:var(--red)">$0</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:var(--yellow-soft);border-radius:8px;font-size:12px">
+          1 venta (Sandy Chsparrita) pero <strong>sin valor registrado.</strong> Debe registrar monto real.
+        </div>
+      </div>
+
+      <!-- JESUS NAVA -->
+      <div class="seller-card" style="border-color:var(--yellow-soft)">
+        <div class="seller-name">🟡 Jesus Nava</div>
+        <span class="seller-role">Socio — 24 opps · $29.55 invertidos · ROI: 0x</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Valor</div>
+            <div class="seller-stat-value" style="color:var(--red)">$0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value" style="color:var(--yellow)">7</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Comisión 5%</div>
+            <div class="seller-stat-value" style="color:var(--red)">$0</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:var(--yellow-soft);border-radius:8px;font-size:12px">
+          7 "Casi Ventas" — gestiona pero no cierra. <strong>Oportunidad de coaching para convertir a venta.</strong>
+        </div>
+      </div>
+
+      <!-- VÍCTOR ALONSO -->
+      <div class="seller-card" style="border-color:rgba(239,68,68,.3)">
+        <div class="seller-name">🔴 Víctor Alonso</div>
+        <span class="seller-role">Socio — 23 opps · $46.34 invertidos · ROI: 0x</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Canceladas</div>
+            <div class="seller-stat-value" style="color:var(--red)">1</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Casi Ventas</div>
+            <div class="seller-stat-value" style="color:var(--red)">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Comisión 5%</div>
+            <div class="seller-stat-value" style="color:var(--red)">$0</div>
+          </div>
+        </div>
+        <div class="callout danger" style="margin-top:12px;margin-bottom:0;padding:10px">
+          <p><strong>Mejor CPL ($1.85) pero 0 ventas.</strong> Una venta cancelada (Bella Lopez). $46.34 invertidos sin retorno.</p>
+        </div>
+      </div>
+
+      <!-- MARITZA -->
+      <div class="seller-card">
+        <div class="seller-name">🆕 Maritza</div>
+        <span class="seller-role">Nueva socia — Gainesville, GA · $40.83 invertidos</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Leads 7d</div>
+            <div class="seller-stat-value">11</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">CPR</div>
+            <div class="seller-stat-value">$3.71</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Opps Pipeline</div>
+            <div class="seller-stat-value">0</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:rgba(37,99,235,.08);border-radius:8px;font-size:12px;color:var(--blue-light)">
+          Recién incorporada. Generando leads — pendiente que entren al pipeline y se gestionen.
+        </div>
+      </div>
+
+      <!-- CRISMAR -->
+      <div class="seller-card">
+        <div class="seller-name">🆕 Crismar</div>
+        <span class="seller-role">Nueva socia — Lawrenceville · $40.34 invertidos</span>
+        <div class="seller-stats">
+          <div class="seller-stat">
+            <div class="seller-stat-label">Ventas</div>
+            <div class="seller-stat-value">0</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Leads 7d</div>
+            <div class="seller-stat-value">15</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">CPR</div>
+            <div class="seller-stat-value">$2.69</div>
+          </div>
+          <div class="seller-stat">
+            <div class="seller-stat-label">Opps Pipeline</div>
+            <div class="seller-stat-value">0</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:rgba(37,99,235,.08);border-radius:8px;font-size:12px;color:var(--blue-light)">
+          Recién incorporada. Buen CPR ($2.69). Pendiente que entren al pipeline.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">💡 Resumen</div>
+      <p><strong>100% del valor confirmado</strong> viene de Luis Corona ($5,722). Jaime tiene 1 venta sin valor. Jesus tiene 7 "Casi Ventas" pero 0 cierres. Víctor tiene 0 ventas + 1 cancelada. Maritza y Crismar recién incorporadas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 vs REFERENCIA -->
+<section class="section">
+  <div class="container">
+    <div class="section-num">05</div>
+    <div class="section-title">📊 vs Semana Anterior (9 Mar)</div>
+    <p class="section-desc">Comparación con el reporte de referencia.</p>
+
+    <div class="card-grid">
+      <div class="card green">
+        <div class="card-label">Ventas</div>
+        <div class="card-value" style="color:var(--green)">4 → 6</div>
+        <div class="card-sub">+50% ↑</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">Valor Registrado</div>
+        <div class="card-value" style="color:var(--green)">$0 → $5,722</div>
+        <div class="card-sub">Primer registro real ✅</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">Campañas</div>
+        <div class="card-value" style="color:var(--green)">5 → 7</div>
+        <div class="card-sub">+Maritza +Crismar</div>
+      </div>
+      <div class="card yellow">
+        <div class="card-label">Casi Ventas</div>
+        <div class="card-value" style="color:var(--yellow)">16 → 24</div>
+        <div class="card-sub">+50% en seguimiento ↑</div>
+      </div>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-title">📈 Progreso real esta semana</div>
+      <p>Ventas subieron 50%, por primera vez hay <strong>valor real de ventas registrado ($5,722)</strong>, y ya podemos calcular comisión ($286.10). Se incorporaron 2 nuevas socias. Casi Ventas subieron a 24 — pipeline saludable para conversión.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ACCIONES -->
+<section class="section" style="background:rgba(255,255,255,.02)">
+  <div class="container">
+    <div class="section-num">06</div>
+    <div class="section-title">Acciones — ¿Qué Hacemos?</div>
+    <p class="section-desc">4 acciones prioritarias + 3 decisiones que requieren aprobación.</p>
+
+    <div class="phase p1">
+      <div class="phase-tag">🔴 Esta Semana</div>
+      <div class="phase-title">Lo urgente</div>
+      <ul>
+        <li><strong>Registrar valor real de las 3 ventas con $0 en GHL.</strong> Nachitho Perez, Sandy Chsparrita, y Dairis Valdivieso. Sin esto, la comisión no es completa.</li>
+        <li><strong>Asignar vendedor a Dairis Valdivieso.</strong> Está en "Venta" pero sin vendedor asignado.</li>
+        <li><strong>Contactar las 24 "Casi Ventas" esta semana.</strong> Son los prospectos más calientes. Si se convierten mínimo 3 → ~$5,700 más en ventas y ~$286 más en comisión.</li>
+        <li><strong>Víctor: ultimátum.</strong> $46 gastados, 25 leads, 0 ventas, 1 cancelada. ¿Se redistribuyen sus leads?</li>
+      </ul>
+    </div>
+
+    <div class="phase p2">
+      <div class="phase-tag">🟡 Semana 2</div>
+      <div class="phase-title">Optimizar</div>
+      <ul>
+        <li><strong>Evaluar rendimiento de Maritza y Crismar</strong> — recién incorporadas, generando leads. ¿Están entrando al pipeline correctamente?</li>
+        <li><strong>Coaching para Jesus Nava</strong> — 7 "Casi Ventas" pero 0 cierres. Tiene actividad pero no convierte.</li>
+        <li><strong>Rotar creativos</strong> en campañas con CPR alto (Jaime $3.48, Maritza $3.71).</li>
+      </ul>
+    </div>
+
+    <div class="phase p3">
+      <div class="phase-tag">🔵 Mes 2+</div>
+      <div class="phase-title">Escalar</div>
+      <ul>
+        <li><strong>Si las 24 Casi Ventas convierten bien</strong> → aumentar presupuesto para Luis Corona.</li>
+        <li><strong>Dashboard semanal automático</strong> con este mismo formato, actualizado con datos frescos cada jueves.</li>
+        <li><strong>Si el modelo de socios no funciona</strong> → concentrar inversión en los que sí venden (Luis).</li>
+      </ul>
+    </div>
+
+    <!-- DECISIONS -->
+    <div style="margin-top:40px">
+      <div class="section-title" style="font-size:22px">Decisiones para Hoy</div>
+      <div style="margin-top:16px">
+        <div class="decision">
+          <div class="decision-num">1</div>
+          <div class="decision-content">
+            <h4>¿Redistribuimos los leads de Víctor Alonso?</h4>
+            <p>$46.34 gastados, 25 leads, 0 ventas, 1 cancelada. Recomendación: redistribuir a Luis y Jesus.</p>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">2</div>
+          <div class="decision-content">
+            <h4>¿Quién se asigna la venta de Dairis Valdivieso?</h4>
+            <p>Está en "Venta" en ZP pero sin vendedor asignado ni valor registrado. Alguien cerró esta venta pero no la reclamó.</p>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">3</div>
+          <div class="decision-content">
+            <h4>¿Las 3 ventas con $0 son reales? ¿Cuánto valen?</h4>
+            <p>Nachitho, Sandy, y Dairis aparecen con $0. Necesitamos que registren el monto real HOY para calcular comisión completa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUMEN FINAL -->
+<section class="section">
+  <div class="container">
+    <div class="callout success" style="border-radius:var(--radius);border-left-width:6px;padding:28px">
+      <div class="callout-title" style="font-size:18px;margin-bottom:10px">🎯 El sistema está produciendo ventas. La prioridad es registrar datos y cerrar Casi Ventas.</div>
+      <p style="font-size:14px;opacity:1">
+        <strong>$337 de inversión → $5,722 en ventas confirmadas = ROI de 17x.</strong>
+        <br><br>
+        ① <strong>$5,722 ya registrados</strong> — pero hay 3 ventas más sin valor. La comisión real debería ser mayor.<br>
+        ② <strong>24 "Casi Ventas" esperando cierre</strong> — si convierten 3, potencial de $5,700+ adicionales.<br>
+        ③ <strong>Víctor Alonso = $46 sin retorno</strong> — decidir si redistribuir sus leads.
+        <br><br>
+        <strong>Si se registran las 3 ventas pendientes y se convierten 3 Casi Ventas esta semana</strong>, el valor total podría superar los <strong>$11,000 → comisión de $550+.</strong>
       </p>
     </div>
   </div>
-  <div class="commission-seller">
-    <div class="commission-seller-name">👑 Luis Corona</div>
-    <div class="commission-detail">
-      <div class="commission-item">
-        <div class="label">Ventas Cerradas</div>
-        <div class="value" style="color: var(--green);">4</div>
-      </div>
-      <div class="commission-item">
-        <div class="label">Valor Total (parcial)</div>
-        <div class="value" style="color: var(--gold);">$5,722.00</div>
-      </div>
-      <div class="commission-item">
-        <div class="label">Comisión 5%</div>
-        <div class="value" style="color: var(--gold);">$286.10</div>
-      </div>
-    </div>
-    <div style="margin-top: 12px; font-size: 13px;">
-      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
-        <span>✅ Angel Bonilla <span style="font-size:11px; color:rgba(248,245,239,.4);">(Zona Prioritaria)</span></span>
-        <span style="color: var(--green); font-weight: 700;">$2,674.00 → Comisión: $133.70</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
-        <span>✅ Mari M Gutierrez <span style="font-size:11px; color:rgba(248,245,239,.4);">(Zona Prioritaria)</span></span>
-        <span style="color: var(--green); font-weight: 700;">$1,748.00 → Comisión: $87.40</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
-        <span>✅ Magdalena Perez <span style="font-size:11px; color:rgba(248,245,239,.4);">(Zona No Prioritaria)</span></span>
-        <span style="color: var(--green); font-weight: 700;">$1,300.00 → Comisión: $65.00</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
-        <span style="color: rgba(248,245,239,.4);">⚠️ Nachitho Perez <span style="font-size:11px;">(Zona Prioritaria — Nivel 9)</span></span>
-        <span style="color: var(--red);">$0 — pendiente de registro</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; padding: 6px 0;">
-        <span style="color: var(--red);">❌ Bella Lopez <span style="font-size:11px;">(Zona Prioritaria)</span></span>
-        <span style="color: var(--red);">VENTA CANCELADA — No genera comisión</span>
-      </div>
-    </div>
-  </div>
-  <div class="commission-seller">
-    <div class="commission-seller-name">👤 Jaime Orozco</div>
-    <div class="commission-detail">
-      <div class="commission-item">
-        <div class="label">Ventas en GHL</div>
-        <div class="value" style="color: var(--yellow);">1</div>
-      </div>
-      <div class="commission-item">
-        <div class="label">Valor en GHL</div>
-        <div class="value" style="color: var(--red);">$0</div>
-      </div>
-      <div class="commission-item">
-        <div class="label">Comisión 5%</div>
-        <div class="value" style="color: rgba(248,245,239,.3);">$0.00</div>
-      </div>
-    </div>
-    <div style="margin-top: 8px; font-size: 13px;">
-      <div style="display: flex; justify-content: space-between; padding: 6px 0;">
-        <span style="color: rgba(248,245,239,.4);">⚠️ Sandy Chsparrita <span style="font-size:11px;">(Zona Prioritaria)</span></span>
-        <span style="color: var(--red);">$0 — <strong>Debe registrar valor</strong></span>
-      </div>
-    </div>
-  </div>
-  <div class="commission-seller">
-    <div class="commission-seller-name">👤 Dairis Valdivieso (Sin Asignar)</div>
-    <div class="commission-detail">
-      <div class="commission-item">
-        <div class="label">Ventas en GHL</div>
-        <div class="value" style="color: var(--yellow);">1</div>
-      </div>
-      <div class="commission-item">
-        <div class="label">Valor en GHL</div>
-        <div class="value" style="color: var(--red);">$0</div>
-      </div>
-      <div class="commission-item">
-        <div class="label">Comisión 5%</div>
-        <div class="value" style="color: rgba(248,245,239,.3);">$0.00</div>
-      </div>
-    </div>
-    <div style="margin-top: 8px; padding: 8px 12px; background: rgba(245,158,11,.08); border-radius: 8px; font-size: 12px; color: var(--yellow);">
-      ⚠️ Esta oportunidad está en stage "Venta" pero <strong>no tiene vendedor asignado ni valor registrado.</strong> Asignar vendedor + registrar monto.
-    </div>
-  </div>
-  <div class="commission-seller">
-    <div class="commission-seller-name">👤 Jesus Nava</div>
-    <div style="padding: 12px; text-align: center;">
-      <span class="no-sales">🚫 Sin ventas registradas en GHL — Comisión: $0.00</span>
-      <div style="font-size: 11px; color: rgba(248,245,239,.3); margin-top: 4px;">24 oportunidades en pipeline | 7 en seguimiento (Casi Venta)</div>
-      <div style="margin-top: 8px; padding: 8px 12px; background: rgba(245,158,11,.08); border-radius: 8px; font-size: 12px; color: var(--yellow); text-align: left;">
-        ⚠️ Tiene 7 prospectos en Casi Venta. <strong>Debe cerrar y registrar en GHL.</strong>
-      </div>
-    </div>
-  </div>
-  <div class="commission-seller">
-    <div class="commission-seller-name">👤 Víctor Alonso</div>
-    <div style="padding: 12px; text-align: center;">
-      <span style="color: var(--red); font-weight: 600;">❌ 0 ventas activas — Comisión: $0.00</span>
-      <div style="font-size: 11px; color: rgba(248,245,239,.3); margin-top: 4px;">23 oportunidades en pipeline | 0 en seguimiento</div>
-    </div>
-  </div>
-  <div class="commission-seller">
-    <div class="commission-seller-name">🆕 Maritza</div>
-    <div style="padding: 12px; text-align: center;">
-      <span class="no-sales">🚫 Sin ventas registradas en GHL — Comisión: $0.00</span>
-      <div style="font-size: 11px; color: rgba(248,245,239,.3); margin-top: 4px;">0 oportunidades en pipeline | Recién incorporada</div>
-    </div>
-  </div>
-  <div class="commission-seller">
-    <div class="commission-seller-name">🆕 Crismar</div>
-    <div style="padding: 12px; text-align: center;">
-      <span class="no-sales">🚫 Sin ventas registradas en GHL — Comisión: $0.00</span>
-      <div style="font-size: 11px; color: rgba(248,245,239,.3); margin-top: 4px;">0 oportunidades en pipeline | Recién incorporada</div>
-    </div>
-  </div>
-</div>
-
-<!-- 07 COMPARACIÓN -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-number">07</div>
-    <div class="section-title">Comparación vs Datos Anteriores</div>
-  </div>
-  <div style="text-align: center; padding: 32px; background: var(--navy-mid); border-radius: var(--radius); border: 1px solid rgba(200,150,62,.2);">
-    <div class="baseline-tag" style="font-size: 14px; padding: 8px 20px; margin-bottom: 16px; display: inline-block;">📊 PRIMER SALES VELOCITY REPORT</div>
-    <p style="color: rgba(248,245,239,.5); font-size: 14px; max-width: 600px; margin: 0 auto;">
-      Este es el primer reporte semanal formal. Los datos del KB (Marzo 9) sirven como referencia base:
-    </p>
-    <div class="kpi-grid" style="margin-top: 20px; grid-template-columns: repeat(3, 1fr);">
-      <div class="kpi-card">
-        <div class="kpi-label">Ref. Inversión Total</div>
-        <div class="kpi-value">$1,333</div>
-        <div class="kpi-sub">5 campañas (hasta Mar 9)</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Ref. Total Leads</div>
-        <div class="kpi-value">462</div>
-        <div class="kpi-sub">CPL $2.89 promedio</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Ref. Ventas</div>
-        <div class="kpi-value">4</div>
-        <div class="kpi-sub">Sin valor monetario (Mar 9)</div>
-      </div>
-    </div>
-    <p style="color: rgba(248,245,239,.4); font-size: 13px; margin-top: 16px;">
-      <strong>Cambios notables vs referencia:</strong> Se pasó de 5 a 7 campañas activas. Ventas subieron de 4 a <strong>6 activas</strong> (+1 cancelada). Ya hay 3 ventas con valor registrado ($5,722 → Comisión $286.10). Se incorporaron Maritza (Gainesville) y Crismar (Lawrenceville) como nuevas socias.
-    </p>
-  </div>
-</div>
-
-<!-- 08 ACCIONES PRIORITARIAS -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-number">08</div>
-    <div class="section-title">Acciones Prioritarias</div>
-  </div>
-  <div class="action-card">
-    <div class="action-priority" style="color: var(--red)">🔴 P1 URGENTE</div>
-    <div class="action-title">Registrar valor monetario real de TODAS las ventas en GHL</div>
-    <div class="action-meta">
-      <span>👤 Luis Corona (Cliente)</span>
-      <span>📅 19 Mar 2026</span>
-      <span>⏱ 15 minutos</span>
-    </div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: var(--gold);">📈 Métrica: 100% de ventas con valor real > $0</div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: rgba(248,245,239,.5);">💥 Impacto: Sin esto, el modelo de comisión del 5% no puede funcionar</div>
-    <ol class="action-steps">
-      <li>Abrir GHL → Pipeline Zona Prioritaria</li>
-      <li>Para cada oportunidad en stage 'Venta' (Nachitho Perez, Sandy Chsparrita, Dairis Valdivieso), actualizar el campo 'Lead Value' con el monto REAL de la venta</li>
-      <li>Confirmar si son ventas aprobadas, en verificación o canceladas</li>
-    </ol>
-  </div>
-  <div class="action-card">
-    <div class="action-priority" style="color: var(--red)">🔴 P1 URGENTE</div>
-    <div class="action-title">Contactar los 24 'Casi Venta' en seguimiento</div>
-    <div class="action-meta">
-      <span>👤 Luis Corona + Nacari (Equipo Ventas)</span>
-      <span>📅 21 Mar 2026</span>
-      <span>⏱ 2-3 horas</span>
-    </div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: var(--gold);">📈 Métrica: Convertir mínimo 3 de 16 a Venta</div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: rgba(248,245,239,.5);">💥 Impacto: Potencial de $4,500–$13,500 en ventas nuevas</div>
-    <ol class="action-steps">
-      <li>Priorizar los que llevan más tiempo en seguimiento (desde Feb 20)</li>
-      <li>Llamar uno por uno — verificar interés y agendar visita</li>
-      <li>Si no hay respuesta en 48h, mover a 'Inactivación'</li>
-    </ol>
-  </div>
-  <div class="action-card">
-    <div class="action-priority" style="color: var(--yellow)">🔴 P2 ALTO</div>
-    <div class="action-title">Supervisar rendimiento de socias nuevas (Maritza y Crismar)</div>
-    <div class="action-meta">
-      <span>👤 LuchoBranding + Luis Corona (Estrategia)</span>
-      <span>📅 24 Mar 2026</span>
-      <span>⏱ 30 minutos</span>
-    </div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: var(--gold);">📈 Métrica: Ambas deben tener al menos 1 cita agendada en 7 días</div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: rgba(248,245,239,.5);">💥 Impacto: Validar si el modelo replicable funciona con nuevas zonas</div>
-    <ol class="action-steps">
-      <li>Revisar pipeline de Maritza (Gainesville): leads generados vs gestionados</li>
-      <li>Revisar pipeline de Crismar (Lawrenceville): leads generados vs gestionados</li>
-      <li>Si no hay gestión en 5 días → llamar y hacer seguimiento de onboarding</li>
-    </ol>
-  </div>
-  <div class="action-card">
-    <div class="action-priority" style="color: var(--yellow)">🟡 P2 ALTO</div>
-    <div class="action-title">Rotar creativos en campañas con CPR > $3.50</div>
-    <div class="action-meta">
-      <span>👤 Valeria + LuchoBranding (Diseño + Ads)</span>
-      <span>📅 21 Mar 2026</span>
-      <span>⏱ 2 horas</span>
-    </div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: var(--gold);">📈 Métrica: Bajar CPR de Maritza de $3.71 a < $3.00</div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: rgba(248,245,239,.5);">💥 Impacto: Reducción del 15-20% en costo por lead</div>
-    <ol class="action-steps">
-      <li>Crear 2-3 variaciones de creativos para Maritza y Jaime Nashville</li>
-      <li>Probar gancho alternativo al sorteo (ej: tips de salud, video de producto)</li>
-      <li>Pausar anuncios con 0 leads y más de $5 gastados</li>
-    </ol>
-  </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <div class="footer">
-  <p style="margin-bottom: 8px;">Sales Velocity Report — Luis Corona — 2026-03-17</p>
-  <p>Generado por <strong>Sales Velocity × LuchoBranding</strong></p>
-  <p style="margin-top: 8px;">Este reporte es inmutable. Siguiente reporte: semana del 24 Mar 2026.</p>
+  <div class="footer-brand">SALES VELOCITY × LUCHO BRANDING</div>
+  <div class="footer-sub">Reporte generado el 17 de marzo, 2026 · Datos de Meta Ads API + GoHighLevel API · Reporte #2 (vs referencia Mar 9)</div>
 </div>
-
-</div>
-
-<!-- JSON Data Block for future comparison -->
-<script type="application/json" id="review-data">
-{
-  "report_date": "2026-03-17",
-  "report_number": 1,
-  "client": "Luis Corona",
-  "period": "2026-03-10 to 2026-03-16",
-  "meta_ads": {
-    "total_spend": 337.36,
-    "total_leads": 131,
-    "avg_cpr": 2.58,
-    "campaigns": {
-      "CP| JAN 13| LEADS": {
-        "spend": 71.22,
-        "impressions": 3127,
-        "clicks": 133,
-        "reach": 2151,
-        "leads": 35,
-        "cpr": 2.03,
-        "ctr": 4.25,
-        "status": "ACTIVE"
-      },
-      "CP| FEB 19": {
-        "spend": 77.75,
-        "impressions": 4671,
-        "clicks": 109,
-        "reach": 3481,
-        "leads": 25,
-        "cpr": 3.11,
-        "ctr": 2.33,
-        "status": "ACTIVE"
-      },
-      "Clientes Potenciales | Jesus": {
-        "spend": 29.55,
-        "impressions": 1877,
-        "clicks": 45,
-        "reach": 1564,
-        "leads": 11,
-        "cpr": 2.69,
-        "ctr": 2.4,
-        "status": "ACTIVE"
-      },
-      "Clientes Potenciales | Jaime | 37087 Nashville TN": {
-        "spend": 31.33,
-        "impressions": 1689,
-        "clicks": 49,
-        "reach": 1239,
-        "leads": 9,
-        "cpr": 3.48,
-        "ctr": 2.9,
-        "status": "ACTIVE"
-      },
-      "Clientes Potenciales | Victor": {
-        "spend": 46.34,
-        "impressions": 3029,
-        "clicks": 66,
-        "reach": 2334,
-        "leads": 25,
-        "cpr": 1.85,
-        "ctr": 2.18,
-        "status": "ACTIVE"
-      },
-      "Clientes Potenciales |Maritza| Gainesville, GA": {
-        "spend": 40.83,
-        "impressions": 1980,
-        "clicks": 85,
-        "reach": 1205,
-        "leads": 11,
-        "cpr": 3.71,
-        "ctr": 4.29,
-        "status": "ACTIVE"
-      },
-      "Clientes Potenciales |Crismar| Lawrenceville": {
-        "spend": 40.34,
-        "impressions": 2388,
-        "clicks": 83,
-        "reach": 1756,
-        "leads": 15,
-        "cpr": 2.69,
-        "ctr": 3.48,
-        "status": "ACTIVE"
-      }
-    }
-  },
-  "ghl_pipeline": {
-    "total_opportunities": 995,
-    "ventas": 6,
-    "ventas_canceladas": 1,
-    "ventas_con_valor": 3,
-    "valor_total": 5722.00,
-    "casi_ventas": 24,
-    "seller_stats": {
-      "Luis Corona": {
-        "spend_7d": 148.97,
-        "leads_7d": 60,
-        "total_opps": 132,
-        "ventas": 4,
-        "ventas_canceladas": 1,
-        "casi_ventas": 15,
-        "total_value": 5722.00,
-        "commission_5pct": 286.10,
-        "venta_contacts": [
-          {"name": "Angel Bonilla", "value": 2674.00, "pipeline": "Zona Prioritaria"},
-          {"name": "Mari M Gutierrez", "value": 1748.00, "pipeline": "Zona Prioritaria"},
-          {"name": "Magdalena Perez", "value": 1300.00, "pipeline": "Zona No Prioritaria"},
-          {"name": "Nachitho Perez", "value": 0, "pipeline": "Zona Prioritaria (Nivel 9)"},
-          {"name": "Bella Lopez", "value": 0, "pipeline": "Zona Prioritaria", "status": "CANCELADA"}
-        ]
-      },
-      "Jaime Orozco": {
-        "spend_7d": 31.33,
-        "leads_7d": 9,
-        "total_opps": 47,
-        "ventas": 1,
-        "casi_ventas": 1,
-        "total_value": 0,
-        "commission_5pct": 0.0,
-        "notes": "1 venta (Sandy Chsparrita) sin valor registrado.",
-        "venta_contacts": [
-          {"name": "Sandy Chsparrita", "value": 0, "pipeline": "Zona Prioritaria"}
-        ]
-      },
-      "Dairis Valdivieso (Sin Asignar)": {
-        "spend_7d": 0,
-        "leads_7d": 0,
-        "total_opps": 1,
-        "ventas": 1,
-        "casi_ventas": 0,
-        "total_value": 0,
-        "commission_5pct": 0.0,
-        "notes": "Oportunidad en Venta sin vendedor asignado ni valor.",
-        "venta_contacts": [
-          {"name": "Dairis Valdivieso Estrada", "value": 0, "pipeline": "Zona Prioritaria"}
-        ]
-      },
-      "Jesus Nava": {
-        "spend_7d": 29.55,
-        "leads_7d": 11,
-        "total_opps": 24,
-        "ventas": 0,
-        "casi_ventas": 7,
-        "total_value": 0,
-        "commission_5pct": 0.0,
-        "notes": "7 prospectos en Casi Venta. Sin ventas cerradas en GHL.",
-        "venta_contacts": []
-      },
-      "Víctor Alonso": {
-        "spend_7d": 46.34,
-        "leads_7d": 25,
-        "total_opps": 23,
-        "ventas": 0,
-        "ventas_canceladas": 0,
-        "casi_ventas": 0,
-        "total_value": 0,
-        "commission_5pct": 0.0,
-        "notes": "Bella Lopez cancelada se atribuye a Luis Corona en GHL.",
-        "venta_contacts": []
-      },
-      "Maritza": {
-        "spend_7d": 40.83,
-        "leads_7d": 11,
-        "total_opps": 0,
-        "ventas": 0,
-        "casi_ventas": 0,
-        "total_value": 0,
-        "commission_5pct": 0.0,
-        "venta_contacts": []
-      },
-      "Crismar": {
-        "spend_7d": 40.34,
-        "leads_7d": 15,
-        "total_opps": 0,
-        "ventas": 0,
-        "casi_ventas": 0,
-        "total_value": 0,
-        "commission_5pct": 0.0,
-        "venta_contacts": []
-      }
-    }
-  },
-  "commission_rate": 0.05,
-  "previous_reference": {
-    "total_spend": 1333,
-    "total_leads": 462,
-    "avg_cpl": 2.89,
-    "ventas": 4,
-    "cac_estimated": 333,
-    "roas_estimated": 6.0,
-    "leads_sin_gestionar": 75,
-    "leads_per_day": 12
-  }
-}
-</script>
 
 </body>
 </html>
