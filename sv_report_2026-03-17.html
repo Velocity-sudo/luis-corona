@@ -138,11 +138,11 @@ tr:hover td { background: rgba(255,255,255,.02); }
   <div class="verdict">
     <div class="verdict-light yellow">🟡</div>
     <div class="verdict-text">
-      <strong>7 ventas totales en pipeline — 2 con valor registrado. Sistema de comisiones parcialmente operativo.</strong><br><br>
+      <strong>6 ventas activas en pipeline — 3 con valor registrado ($5,722). Comisión acumulada: $286.10.</strong><br><br>
       Se generaron <strong>131 leads</strong> con <strong>$337.36</strong> de inversión en 7 días (CPR promedio: <strong>$2.58</strong>). 
       Se sumaron 2 nuevas socias (<strong>Maritza</strong> en Gainesville y <strong>Crismar</strong> en Lawrenceville) que ya están generando leads activamente.
-      <strong>2 ventas tienen valor registrado</strong> en GHL: Mari M Gutierrez (<strong>$1,748</strong>) + Magdalena Perez (<strong>$1,300</strong>) = <strong>$3,048</strong> → Comisión 5%: <strong>$152.40</strong>.
-      Las 5 ventas restantes aparecen con <strong>$0</strong> — pendientes de registro por parte de los vendedores.
+      <strong>3 ventas tienen valor registrado</strong> en GHL: Angel Bonilla (<strong>$2,674</strong>) + Mari M Gutierrez (<strong>$1,748</strong>) + Magdalena Perez (<strong>$1,300</strong>) = <strong>$5,722</strong> → Comisión 5%: <strong>$286.10</strong>.
+      Las 3 ventas restantes aparecen con <strong>$0</strong> — pendientes de registro. 1 venta cancelada (Bella Lopez).
       <br><br>
       <strong>⚠️ ALERTA CRÍTICA:</strong> Los vendedores NO están registrando los valores de venta en GHL. Sin datos reales, el modelo de comisiones no funciona. Se requiere actualización inmediata de TODOS los valores pendientes.
     </div>
@@ -176,19 +176,19 @@ tr:hover td { background: rgba(255,255,255,.02); }
     </div>
     <div class="kpi-card" style="border-color: var(--green); border-width: 2px;">
       <div class="kpi-label">Ventas en Pipeline</div>
-      <div class="kpi-value">7</div>
-      <div class="kpi-sub">2 con valor ($3,048) · 5 pendientes</div>
+      <div class="kpi-value">6</div>
+      <div class="kpi-sub">3 con valor ($5,722) · 3 pendientes · 1 cancelada</div>
       <div class="kpi-baseline">BASELINE</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Casi Ventas</div>
-      <div class="kpi-value">16</div>
+      <div class="kpi-value">24</div>
       <div class="kpi-sub">En seguimiento activo</div>
       <div class="kpi-baseline">BASELINE</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Total Oportunidades</div>
-      <div class="kpi-value">991</div>
+      <div class="kpi-value">995</div>
       <div class="kpi-sub">Across 4 pipelines</div>
       <div class="kpi-baseline">BASELINE</div>
     </div>
@@ -310,12 +310,12 @@ tr:hover td { background: rgba(255,255,255,.02); }
   <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
     <div class="kpi-card" style="border-color: var(--green); border-width: 2px;">
       <div class="kpi-label">✅ Ventas</div>
-      <div class="kpi-value" style="color: var(--green);">7</div>
-      <div class="kpi-sub">6 Zona Prioritaria + 1 Zona No Prioritaria</div>
+      <div class="kpi-value" style="color: var(--green);">6</div>
+      <div class="kpi-sub">5 Zona Prioritaria + 1 Zona No Prioritaria (+ 1 cancelada)</div>
     </div>
     <div class="kpi-card" style="border-color: var(--yellow); border-width: 2px;">
       <div class="kpi-label">🟡 Casi Ventas</div>
-      <div class="kpi-value" style="color: var(--yellow);">16</div>
+      <div class="kpi-value" style="color: var(--yellow);">24</div>
       <div class="kpi-sub">En seguimiento</div>
     </div>
     <div class="kpi-card">
@@ -350,11 +350,11 @@ tr:hover td { background: rgba(255,255,255,.02); }
     </div>
     <div class="funnel-bar">
       <div class="funnel-label">Casi Venta - Seguimiento</div>
-      <div class="funnel-fill" style="width: 34%; background: #eab308;">16</div>
+      <div class="funnel-fill" style="width: 51%; background: #eab308;">24</div>
     </div>
     <div class="funnel-bar">
       <div class="funnel-label">Venta</div>
-      <div class="funnel-fill" style="width: 15%; background: #10b981;">7</div>
+      <div class="funnel-fill" style="width: 13%; background: #10b981;">6</div>
     </div>
     <div class="funnel-bar">
       <div class="funnel-label">No Califica - No venta</div>
@@ -388,8 +388,8 @@ tr:hover td { background: rgba(255,255,255,.02); }
           <td>$148.97</td>
           <td>60</td>
           <td>132</td>
-          <td><strong>5</strong></td>
-          <td>10</td>
+          <td><strong>4</strong></td>
+          <td>15</td>
           <td><span class="tag tag-green">CON VENTAS</span></td>
         </tr>
         <tr>
@@ -398,8 +398,8 @@ tr:hover td { background: rgba(255,255,255,.02); }
           <td>9</td>
           <td>47</td>
           <td><strong>1</strong></td>
-          <td>0</td>
-          <td><span class="tag tag-yellow">SIN REGISTRO GHL</span></td>
+          <td>1</td>
+          <td><span class="tag tag-yellow">SIN VALOR GHL</span></td>
         </tr>
         <tr>
           <td>👤 <strong>Jesus Nava</strong></td>
@@ -407,7 +407,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
           <td>11</td>
           <td>24</td>
           <td><strong>0</strong></td>
-          <td>6</td>
+          <td>7</td>
           <td><span class="tag tag-yellow">SIN REGISTRO GHL</span></td>
         </tr>
         <tr>
@@ -415,9 +415,9 @@ tr:hover td { background: rgba(255,255,255,.02); }
           <td>$46.34</td>
           <td>25</td>
           <td>23</td>
-          <td><strong>1 ❌</strong></td>
+          <td><strong>0</strong></td>
           <td>0</td>
-          <td><span class="tag tag-red">VENTA CANCELADA</span></td>
+          <td><span class="tag tag-red">VENTA CANCELADA (Bella Lopez)</span></td>
         </tr>
         <tr>
           <td>🆕 <strong>Maritza</strong></td>
@@ -452,14 +452,14 @@ tr:hover td { background: rgba(255,255,255,.02); }
     <div class="commission-header">
       <div>
         <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: rgba(248,245,239,.5);">Comisión Acumulada Total (parcial)</div>
-        <div class="commission-total">$152.40</div>
+        <div class="commission-total">$286.10</div>
       </div>
-      <div class="baseline-tag" style="background: var(--yellow); color: var(--navy);">PARCIAL — 5 VENTAS SIN VALOR</div>
+      <div class="baseline-tag" style="background: var(--yellow); color: var(--navy);">PARCIAL — 3 VENTAS SIN VALOR</div>
     </div>
     <div style="padding: 16px; background: rgba(245,158,11,.08); border: 1px solid rgba(245,158,11,.2); border-radius: 12px; margin-bottom: 16px;">
       <p style="font-size: 14px; color: var(--yellow);">
-        <strong>⚠️ PARCIAL:</strong> 2 de 7 ventas tienen valor registrado. Valor total confirmado: <strong>$3,048.00</strong>. 
-        Las 5 ventas restantes aparecen con <strong>$0</strong> en GHL. 
+        <strong>⚠️ PARCIAL:</strong> 3 de 6 ventas activas tienen valor registrado. Valor total confirmado: <strong>$5,722.00</strong>. 
+        Las 3 ventas restantes aparecen con <strong>$0</strong> en GHL. 1 venta cancelada (Bella Lopez).
         <strong>Cada vendedor debe registrar el monto real de sus ventas esta semana.</strong>
       </p>
     </div>
@@ -469,18 +469,22 @@ tr:hover td { background: rgba(255,255,255,.02); }
     <div class="commission-detail">
       <div class="commission-item">
         <div class="label">Ventas Cerradas</div>
-        <div class="value" style="color: var(--green);">5</div>
+        <div class="value" style="color: var(--green);">4</div>
       </div>
       <div class="commission-item">
         <div class="label">Valor Total (parcial)</div>
-        <div class="value" style="color: var(--gold);">$3,048.00</div>
+        <div class="value" style="color: var(--gold);">$5,722.00</div>
       </div>
       <div class="commission-item">
         <div class="label">Comisión 5%</div>
-        <div class="value" style="color: var(--gold);">$152.40</div>
+        <div class="value" style="color: var(--gold);">$286.10</div>
       </div>
     </div>
     <div style="margin-top: 12px; font-size: 13px;">
+      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
+        <span>✅ Angel Bonilla <span style="font-size:11px; color:rgba(248,245,239,.4);">(Zona Prioritaria)</span></span>
+        <span style="color: var(--green); font-weight: 700;">$2,674.00 → Comisión: $133.70</span>
+      </div>
       <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
         <span>✅ Mari M Gutierrez <span style="font-size:11px; color:rgba(248,245,239,.4);">(Zona Prioritaria)</span></span>
         <span style="color: var(--green); font-weight: 700;">$1,748.00 → Comisión: $87.40</span>
@@ -490,16 +494,12 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span style="color: var(--green); font-weight: 700;">$1,300.00 → Comisión: $65.00</span>
       </div>
       <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
-        <span style="color: rgba(248,245,239,.4);">⚠️ Bella Lopez <span style="font-size:11px;">(Zona Prioritaria)</span></span>
-        <span style="color: var(--red);">$0 — pendiente de registro</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
-        <span style="color: rgba(248,245,239,.4);">⚠️ Nachitho Perez <span style="font-size:11px;">(Zona Prioritaria)</span></span>
+        <span style="color: rgba(248,245,239,.4);">⚠️ Nachitho Perez <span style="font-size:11px;">(Zona Prioritaria — Nivel 9)</span></span>
         <span style="color: var(--red);">$0 — pendiente de registro</span>
       </div>
       <div style="display: flex; justify-content: space-between; padding: 6px 0;">
-        <span style="color: rgba(248,245,239,.4);">⚠️ Dairis Valdivieso <span style="font-size:11px;">(Zona Prioritaria)</span></span>
-        <span style="color: var(--red);">$0 — pendiente de registro</span>
+        <span style="color: var(--red);">❌ Bella Lopez <span style="font-size:11px;">(Zona Prioritaria)</span></span>
+        <span style="color: var(--red);">VENTA CANCELADA — No genera comisión</span>
       </div>
     </div>
   </div>
@@ -507,7 +507,30 @@ tr:hover td { background: rgba(255,255,255,.02); }
     <div class="commission-seller-name">👤 Jaime Orozco</div>
     <div class="commission-detail">
       <div class="commission-item">
-        <div class="label">Ventas Reportadas</div>
+        <div class="label">Ventas en GHL</div>
+        <div class="value" style="color: var(--yellow);">1</div>
+      </div>
+      <div class="commission-item">
+        <div class="label">Valor en GHL</div>
+        <div class="value" style="color: var(--red);">$0</div>
+      </div>
+      <div class="commission-item">
+        <div class="label">Comisión 5%</div>
+        <div class="value" style="color: rgba(248,245,239,.3);">$0.00</div>
+      </div>
+    </div>
+    <div style="margin-top: 8px; font-size: 13px;">
+      <div style="display: flex; justify-content: space-between; padding: 6px 0;">
+        <span style="color: rgba(248,245,239,.4);">⚠️ Sandy Chsparrita <span style="font-size:11px;">(Zona Prioritaria)</span></span>
+        <span style="color: var(--red);">$0 — <strong>Debe registrar valor</strong></span>
+      </div>
+    </div>
+  </div>
+  <div class="commission-seller">
+    <div class="commission-seller-name">👤 Dairis Valdivieso (Sin Asignar)</div>
+    <div class="commission-detail">
+      <div class="commission-item">
+        <div class="label">Ventas en GHL</div>
         <div class="value" style="color: var(--yellow);">1</div>
       </div>
       <div class="commission-item">
@@ -520,24 +543,24 @@ tr:hover td { background: rgba(255,255,255,.02); }
       </div>
     </div>
     <div style="margin-top: 8px; padding: 8px 12px; background: rgba(245,158,11,.08); border-radius: 8px; font-size: 12px; color: var(--yellow);">
-      ⚠️ Reporta 2 ventas verbalmente — 1 sin crédito (no cuenta). <strong>Debe registrar venta + valor en GHL.</strong>
+      ⚠️ Esta oportunidad está en stage "Venta" pero <strong>no tiene vendedor asignado ni valor registrado.</strong> Asignar vendedor + registrar monto.
     </div>
   </div>
   <div class="commission-seller">
     <div class="commission-seller-name">👤 Jesus Nava</div>
     <div style="padding: 12px; text-align: center;">
       <span class="no-sales">🚫 Sin ventas registradas en GHL — Comisión: $0.00</span>
-      <div style="font-size: 11px; color: rgba(248,245,239,.3); margin-top: 4px;">24 oportunidades en pipeline | 6 en seguimiento</div>
+      <div style="font-size: 11px; color: rgba(248,245,239,.3); margin-top: 4px;">24 oportunidades en pipeline | 7 en seguimiento (Casi Venta)</div>
       <div style="margin-top: 8px; padding: 8px 12px; background: rgba(245,158,11,.08); border-radius: 8px; font-size: 12px; color: var(--yellow); text-align: left;">
-        ⚠️ Reporta ventas recientes, pero no está confirmado si provienen de este sistema. <strong>Debe registrarlas en GHL.</strong>
+        ⚠️ Tiene 7 prospectos en Casi Venta. <strong>Debe cerrar y registrar en GHL.</strong>
       </div>
     </div>
   </div>
   <div class="commission-seller">
     <div class="commission-seller-name">👤 Víctor Alonso</div>
     <div style="padding: 12px; text-align: center;">
-      <span style="color: var(--red); font-weight: 600;">❌ 1 venta CANCELADA — No genera comisión</span>
-      <div style="font-size: 11px; color: rgba(248,245,239,.3); margin-top: 4px;">23 oportunidades en pipeline | 0 en seguimiento | Comisión: $0.00</div>
+      <span style="color: var(--red); font-weight: 600;">❌ 0 ventas activas — Comisión: $0.00</span>
+      <div style="font-size: 11px; color: rgba(248,245,239,.3); margin-top: 4px;">23 oportunidades en pipeline | 0 en seguimiento</div>
     </div>
   </div>
   <div class="commission-seller">
@@ -585,7 +608,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
       </div>
     </div>
     <p style="color: rgba(248,245,239,.4); font-size: 13px; margin-top: 16px;">
-      <strong>Cambios notables vs referencia:</strong> Se pasó de 5 a 7 campañas activas. Ventas subieron de 4 a <strong>7</strong>. Primeras 2 ventas con valor real registrado ($3,048). Se incorporaron Maritza (Gainesville) y Crismar (Lawrenceville) como nuevas socias.
+      <strong>Cambios notables vs referencia:</strong> Se pasó de 5 a 7 campañas activas. Ventas subieron de 4 a <strong>6 activas</strong> (+1 cancelada). Ya hay 3 ventas con valor registrado ($5,722 → Comisión $286.10). Se incorporaron Maritza (Gainesville) y Crismar (Lawrenceville) como nuevas socias.
     </p>
   </div>
 </div>
@@ -608,20 +631,20 @@ tr:hover td { background: rgba(255,255,255,.02); }
     <div style="font-size: 13px; margin-bottom: 8px; color: rgba(248,245,239,.5);">💥 Impacto: Sin esto, el modelo de comisión del 5% no puede funcionar</div>
     <ol class="action-steps">
       <li>Abrir GHL → Pipeline Zona Prioritaria</li>
-      <li>Para cada oportunidad en stage 'Venta' (Bella Lopez, Mari M Gutierrez, Nachitho Perez, Dairis Valdivieso), actualizar el campo 'Lead Value' con el monto REAL de la venta</li>
+      <li>Para cada oportunidad en stage 'Venta' (Nachitho Perez, Sandy Chsparrita, Dairis Valdivieso), actualizar el campo 'Lead Value' con el monto REAL de la venta</li>
       <li>Confirmar si son ventas aprobadas, en verificación o canceladas</li>
     </ol>
   </div>
   <div class="action-card">
     <div class="action-priority" style="color: var(--red)">🔴 P1 URGENTE</div>
-    <div class="action-title">Contactar los 16 'Casi Venta' en seguimiento</div>
+    <div class="action-title">Contactar los 24 'Casi Venta' en seguimiento</div>
     <div class="action-meta">
       <span>👤 Luis Corona + Nacari (Equipo Ventas)</span>
       <span>📅 21 Mar 2026</span>
       <span>⏱ 2-3 horas</span>
     </div>
     <div style="font-size: 13px; margin-bottom: 8px; color: var(--gold);">📈 Métrica: Convertir mínimo 3 de 16 a Venta</div>
-    <div style="font-size: 13px; margin-bottom: 8px; color: rgba(248,245,239,.5);">💥 Impacto: Potencial de $3,000–$9,000 en ventas nuevas</div>
+    <div style="font-size: 13px; margin-bottom: 8px; color: rgba(248,245,239,.5);">💥 Impacto: Potencial de $4,500–$13,500 en ventas nuevas</div>
     <ol class="action-steps">
       <li>Priorizar los que llevan más tiempo en seguimiento (desde Feb 20)</li>
       <li>Llamar uno por uno — verificar interés y agendar visita</li>
@@ -756,26 +779,28 @@ tr:hover td { background: rgba(255,255,255,.02); }
     }
   },
   "ghl_pipeline": {
-    "total_opportunities": 991,
-    "ventas": 7,
-    "ventas_con_valor": 2,
-    "valor_total": 3048.00,
-    "casi_ventas": 16,
+    "total_opportunities": 995,
+    "ventas": 6,
+    "ventas_canceladas": 1,
+    "ventas_con_valor": 3,
+    "valor_total": 5722.00,
+    "casi_ventas": 24,
     "seller_stats": {
       "Luis Corona": {
         "spend_7d": 148.97,
         "leads_7d": 60,
         "total_opps": 132,
-        "ventas": 5,
-        "casi_ventas": 10,
-        "total_value": 3048.00,
-        "commission_5pct": 152.40,
+        "ventas": 4,
+        "ventas_canceladas": 1,
+        "casi_ventas": 15,
+        "total_value": 5722.00,
+        "commission_5pct": 286.10,
         "venta_contacts": [
+          {"name": "Angel Bonilla", "value": 2674.00, "pipeline": "Zona Prioritaria"},
           {"name": "Mari M Gutierrez", "value": 1748.00, "pipeline": "Zona Prioritaria"},
           {"name": "Magdalena Perez", "value": 1300.00, "pipeline": "Zona No Prioritaria"},
-          {"name": "Bella Lopez", "value": 0, "pipeline": "Zona Prioritaria"},
-          {"name": "Nachitho Perez", "value": 0, "pipeline": "Zona Prioritaria"},
-          {"name": "Dairis Valdivieso", "value": 0, "pipeline": "Zona Prioritaria"}
+          {"name": "Nachitho Perez", "value": 0, "pipeline": "Zona Prioritaria (Nivel 9)"},
+          {"name": "Bella Lopez", "value": 0, "pipeline": "Zona Prioritaria", "status": "CANCELADA"}
         ]
       },
       "Jaime Orozco": {
@@ -783,21 +808,36 @@ tr:hover td { background: rgba(255,255,255,.02); }
         "leads_7d": 9,
         "total_opps": 47,
         "ventas": 1,
+        "casi_ventas": 1,
+        "total_value": 0,
+        "commission_5pct": 0.0,
+        "notes": "1 venta (Sandy Chsparrita) sin valor registrado.",
+        "venta_contacts": [
+          {"name": "Sandy Chsparrita", "value": 0, "pipeline": "Zona Prioritaria"}
+        ]
+      },
+      "Dairis Valdivieso (Sin Asignar)": {
+        "spend_7d": 0,
+        "leads_7d": 0,
+        "total_opps": 1,
+        "ventas": 1,
         "casi_ventas": 0,
         "total_value": 0,
         "commission_5pct": 0.0,
-        "notes": "Reporta 2 ventas verbalmente, 1 sin crédito. Sin registro en GHL.",
-        "venta_contacts": []
+        "notes": "Oportunidad en Venta sin vendedor asignado ni valor.",
+        "venta_contacts": [
+          {"name": "Dairis Valdivieso Estrada", "value": 0, "pipeline": "Zona Prioritaria"}
+        ]
       },
       "Jesus Nava": {
         "spend_7d": 29.55,
         "leads_7d": 11,
         "total_opps": 24,
         "ventas": 0,
-        "casi_ventas": 6,
+        "casi_ventas": 7,
         "total_value": 0,
         "commission_5pct": 0.0,
-        "notes": "Reporta ventas recientes, no confirmado si del sistema. Sin registro en GHL.",
+        "notes": "7 prospectos en Casi Venta. Sin ventas cerradas en GHL.",
         "venta_contacts": []
       },
       "Víctor Alonso": {
@@ -805,10 +845,11 @@ tr:hover td { background: rgba(255,255,255,.02); }
         "leads_7d": 25,
         "total_opps": 23,
         "ventas": 0,
-        "ventas_canceladas": 1,
+        "ventas_canceladas": 0,
         "casi_ventas": 0,
         "total_value": 0,
         "commission_5pct": 0.0,
+        "notes": "Bella Lopez cancelada se atribuye a Luis Corona en GHL.",
         "venta_contacts": []
       },
       "Maritza": {
