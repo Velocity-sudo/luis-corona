@@ -138,12 +138,13 @@ tr:hover td { background: rgba(255,255,255,.02); }
   <div class="verdict">
     <div class="verdict-light yellow">🟡</div>
     <div class="verdict-text">
-      <strong>Sistema activo con expansión de socios, pero sin ventas trazables esta semana.</strong><br><br>
+      <strong>Primera venta con valor real registrada — sistema de comisiones parcialmente operativo.</strong><br><br>
       Se generaron <strong>131 leads</strong> con <strong>$337.36</strong> de inversión en 7 días (CPR promedio: <strong>$2.58</strong>). 
       Se sumaron 2 nuevas socias (<strong>Maritza</strong> en Gainesville y <strong>Crismar</strong> en Lawrenceville) que ya están generando leads activamente.
-      Sin embargo, ninguna venta nueva fue registrada en GHL esta semana — las <strong>4 ventas totales en el pipeline siguen con valor $0</strong>, lo que impide calcular comisiones reales.
+      <strong>Mari M Gutierrez</strong> tiene el primer valor de venta registrado en GHL: <strong>$1,748.00</strong> → Comisión 5%: <strong>$87.40</strong>.
+      Las otras 3 ventas (Bella Lopez, Nachitho Perez, Dairis Valdivieso) aún aparecen con $0.
       <br><br>
-      <strong>⚠️ Alerta crítica:</strong> Sin valor monetario en las ventas de GHL, el modelo de comisión del 5% no puede operar. Esto debe resolverse ESTA SEMANA.
+      <strong>⚠️ Acción pendiente:</strong> Registrar el valor monetario real de las 3 ventas restantes para completar el cálculo de comisiones.
     </div>
   </div>
 </div>
@@ -173,10 +174,10 @@ tr:hover td { background: rgba(255,255,255,.02); }
       <div class="kpi-sub">Ref. anterior: $2.89</div>
       <div class="kpi-baseline">BASELINE</div>
     </div>
-    <div class="kpi-card">
+    <div class="kpi-card" style="border-color: var(--green); border-width: 2px;">
       <div class="kpi-label">Ventas en Pipeline</div>
       <div class="kpi-value">4</div>
-      <div class="kpi-sub">Todas sin valor monetario</div>
+      <div class="kpi-sub">1 con valor ($1,748) · 3 pendientes</div>
       <div class="kpi-baseline">BASELINE</div>
     </div>
     <div class="kpi-card">
@@ -450,16 +451,16 @@ tr:hover td { background: rgba(255,255,255,.02); }
   <div class="commission-card">
     <div class="commission-header">
       <div>
-        <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: rgba(248,245,239,.5);">Comisión Acumulada Total</div>
-        <div class="commission-total">⚠️ NO CALCULABLE</div>
+        <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: rgba(248,245,239,.5);">Comisión Acumulada Total (parcial)</div>
+        <div class="commission-total">$87.40</div>
       </div>
-      <div class="baseline-tag">REQUIERE ACCIÓN</div>
+      <div class="baseline-tag" style="background: var(--yellow); color: var(--navy);">PARCIAL — 3 VENTAS PENDIENTES</div>
     </div>
-    <div style="padding: 16px; background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.2); border-radius: 12px; margin-bottom: 16px;">
-      <p style="font-size: 14px; color: var(--red);">
-        <strong>⚠️ ALERTA CRÍTICA:</strong> Las 4 ventas registradas en GHL tienen <strong>$0 de valor monetario</strong>. 
-        Sin el monto real de cada venta, no se puede calcular la comisión del 5%. 
-        Luis Corona debe actualizar el campo "Lead Value" con el monto real de cada venta cerrada.
+    <div style="padding: 16px; background: rgba(245,158,11,.08); border: 1px solid rgba(245,158,11,.2); border-radius: 12px; margin-bottom: 16px;">
+      <p style="font-size: 14px; color: var(--yellow);">
+        <strong>⚠️ PARCIAL:</strong> 1 de 4 ventas tiene valor registrado (<strong>Mari M Gutierrez — $1,748.00</strong>). 
+        Las otras 3 ventas (Bella Lopez, Nachitho Perez, Dairis Valdivieso) siguen con <strong>$0</strong>. 
+        Luis Corona debe actualizar el campo "Lead Value" de las 3 ventas restantes.
       </p>
     </div>
   </div>
@@ -471,16 +472,31 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <div class="value" style="color: var(--green);">4</div>
       </div>
       <div class="commission-item">
-        <div class="label">Valor Total</div>
-        <div class="value" style="color: var(--red);">$0 ⚠️</div>
+        <div class="label">Valor Total (parcial)</div>
+        <div class="value" style="color: var(--gold);">$1,748.00</div>
       </div>
       <div class="commission-item">
         <div class="label">Comisión 5%</div>
-        <div class="value" style="color: var(--red);">$0 ⚠️</div>
+        <div class="value" style="color: var(--gold);">$87.40</div>
       </div>
     </div>
-    <div style="margin-top: 8px; font-size: 12px; color: rgba(248,245,239,.4);">
-      Contactos: Bella Lopez, Mari M Gutierrez, Nachitho Perez, Dairis Valdivieso — <span style="color: var(--red)">Sin valor monetario registrado en GHL</span>
+    <div style="margin-top: 12px; font-size: 13px;">
+      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
+        <span>✅ Mari M Gutierrez</span>
+        <span style="color: var(--green); font-weight: 700;">$1,748.00 → Comisión: $87.40</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
+        <span style="color: rgba(248,245,239,.4);">⚠️ Bella Lopez</span>
+        <span style="color: var(--red);">$0 — pendiente</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04);">
+        <span style="color: rgba(248,245,239,.4);">⚠️ Nachitho Perez</span>
+        <span style="color: var(--red);">$0 — pendiente</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 6px 0;">
+        <span style="color: rgba(248,245,239,.4);">⚠️ Dairis Valdivieso</span>
+        <span style="color: var(--red);">$0 — pendiente</span>
+      </div>
     </div>
   </div>
   <div class="commission-seller">
